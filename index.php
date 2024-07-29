@@ -11,7 +11,7 @@
 			<img src="logo.png" alt="Logo">
 		</div>
 		<div class="name">
-			<h1>Physofit </h1>
+			<h1>Physofit</h1>
 		</div>
 		<nav>
 			<ul>
