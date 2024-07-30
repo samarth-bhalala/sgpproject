@@ -8,7 +8,7 @@
 <body>
 	<header>
 		<div class="logo">
-			<img src="logo.png" alt="Logo">
+			<img src="img/logo.png" alt="Logo">
 		</div>
 		<div class="name">
 			<h1>Physofit </h1>
