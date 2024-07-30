@@ -1,4 +1,5 @@
-header {
+@media (max-width: 768px) {
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,80 +7,93 @@ header {
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
   }
-  
+
   .logo {
     margin-right: 1rem;
   }
-  
+
+  /* .logo img {
+    width: 0rem;
+    height: 50rem;
+  } */
+
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+nav li {
+  margin-right: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #337ab7;
+}
+
+nav a:hover {
+  color: #23527c;
+}
+}
+
+/* Responsive design */
+/* 
+{
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-right: 0;
+  }
+
   .logo img {
     width: 3rem;
     height: 3rem;
   }
-  
+
+
   .name {
     font-size: 1.2rem;
     font-weight: bold;
     margin-right: 2rem;
   }
-  
+
   nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   nav li {
-    margin-right: 1rem;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
   }
-  
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  .logo img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+
+  .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 2rem;
+  }
+
   nav a {
-    text-decoration: none;
-    color: #337ab7;
+    font-size: 0.8rem;
   }
-  
-  nav a:hover {
-    color: #23527c;
-  }
-  
-  /* Responsive design */
-  
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: center;
-    }
-    .logo {
-      margin-right: 0;
-    }
-    .name {
-      font-size: 1rem;
-      margin-right: 0;
-    }
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-    nav li {
-      margin-right: 0;
-      margin-bottom: 0.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    header {
-      padding: 0.5rem;
-    }
-    .logo img {
-      width: 2rem;
-      height: 2rem;
-    }
-    .name {
-      font-size: 0.8rem;
-    }
-    nav a {
-      font-size: 0.8rem;
-    }
-  }
+} */
