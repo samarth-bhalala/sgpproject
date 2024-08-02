@@ -26,7 +26,12 @@
   }
   
   .logo img {
+<<<<<<< Updated upstream
     max-height: 50px;
+=======
+    width: 5rem;
+    height: 3rem;
+>>>>>>> Stashed changes
   }
   
   .name h1 {
