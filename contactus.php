@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>index</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
     <style>
-  * {
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -18,7 +18,7 @@
     }
 
     header {
-        background: rgba(255, 248, 241, 0.4); /* Transparent background */
+        background: rgba(255, 248, 241, 0.8); /* More opaque background for better visibility */
         color: #333;
         padding: 0;
         position: fixed; /* Fix the header at the top */
@@ -38,12 +38,12 @@
     }
 
     .logo img {
-        max-height: 80px;
+        max-height: 50px; /* Further reduced size for a more compact fit */
     }
 
     .name h1 {
         font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-        font-size: 45px;
+        font-size: 30px; /* Reduced size for better fit */
         color: #333;
     }
 
@@ -55,15 +55,15 @@
     }
 
     ul li {
-        margin-left: 20px;
+        margin-left: 10px; /* Further reduced margin for better spacing */
     }
 
     .nav-link {
         text-decoration: none;
-        font-size: 20px;
+        font-size: 16px; /* Reduced font size */
         color: #333;
-        padding: 10px 20px;
-        border-radius: 10px;
+        padding: 5px 10px; /* Adjusted padding */
+        border-radius: 5px;
         font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
         letter-spacing: 0.5px; /* Add space between letters */
         transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
@@ -72,13 +72,13 @@
     .nav-link:hover {
         background-color: #C4276A;
         color: #fff;
-        transform: scale(1.1);
+        transform: scale(1.05); /* Slightly less scaling */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     @media (max-width: 768px) {
         .name h1 {
-            font-size: 20px;
+            font-size: 20px; /* Adjusted for better fit */
         }
 
         ul {
@@ -88,28 +88,29 @@
 
         ul li {
             margin-left: 0;
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* Reduced margin bottom */
         }
     }
 
     @media (max-width: 480px) {
         .logo img {
-            max-height: 60px;
+            max-height: 40px; /* Further reduced size */
         }
 
         .name h1 {
-            font-size: 18px;
+            font-size: 18px; /* Further reduced size */
         }
 
         .nav-link {
-            font-size: 14px;
+            font-size: 14px; /* Adjusted font size */
+            padding: 3px 8px; /* Adjusted padding */
         }
     }
 
     .container {
-        padding: 80px 20px; /* Add padding to account for fixed header */
-        max-width: 800px;
-        margin: auto;
+        padding: 30px 15px; /* Reduced padding */
+        max-width: 500px; /* Further reduced width for better fit */
+        margin: 100px auto 20px; /* Adjusted margins for better spacing */
         background-color: #f4f4f4;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -117,27 +118,28 @@
 
     .container h2 {
         font-family: 'Abril Fatface', cursive;
-        font-size: 35px;
+        font-size: 24px; /* Reduced size */
         color: #333;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        text-align: center; /* Center aligned heading */
     }
 
     .form-group {
-        margin-bottom: 15px;
+        margin-bottom: 10px; /* Reduced bottom margin */
     }
 
     .form-group label {
         display: block;
-        font-size: 18px;
-        margin-bottom: 5px;
+        font-size: 14px; /* Further reduced size */
+        margin-bottom: 4px; /* Reduced margin bottom */
         color: #333;
     }
 
     .form-group input,
     .form-group textarea {
         width: 100%;
-        padding: 10px;
-        font-size: 16px;
+        padding: 8px; /* Reduced padding */
+        font-size: 12px; /* Further reduced font size */
         border: 1px solid #ddd;
         border-radius: 5px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -154,8 +156,8 @@
         background-color: #C4276A;
         color: #fff;
         border: none;
-        padding: 15px 25px;
-        font-size: 18px;
+        padding: 10px 15px; /* Reduced padding */
+        font-size: 14px; /* Further reduced font size */
         font-family: 'Abril Fatface', cursive;
         border-radius: 5px;
         cursor: pointer;
@@ -169,17 +171,17 @@
 
     @media (max-width: 768px) {
         .container {
-            padding: 60px 10px;
+            padding: 20px 10px; /* Further reduced padding */
         }
 
         .form-group input,
         .form-group textarea {
-            font-size: 14px;
+            font-size: 12px; /* Adjusted font size */
         }
 
         .form-group button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 8px 12px; /* Adjusted padding */
+            font-size: 12px; /* Adjusted font size */
         }
     }
 
@@ -210,7 +212,6 @@
         </nav>
     </header>
 
-    
     <div class="container">
         <h2>Contact Us</h2>
         <form action="contact_form_handler.php" method="post">
