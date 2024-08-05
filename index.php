@@ -1,143 +1,206 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>index</title>
-	<style>
-	
-* {
+    <title>index</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
+    <style>
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
-  }
-  
-  
-  body {
+}
+
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-  }
-  
-  
-  header {
-    background: #FFF8F1;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+header {
+    background: rgba(255, 248, 241, 0.4); /* Transparent background */
     color: #333;
-    /* padding: px 0; */
-    margin: 0px 0px 0px 0px;
-  }
-  
-  nav {
-    background: #FFF8F1;
+    padding: 0;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Ensure header is above other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
     color: #333;
-    margin: 0px 0px 0px 0px;
-  }
-  
-  .logo img {
-    max-height: 100px;
-    margin: 0px 0px 0px 0px;
-  }
-  
-  .name h1 {
-    margin: 0;
-    font-size: 24px;
+}
+
+.logo img {
+    max-height: 80px;
+}
+
+.name h1 {
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    font-size: 45px;
     color: #333;
-  }
-  
-  ul {
+}
+
+ul {
     list-style: none;
     display: flex;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  ul li {
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
     margin-left: 20px;
-    color: #333;
+}
+
+.nav-link {
     text-decoration: none;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     color: #333;
     padding: 10px 20px;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    background-color: #ffcc00;
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #C4276A;
     color: #fff;
-  }
-  
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
-  @media (max-width: 768px) {
+main {
+    margin-top: -0.1px;
+    padding-bottom: 0px; /* Ensure content starts below the fixed header */
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust height to fit viewport */
+    overflow: hidden;
+    z-index: 5; /* Ensure slides are below the header */
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(100%);
+}
+
+.slide.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
     .name h1 {
-      font-size: 20px;
+        font-size: 20px;
     }
-  
+
     ul {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
-  
-    ul li {
-      margin-left: 0;
-      margin-bottom: 10px;
-    }
-  }
-  
 
-  @media (max-width: 480px) {
+    ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
     .logo img {
-      max-height: 100px;
-      margin: 0px 0px 0px 0px;
+        max-height: 60px;
     }
-  
+
     .name h1 {
-      font-size: 18px;
+        font-size: 18px;
     }
-  
+
     .nav-link {
-      font-size: 14px;
+        font-size: 14px;
     }
-  }
-  
-		</style>
-	<!-- <link rel="stylesheet" href="style.css"> -->
+}
+
+
+    </style>
 </head>
 <body>
-	<header>
-		<nav>
-		<div class="logo">
-			<img src="img/LOGO1.png" alt="Logo">
-		</div>
-		<div class="name">
-			<h1>PHYSIOFIT</h1>
-		</div>
-		
-			<ul>
-				<li><a class="nav-link" href="index.php">Home</a></li>
-				<li><a class="nav-link" href="aboutus.php">About Us</a></li>
-				<li><a class="nav-link" href="contactus.php">Contact Us</a></li>
-				
-                <?php   
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/LOGO1.png" alt="Logo">
+            </div>
+            <div class="name">
+                <h1>PhysioFit</h1>
+            </div>
+            <ul>
+                <li><a class="nav-link" href="index.php">Home</a></li>
+                <li><a class="nav-link" href="aboutus.php">About Us</a></li>
+                <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
+                <?php
                 session_start();
-                if(isset($_SESSION['stat']))
-                {?>
-                    <li><a class="nav-link" href="profile.php">Profile</a></li><?php
-                }
-                else{?>
-                    <li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>
-                    <?php
+                if (isset($_SESSION['stat'])) {
+                    echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
+                } else {
+                    echo '<li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>';
                 }
                 ?>
-				
-			</ul>
-		</nav>
-	</header>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="img/couple1.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="img/man1.jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="img/woman1.jpg" alt="Slide 3">
+                </div>
+                <div class="slide">
+                    <img src="img/couple2.jpg" alt="Slide 4">
+                </div>
+                <div class="slide">
+                    <img src="img/woman2.jpg" alt="Slide 5">
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].classList.add("active");
+            setTimeout(showSlides, 2000); // Change slide every 2 seconds
+        }
+    </script>
 </body>
 </html>
