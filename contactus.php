@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +18,7 @@ session_start();
     }
 
     header {
-        background: rgba(255, 248, 241, 0.8); /* More opaque background for better visibility */
+        background: rgba(255, 248, 241, 0.4); /* Transparent background */
         color: #333;
         padding: 0;
         position: fixed; /* Fix the header at the top */
@@ -41,12 +38,12 @@ session_start();
     }
 
     .logo img {
-        max-height: 50px; /* Further reduced size for a more compact fit */
+        max-height: 80px;
     }
 
     .name h1 {
         font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-        font-size: 30px; /* Reduced size for better fit */
+        font-size: 45px;
         color: #333;
     }
 
@@ -58,15 +55,15 @@ session_start();
     }
 
     ul li {
-        margin-left: 10px; /* Further reduced margin for better spacing */
+        margin-left: 20px;
     }
 
     .nav-link {
         text-decoration: none;
-        font-size: 16px; /* Reduced font size */
+        font-size: 20px;
         color: #333;
-        padding: 5px 10px; /* Adjusted padding */
-        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 10px;
         font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
         letter-spacing: 0.5px; /* Add space between letters */
         transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
@@ -75,13 +72,71 @@ session_start();
     .nav-link:hover {
         background-color: #C4276A;
         color: #fff;
-        transform: scale(1.05); /* Slightly less scaling */
+        transform: scale(1.1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    main {
+        margin-top: 100px;
+        padding: 20px; /* Ensure content starts below the fixed header */
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        height: 150px;
+    }
+
+    .form-group button {
+        background-color: #C4276A;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+        background-color: #333;
     }
 
     @media (max-width: 768px) {
         .name h1 {
-            font-size: 20px; /* Adjusted for better fit */
+            font-size: 20px;
         }
 
         ul {
@@ -91,100 +146,21 @@ session_start();
 
         ul li {
             margin-left: 0;
-            margin-bottom: 5px; /* Reduced margin bottom */
+            margin-bottom: 10px;
         }
     }
 
     @media (max-width: 480px) {
         .logo img {
-            max-height: 40px; /* Further reduced size */
+            max-height: 60px;
         }
 
         .name h1 {
-            font-size: 18px; /* Further reduced size */
+            font-size: 18px;
         }
 
         .nav-link {
-            font-size: 14px; /* Adjusted font size */
-            padding: 3px 8px; /* Adjusted padding */
-        }
-    }
-
-    .container {
-        padding: 30px 15px; /* Reduced padding */
-        max-width: 500px; /* Further reduced width for better fit */
-        margin: 100px auto 20px; /* Adjusted margins for better spacing */
-        background-color: #f4f4f4;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .container h2 {
-        font-family: 'Abril Fatface', cursive;
-        font-size: 24px; /* Reduced size */
-        color: #333;
-        margin-bottom: 15px;
-        text-align: center; /* Center aligned heading */
-    }
-
-    .form-group {
-        margin-bottom: 10px; /* Reduced bottom margin */
-    }
-
-    .form-group label {
-        display: block;
-        font-size: 14px; /* Further reduced size */
-        margin-bottom: 4px; /* Reduced margin bottom */
-        color: #333;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        width: 100%;
-        padding: 8px; /* Reduced padding */
-        font-size: 12px; /* Further reduced font size */
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-        border-color: #C4276A;
-        outline: none;
-    }
-
-    .form-group button {
-        background-color: #C4276A;
-        color: #fff;
-        border: none;
-        padding: 10px 15px; /* Reduced padding */
-        font-size: 14px; /* Further reduced font size */
-        font-family: 'Abril Fatface', cursive;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .form-group button:hover {
-        background-color: #a31f59;
-        transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 20px 10px; /* Further reduced padding */
-        }
-
-        .form-group input,
-        .form-group textarea {
-            font-size: 12px; /* Adjusted font size */
-        }
-
-        .form-group button {
-            padding: 8px 12px; /* Adjusted padding */
-            font-size: 12px; /* Adjusted font size */
+            font-size: 14px;
         }
     }
 
@@ -204,6 +180,7 @@ session_start();
                 <li><a class="nav-link" href="aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
                 <?php
+                session_start();
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
                 } else {
@@ -213,31 +190,27 @@ session_start();
             </ul>
         </nav>
     </header>
-
-    <div class="container">
-        <h2>Contact Us</h2>
-        <form action="contact_form_handler.php" method="post">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
-   
+    <main>
+        <h1>Contact Us</h1>
+        <div class="contact-form">
+            <form action="process_contact.php" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
