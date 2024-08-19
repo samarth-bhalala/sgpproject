@@ -217,8 +217,9 @@ session_start();
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>
+            <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
         </form>
-        <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+        
 
         <form action="process_signup.php" method="post" id="signup-form" style="display: none;">
             <div class="form-group">
@@ -240,12 +241,17 @@ session_start();
             <div class="form-group">
                 <button type="submit">Sign Up</button>
             </div>
+            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
         </form>
 
         <script>
             document.getElementById('signup-link').addEventListener('click', function() {
                 document.getElementById('login-form').style.display = 'none';
                 document.getElementById('signup-form').style.display = 'block';
+            });
+            document.getElementById('login-link').addEventListener('click', function() {
+                document.getElementById('login-form').style.display = 'block';
+                document.getElementById('signup-form').style.display = 'none';
             });
         </script>
     </div>

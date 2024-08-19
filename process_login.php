@@ -1,7 +1,7 @@
 <?php
 // Include the database connection file
 require_once 'conn.php';
-
+session_start();
 // Check if the form has been submitted
 if (isset($_POST['username']) && isset($_POST['password'])) {
   // Get the username and password from the form
@@ -24,11 +24,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if (password_verify($password, $hashed_password)) {
       // If the passwords match, set the session variables and redirect to index.php
       $_SESSION['stat'] = 1;
-      echo "Session variable set: ".$_SESSION['stat']."<br>";
-      print_r($_SESSION);
-      $_SESSION['username'] = $username;
-      session_write_close();
-      header('Location: profile.php',"1");
+      $_SESSION['username']=$username;
+      header('Location: profile.php');
       exit;
     } else {
       // If the passwords don't match, display an error message

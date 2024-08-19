@@ -1,7 +1,7 @@
 <?php
 // Include the database connection file
 require_once 'conn.php';
-
+session_start();
 // Check if the form has been submitted
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
   // Get the username, password, and email from the form
@@ -51,7 +51,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
   $stmt->execute();
 
   // Set the session variables and redirect to index.php
-  $_SESSION['stat'] = 'logged_in';
+  $_SESSION['stat'] = 1;
   $_SESSION['username'] = $username;
   header('Location: index.php');
   exit;

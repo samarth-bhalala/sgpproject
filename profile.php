@@ -1,7 +1,6 @@
 <?php
+require_once 'conn.php';
 session_start();
-echo 'Session ID: ' . session_id() . '<br>';
-var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
@@ -144,7 +143,38 @@ main {
     }
 }
 
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 150px;
+    padding: 20px;
+    background-color: transparent; /* No background for the form */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for the form */
+}
 
+.profile-info {
+    margin-bottom: 15px;
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
+}
+
+.profile-info h2 {
+    text-align: center;
+    margin-bottom: auto;
+    font-size: 30px;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
+}
+
+.profile-info p {
+    margin-bottom: 15px;
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
+}
     </style>
 </head>
 <body>
@@ -164,6 +194,7 @@ main {
 
 if (isset($_SESSION['stat']) && $_SESSION['stat'] == 1) {
     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
+    echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
 } else {
     echo '<li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>';
 }
@@ -171,5 +202,35 @@ if (isset($_SESSION['stat']) && $_SESSION['stat'] == 1) {
             </ul>
         </nav>
     </header>
+
+    <main>
+        <?php
+        $user_id = $_SESSION['username'];
+
+        // Query the database for the user's information
+        $sql = "SELECT username, email, pass FROM signup  WHERE username = '$user_id'";
+        $result = $con->query($sql);
+        
+        // Check if the query returned any results
+        if ($result->num_rows > 0) {
+            // Get the user's information from the query results
+            $row = $result->fetch_assoc();
+            $username = $row["username"];
+            $email = $row["email"];
+            //$phone = $row["phone"];
+            $password = $row["pass"];
+        } else {
+            // If no results were found, display an error message
+            echo "No user found with that ID.";
+        }
+        ?>
+        <div class="profile-container">
+            <div class="profile-info">
+                <p>Username: <?php echo $_SESSION['username']; ?></p>
+                <p>Email: <?php echo $email; ?></p>
+                
+            </div>
+        </div>
+</main>
     </body>
 </html>

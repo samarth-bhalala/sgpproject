@@ -224,6 +224,7 @@ main {
                 <?php
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
+                    echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
                 } else {
                     echo '<li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>';
                 }
