@@ -109,6 +109,51 @@ main {
   display: block;
 }
 
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.box a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Abril Fatface', cursive;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.box a:hover {
+  background-color: #C4276A;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 768px) {
   .name h1 {
     font-size: 20px;
@@ -161,5 +206,20 @@ main {
             </ul>
         </nav>
     </header>
+    <main>
+        <div class="box-container">
+        <a href="mbodypain/male.php">
+            <div class="box">
+                
+                <img src="img/man1.jpg" alt="Male">
+                Male
+            </div></a>
+            <a href="fbodypain/female.php">
+            <div class="box">
+                <img src="img/woman1.jpg" alt="Female">
+                Female
+            </div></a>
+        </div>
+    </main>
 </body>
 </html>
