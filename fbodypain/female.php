@@ -1,3 +1,6 @@
+<?php
+                session_start();
+                ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,7 +192,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO1.png" alt="Logo">
+                <img src="/sgpproject/sgpproject/img/LOGO1.png" alt="Logo">
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>
@@ -199,7 +202,7 @@
                 <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
                 <?php
-                session_start();
+                
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';
@@ -213,7 +216,7 @@
     <main>
         <div class="container">
             <div class="box">
-                <a href="backpain.php" class="btn">
+                <a href="backpain/backpain.php" class="btn">
                 <img src="/sgpproject/sgpproject/img/couple1.jpg" alt="Back Pain">
                 <h2>Back Pain</h2>
                 </a>
@@ -221,17 +224,17 @@
             <div class="box">
                 <img src="/sgpproject/sgpproject/img/handpain.jpg" alt="Hand Pain">
                 <h2>Hand Pain</h2>
-                <a href="handpain.php" class="btn">Learn More</a>
+                <a href="handpain/handpain.php" class="btn">Learn More</a>
             </div>
             <div class="box">
                 <img src="/sgpproject/sgpproject/img/legpain.jpg" alt="Leg Pain">
                 <h2>Leg Pain</h2>
-                <a href="legpain.php" class="btn">Learn More</a>
+                <a href="legpain/legpain.php" class="btn">Learn More</a>
             </div>
             <div class="box">
                 <img src="/sgpproject/sgpproject/img/headpain.jpg" alt="Head Pain">
                 <h2>Head Pain</h2>
-                <a href="headpain.php" class="btn">Learn More</a>
+                <a href="headpain/headpain.php" class="btn">Learn More</a>
             </div>
         </div>
     </main>

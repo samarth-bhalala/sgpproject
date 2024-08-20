@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,7 +192,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO1.png" alt="Logo">
+                <img src="/sgpproject/sgpproject/img/LOGO1.png" alt="Logo">
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>
@@ -199,7 +202,6 @@
                 <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
                 <?php
-                session_start();
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';

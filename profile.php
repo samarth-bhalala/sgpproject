@@ -227,8 +227,7 @@ if (isset($_SESSION['stat']) && $_SESSION['stat'] == 1) {
         <div class="profile-container">
             <div class="profile-info">
                 <p>Username: <?php echo $_SESSION['username']; ?></p>
-                <p>Email: <?php echo $email; ?></p>
-                
+                <p>Email: <?php echo $email; ?></p> 
             </div>
         </div>
 </main>
