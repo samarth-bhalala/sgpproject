@@ -3,15 +3,34 @@
 require_once 'conn.php';
 session_start();
 // Check if the form has been submitted
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
-  // Get the username, password, and email from the form
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['email'])) {
+  // Get the username, password, confirm password, and email from the form
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $confirm_password = $_POST['confirm_password'];
   $email = $_POST['email'];
 
   // Validate the input data
-  if (empty($username) || empty($password) || empty($email)) {
+  if (empty($username) || empty($password) || empty($confirm_password) || empty($email)) {
     echo 'Please fill out all fields';
+    exit;
+  }
+
+  // Check if the password and confirm password match
+  if ($password !== $confirm_password) {
+    echo 'Passwords do not match';
+    exit;
+  }
+
+  // Check password length
+  if (strlen($password) < 8) {
+    echo 'Password must be at least 8 characters long';
+    exit;
+  }
+
+  // Check password strength
+  if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password)) {
+    echo 'Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character';
     exit;
   }
 
