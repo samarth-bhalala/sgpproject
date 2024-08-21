@@ -7,14 +7,15 @@ session_start();
     <title>index</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
     <style>
-    * {
-  margin: 0;
+  * {
+  margin: 2px 1px 4px 1px;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Abril Fatface', cursive;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -85,33 +86,61 @@ main {
 }
 
 .slideshow-container {
-    
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   z-index: 5;
+  white-space: nowrap; 
 }
 
 .slide {
-  display: none;
+  display: inline-block;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
+  animation: slide 10s infinite; 
 }
 
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:fill ;
   filter: brightness(100%);
+ 
 }
 
-.slide.active {
-  display: block;
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-200%);
+  }
+  80% {
+    transform: translateX(-200%);
+  }
+  90% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(-300%);
+  }
 }
+/* .slide.active {
+  display: block;
+} */
 
 @media (max-width: 768px) {
   .name h1 {
@@ -138,40 +167,31 @@ main {
 .bg2 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4 )),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
         url(img/BODYPAIN.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     margin-bottom: 20px 20px 20px 20px;
-    display: flex; /* Add this to center the button vertically and horizontally */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
-/* .bg2 a{
-    text-decoration: none;
-    
 
- 
-    /* height: 50px;
- }
-
-.heading {
+.bg3 {
     width: 100%;
-    height: 100%;
-    justify-content:center ;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3 )),
+        url(img/WEIGHT.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px 20px 20px 20px;
+    display: flex; 
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    margin: 80px 0 20px 0;
-    font-size: 75px;
-    font-weight: 700;
-    text-shadow: 2px 1px 5px rgb(226, 93, 116);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: 'Abril Fatface', cursive;
-} */
-/* === removing default button style ===*/
+}
+
 .button {
   margin: 0;
   height: auto;
@@ -184,16 +204,15 @@ main {
   text-align: center;
   position: relative;
   text-transform: uppercase;
-  color: #C4276A; /* Change the text color to a darker color */
-  -webkit-text-stroke: 1px #fff; /* Add a white outline to the text */
-  /* margin: 80px 0 20px 00px;  */
+  color: #C4276A; 
+  -webkit-text-stroke: 1px #fff; 
 }
 
 .button:hover {
-  -webkit-text-stroke: 2px #fff; /* Increase the outline width on hover */
+  -webkit-text-stroke: 2px #fff; 
 }
 
-/* button styling */
+
 .button {
   --border-right:5px;
   --text-stroke-color: rgba(226, 93, 116,0.6);
@@ -209,7 +228,7 @@ main {
   -webkit-text-stroke: 1px var(--text-stroke-color);
   margin: 100px 0 20px 00px; 
 }
-/* this is the text, when you hover on button */
+
 .hover-text {
   position: absolute;
   box-sizing: border-box;
@@ -222,7 +241,7 @@ main {
   transition: 1s;
   -webkit-text-stroke: 1px var(--animation-color);
 }
-/* hover */
+
 .button:hover .hover-text {
   width: 100%;
   filter: drop-shadow(0 0 23px var(--animation-color));
@@ -281,15 +300,29 @@ main {
               <br>
               <br>
               <center>
-  <a href="bodypain.php" class="button" data-text="Awesome">
-    <span class="actual-text">&nbsp;BODYPAIN&nbsp;</span>
-    <span aria-hidden="true" class="hover-text">&nbsp;BODYPAIN&nbsp;</span>
+  <a href="bodypain.php">
+    <button class="button" data-text="BODYPAIN">
+      <span class="actual-text">&nbsp;BODYPAIN&nbsp;</span>
+      <span aria-hidden="true" class="hover-text">&nbsp;BODYPAIN&nbsp;</span>
+    </button>
   </a>
 </center>
-    
-        <!-- <center>
-            <a href="file:///D:/wt%20project/NEW%20PROJECT/cakemenu.html"><h1 class="heading" >BODYPAIN</h1></a>
-        </center> -->
+    </div>
+    <div class="bg3">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <center>
+  <a href="weight.php">
+    <button class="button" data-text="WEIGHT">
+      <span class="actual-text">&nbsp;WEIGHT&nbsp;</span>
+      <span aria-hidden="true" class="hover-text">&nbsp;WEIGHT&nbsp;</span>
+    </button>
+  </a>
+</center>
     </div>
 
         </section>
@@ -306,7 +339,7 @@ main {
             slideIndex++;
             if (slideIndex > slides.length) { slideIndex = 1; }
             slides[slideIndex - 1].classList.add("active");
-            setTimeout(showSlides, 2000); // Change slide every 2 seconds
+            setTimeout(showSlides, 2000); 
         }
 
     </script>
