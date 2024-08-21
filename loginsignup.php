@@ -17,7 +17,7 @@ session_start();
     line-height: 1.6;
     overflow-x: hidden;
     margin: 0;
-    background: skyblue; /* Updated background color to sky blue */
+    background: #87CEEB; /* Updated background color to sky blue */
 }
 
 
@@ -79,6 +79,7 @@ session_start();
     }
 
     .nav-link {
+        
         text-decoration: none;
         font-size: 20px;
         color: #333;
@@ -90,7 +91,7 @@ session_start();
     }
 
     .nav-link:hover {
-        background-color: #C4276A;
+        background-color: #032B44;
         color: #fff;
         transform: scale(1.1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -143,7 +144,7 @@ session_start();
 }
 
 .form-group button {
-    background-color: #C4276A; /* Button background color set to same as submit button in contact page */
+    background-color: #032B44; /* Button background color set to same as submit button in contact page */
     text-decoration: none;
     font-size: 20px;
     color: #fff;
@@ -155,7 +156,7 @@ session_start();
 }
 
 .form-group button:hover {
-    background-color: #C4276A; /* Button hover background color */
+    background-color: #4682B4; /* Button hover background color */
     border: none;
     color: #fff;
     transform: scale(0.9); /* Button will shrink slightly on hover */
