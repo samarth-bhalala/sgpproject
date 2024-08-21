@@ -178,11 +178,8 @@ main {
                     <img src="img/woman2.jpg" alt="Slide 5">
                 </div>
             </div>
-            <div class="button-container">
-            <button class="nav-link" style="background-color: #C4276A; color: #fff;" id="body-pain-btn">Body Pain</button>
-            <button class="nav-link" style="background-color: #C4276A; color: #fff;" id="weight-btn">Weight</button>                    
-            <button class="nav-link" style="background-color: #C4276A; color: #fff;" id="diseases-btn">Diseases</button>
-            <button class="nav-link" style="background-color: #C4276A; color: #fff;" id="pregnancy-btn">Pregnancy</button>
+            <div class="bodypain">
+
             </div>
 
         </section>
@@ -202,18 +199,6 @@ main {
             setTimeout(showSlides, 2000); // Change slide every 2 seconds
         }
 
-    document.getElementById("body-pain-btn").addEventListener("click", function() {
-        window.location.href = "bodypain.php";
-    });
-    document.getElementById("weight-btn").addEventListener("click", function() {
-        window.location.href = "weight.php";
-    });
-    document.getElementById("diseases-btn").addEventListener("click", function() {
-        window.location.href = "diseases.php";
-    });
-    document.getElementById("pregnancy-btn").addEventListener("click", function() {
-        window.location.href = "pregnancy.php";
-    });
     </script>
 </body>
 </html>
