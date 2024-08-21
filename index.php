@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,6 +135,99 @@ main {
     font-size: 20px;
   }
 }
+.bg2 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4 )),
+        url(img/BODYPAIN.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px 20px 20px 20px;
+    display: flex; /* Add this to center the button vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+}
+/* .bg2 a{
+    text-decoration: none;
+    
+
+ 
+    /* height: 50px;
+ }
+
+.heading {
+    width: 100%;
+    height: 100%;
+    justify-content:center ;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 80px 0 20px 0;
+    font-size: 75px;
+    font-weight: 700;
+    text-shadow: 2px 1px 5px rgb(226, 93, 116);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Abril Fatface', cursive;
+} */
+/* === removing default button style ===*/
+.button {
+  margin: 0;
+  height: auto;
+  background: none;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  justify-content:center ;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  color: #C4276A; /* Change the text color to a darker color */
+  -webkit-text-stroke: 1px #fff; /* Add a white outline to the text */
+  /* margin: 80px 0 20px 00px;  */
+}
+
+.button:hover {
+  -webkit-text-stroke: 2px #fff; /* Increase the outline width on hover */
+}
+
+/* button styling */
+.button {
+  --border-right:5px;
+  --text-stroke-color: rgba(226, 93, 116,0.6);
+  --animation-color:#C4276A;
+  --fs-size: 5em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: 'Abril Fatface', cursive;
+  position: relative;
+  text-transform: uppercase;
+  color: white;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  margin: 100px 0 20px 00px; 
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 1s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+ 
+}
 </style>
 </head>
 <body>
@@ -148,7 +244,6 @@ main {
                 <li><a class="nav-link" href="aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
                 <?php
-                session_start();
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
@@ -178,9 +273,24 @@ main {
                     <img src="img/woman2.jpg" alt="Slide 5">
                 </div>
             </div>
-            <div class="bodypain">
-
-            </div>
+            <div class="bg2">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <center>
+  <a href="bodypain.php" class="button" data-text="Awesome">
+    <span class="actual-text">&nbsp;BODYPAIN&nbsp;</span>
+    <span aria-hidden="true" class="hover-text">&nbsp;BODYPAIN&nbsp;</span>
+  </a>
+</center>
+    
+        <!-- <center>
+            <a href="file:///D:/wt%20project/NEW%20PROJECT/cakemenu.html"><h1 class="heading" >BODYPAIN</h1></a>
+        </center> -->
+    </div>
 
         </section>
     </main>
