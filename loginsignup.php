@@ -13,12 +13,13 @@ session_start();
         box-sizing: border-box;
     }
     body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        overflow-x: hidden;
-        margin: 0;
-        background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 105, 180, 0.3)); /* Gradient background */
-    }
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+    background: skyblue; /* Updated background color to sky blue */
+}
+
 
     main {
         margin-top: 100px;
@@ -27,13 +28,14 @@ session_start();
     }
 
     .login-signup-form {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: transparent; /* No background for the form */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for the form */
-    }
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Form background color set to white */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for the form */
+}
+
 
     header {
         background: rgba(255, 248, 241, 0.4); /* Transparent background */
@@ -95,15 +97,16 @@ session_start();
     }
 
     h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 30px;
-        color: #333;
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-        letter-spacing: 0.5px; /* Add space between letters */
-    }
+    text-align: center;
+    margin-top: 0px; /* Added top margin to the heading */
+    margin-bottom :20px 0px 20px 0px;
+    font-size: 30px;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
+}
 
     .form-group {
         margin-bottom: 15px;
@@ -128,26 +131,36 @@ session_start();
         letter-spacing: 0.5px; /* Add space between letters */
     }
 
-    .form-group button {
-        background-color: #fff;
-        text-decoration: none;
-        font-size: 20px;
-        color: #333;
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-        letter-spacing: 0.5px; /* Add space between letters */
-        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    }
+    .form-group input,
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
+}
 
-    .form-group button:hover {
-        background-color: #C4276A;
-        border: none;
-        color: #fff;
-        transform: scale(1.1);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
+.form-group button {
+    background-color: #C4276A; /* Button background color set to same as submit button in contact page */
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
 
+.form-group button:hover {
+    background-color: #C4276A; /* Button hover background color */
+    border: none;
+    color: #fff;
+    transform: scale(0.9); /* Button will shrink slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
     @media (max-width: 768px) {
         .name h1 {
             font-size: 20px;
