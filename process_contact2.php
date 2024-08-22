@@ -1,7 +1,10 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 session_start();
-extract($_POST);
+
+$email = $_GET['email'];
+$message = $_GET['message'];
+$name = $_GET['name'];
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\SMTP; 
 use PHPMailer\PHPMailer\Exception;  
@@ -27,7 +30,7 @@ use PHPMailer\PHPMailer\Exception;
                 
                     //Recipients
                     $mail->setFrom('samarthbhalala@gmail.com', 'contactus');
-                    $mail->addAddress("$email","$name");     //Add a recipient
+                    $mail->addAddress("samarthbhalala@gmail.com","$name");     //Add a recipient
                     // $mail->addAddress('');               //Name is optional
                     // $mail->addReplyTo('info@example.com', 'Information');
                     // $mail->addCC('cc@example.com');
@@ -40,14 +43,12 @@ use PHPMailer\PHPMailer\Exception;
                     //Content
                     $mail->isHTML(true);                                  //Set email format to HTML
                     $mail->Subject = "Physiofit";
-                    $mail->Body    = " Thankyou for contacting us. Our team will contact you soon. ";
+                    $mail->Body    = " $email has send $message ";
                     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
                 
                     if($mail->send())
                     {
-                        $encodedMessage = urlencode($message);
-                        header("Location:process_contact2.php?email=$email&message=$encodedMessage&name=$name");
-                        exit;
+                        header("Location:contactus.php");
                     }
                     
                 } catch (Exception $e) {
