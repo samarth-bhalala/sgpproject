@@ -264,7 +264,7 @@ main {
                 <li><a class="nav-link" href="aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
                 <?php
-                if (isset($_SESSION['start'])) {
+                if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
                 } else {
