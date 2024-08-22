@@ -17,7 +17,7 @@ session_start();
     line-height: 1.6;
     overflow-x: hidden;
     margin: 0;
-    background: #87CEEB; /* Updated background color to sky blue */
+    background: #a0d6eb; /* Updated background color to sky blue */
 }
 
 
