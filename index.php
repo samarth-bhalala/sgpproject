@@ -8,6 +8,7 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
     <style>
   * {
+    font-family: 'Abril Fatface', cursive;
   margin: 2px 1px 4px 1px;
   padding: 0;
   box-sizing: border-box;
@@ -167,8 +168,8 @@ main {
 .bg2 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url(img/BODYPAIN.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(img/bg2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -181,8 +182,8 @@ main {
 .bg3 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3 )),
-        url(img/WEIGHT.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(img/bg3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -263,7 +264,7 @@ main {
                 <li><a class="nav-link" href="aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
                 <?php
-                if (isset($_SESSION['stat'])) {
+                if (isset($_SESSION['start'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
                 } else {

@@ -1,21 +1,26 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>index</title>
-
-    <style>
-    * {
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
+<style>
+* {
+  font-family: 'Abril Fatface', cursive;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Abril Fatface', cursive;
-  line-height: 1.6;
-  overflow-x: hidden;
-  margin: 0;
-}
+    font-family: 'Abril Fatface', cursive;
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+    background-color: #87CEEB; /* add background color of blue sea blue */
+  }
 
 header {
   background: rgba(255, 248, 241, 0.4);
@@ -109,50 +114,60 @@ main {
   display: block;
 }
 
-.box-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.card {
+    width: 100%;
+    height: 650px;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-title {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff; /* initial text color */
+  transition: color 0.3s ease; /* add transition effect */
 }
 
-.box {
-  width: 300px;
-  height: 300px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.card-title:hover {
+  color: #C4276A;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.box img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px; /* add margin top to start below navbar */
+  }
 
-.box a {
-  text-decoration: none;
-  font-size: 20px;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: 'Abril Fatface', cursive;
-  letter-spacing: 0.5px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-.box a:hover {
-  background-color: #C4276A;
-  color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+  .col-1{
+    /* flex: 1; */
+    margin: 20px 10px 20px -10px; /* add margin to cards */
+  }
+  .col-2 {
+    margin: 20px 30px 20px 0px;
+  }
 
 @media (max-width: 768px) {
   .name h1 {
@@ -195,8 +210,7 @@ main {
                 <li><a class="nav-link" href="aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
                 <?php
-                session_start();
-                if (isset($_SESSION['stat'])) {
+                if (isset($_SESSION['start'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
                 } else {
@@ -207,19 +221,28 @@ main {
         </nav>
     </header>
     <main>
-        <div class="box-container">
-        <a href="mbodypain/male.php">
-            <div class="box">
-                
-                <img src="img/man1.jpg" alt="Male">
-                Male
-            </div></a>
-            <a href="fbodypain/female.php">
-            <div class="box">
-                <img src="img/woman1.jpg" alt="Female">
-                Female
-            </div></a>
+  <div class="row">
+    <div class="col-1">
+      <a href="mbodypain/backpain.php" target="_self">
+        <div class="card">
+          <img src="img/mbodypain.jpg" class="card-img">
+          <div class="card-img-overlay">
+            <h3 class="card-title">MALE</h3>
+          </div>
         </div>
-    </main>
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="fbodypain.php" target="_self">
+        <div class="card">
+          <img src="img/fbodypain.jpg" class="card-img">
+          <div class="card-img-overlay">
+            <h3 class="card-title">FEMALE</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</main>
 </body>
 </html>
