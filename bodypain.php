@@ -223,7 +223,7 @@ main {
     <main>
   <div class="row">
     <div class="col-1">
-      <a href="mbodypain/backpain.php" target="_self">
+      <a href="mbodypain/male.php" target="_self">
         <div class="card">
           <img src="img/mbodypain.jpg" class="card-img">
           <div class="card-img-overlay">
@@ -233,7 +233,7 @@ main {
       </a>
     </div>
     <div class="col-2">
-      <a href="fbodypain.php" target="_self">
+      <a href="fbodypain/female.php" target="_self">
         <div class="card">
           <img src="img/fbodypain.jpg" class="card-img">
           <div class="card-img-overlay">
