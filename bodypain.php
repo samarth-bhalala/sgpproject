@@ -163,10 +163,10 @@ main {
 
   .col-1{
     /* flex: 1; */
-    margin: 20px 10px 20px -10px; /* add margin to cards */
+    margin: 20px 10px 0px -10px; /* add margin to cards */
   }
   .col-2 {
-    margin: 20px 30px 20px 0px;
+    margin: 20px 30px 0px 0px;
   }
 
 @media (max-width: 768px) {
