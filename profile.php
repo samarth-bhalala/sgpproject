@@ -1,6 +1,6 @@
 <?php
 require_once 'conn.php';
-session_stat();
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
