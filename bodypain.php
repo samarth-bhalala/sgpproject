@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Abril Fatface', cursive;
   line-height: 1.6;
   overflow-x: hidden;
   margin: 0;
