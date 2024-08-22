@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -215,24 +214,24 @@ session_start();
     </header>
     <main>
         <div class="container">
-            <?php
-            for ($i = 1; $i <= 7; $i++) {
-                if (!isset($_SESSION['premium']) && $i > 0) {
-                    ?>
-                    <div class="box">
-                        <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" alt="Day <?php echo $i; ?>">
-                        <h2>Day <?php echo $i; ?></h2>
-                        <p>Locked.</p><a href="/sgpproject/sgpproject/premium.php"><p> Upgrade to premium to access.</p><a>
-                    </div>
-                <?php } else { ?>
-                    <div class="box">
-                        <a href="day<?php echo $i; ?>.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" alt="Day <?php echo $i; ?>">
-                            <h2>Day <?php echo $i; ?></h2>
-                        </a>
-                    </div>
-                <?php } ?>
-            <?php } ?>
+            <div class="box">
+                <a href="beginner.php" class="btn">
+                <img src="/sgpproject/sgpproject/img/beginner.jpg" alt="Beginner">
+                <h2>Beginner</h2>
+                </a>
+            </div>
+            <div class="box">
+                <a href="intermediate.php" class="btn">
+                <img src="/sgpproject/sgpproject/img/intermediate.jpg" alt="Intermediate">
+                <h2>Intermediate</h2>
+                </a>
+            </div>
+            <div class="box">
+                <a href="advanced.php" class="btn">
+                <img src="/sgpproject/sgpproject/img/advanced.jpg" alt="Advanced">
+                <h2>Advanced</h2>
+                </a>
+            </div>
         </div>
     </main>
 </body>

@@ -217,12 +217,12 @@ session_start();
         <div class="container">
             <?php
             for ($i = 1; $i <= 7; $i++) {
-                if (!isset($_SESSION['premium']) && $i > 2) {
+                if (!isset($_SESSION['premium']) && $i > 0) {
                     ?>
                     <div class="box">
                         <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" alt="Day <?php echo $i; ?>">
                         <h2>Day <?php echo $i; ?></h2>
-                        <p>Locked. Upgrade to premium to access.</p>
+                        <p>Locked.</p><a href="/sgpproject/sgpproject/premium.php"><p> Upgrade to premium to access.</p><a>
                     </div>
                 <?php } else { ?>
                     <div class="box">
