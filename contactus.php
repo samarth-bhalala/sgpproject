@@ -15,11 +15,11 @@ session_start();
 }
 
 body {
-    font-family: Arial, sans-serif;
+        font-family: 'Abril Fatface', cursive;
     line-height: 1.6;
     overflow-x: hidden;
     margin: 0;
-    background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 105, 180, 0.3)); /* Gradient background */
+    background: #a0d6eb; /* Updated background color to sky blue */
 }
 
 main {
@@ -32,70 +32,92 @@ main {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; 
+    background-color: #fff; /* Form background color set to white */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for the form */
 }
-
 .form-group {
-    margin-bottom: 15px;
-}
+        margin-bottom: 15px;
+        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+        letter-spacing: 0.5px; /* Add space between letters */
+    }
 
-.form-group label {
-    display: block;
-    margin-bottom: 15px;
-}
+    .form-group label {
+        display: block;
+        margin-bottom: 15px;
+        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+        letter-spacing: 0.5px; /* Add space between letters */
+    }
+    .form-group input,
+    .form-group button {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+        letter-spacing: 0.5px; /* Add space between letters */
+    }
 
-.form-group input,
-.form-group textarea {
+    .form-group input,
+.form-group button {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #C4276A; 
-    box-shadow: 0 0 10px rgba(197, 39, 106, 0.5);
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
 }
 
 .form-group button {
-    background-color: #C4276A;
+    background-color: #032B44; /* Button background color set to same as submit button in contact page */
     text-decoration: none;
     font-size: 20px;
     color: #fff;
     padding: 10px 20px;
     border-radius: 10px;
-    border: none; 
+    font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+    letter-spacing: 0.5px; /* Add space between letters */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .form-group button:hover {
-    background-color: #FF69B4; 
+    background-color: #4682B4; /* Button hover background color */
+    border: none;
     color: #fff;
-    transform: scale(1.1);
+    transform: scale(0.9); /* Button will shrink slightly on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: none; 
 }
+    @media (max-width: 768px) {
+        .name h1 {
+            font-size: 20px;
+        }
 
+        ul {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-.contact-form {
-    animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
+        ul li {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+
+    @media (max-width: 480px) {
+        .logo img {
+            max-height: 60px;
+        }
+
+        .name h1 {
+            font-size: 18px;
+        }
+
+        .nav-link {
+            font-size: 14px;
+        }
     }
-}
 
     header {
         background: rgba(255, 248, 241, 0.4);
@@ -139,24 +161,23 @@ main {
     }
 
     .nav-link {
+        
         text-decoration: none;
         font-size: 20px;
         color: #333;
         padding: 10px 20px;
         border-radius: 10px;
-        font-family: 'Abril Fatface', cursive; 
-        letter-spacing: 0.5px; 
+        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+        letter-spacing: 0.5px; /* Add space between letters */
         transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
     .nav-link:hover {
-        background-color: #C4276A;
+        background-color: #032B44;
         color: #fff;
         transform: scale(1.1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-       
     }
-
     /* main {
         margin-top: 100px;
         padding: 20px; /* Ensure content starts below the fixed header
