@@ -200,21 +200,21 @@ main {
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO1.png" alt="Logo">
+                <img src="/sgpproject/sgpproject/img/LOGO1.png" alt="Logo">
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-                <li><a class="nav-link" href="index.php">Home</a></li>
-                <li><a class="nav-link" href="aboutus.php">About Us</a></li>
-                <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
+                <li><a class="nav-link" href="/sgpproject/sgpproject/index.php">Home</a></li>
+                <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
+                <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
                 <?php
                 if (isset($_SESSION['stat'])) {
-                    echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
-                    echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
+                    echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
+                    echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';
                 } else {
-                    echo '<li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>';
+                    echo '<li><a class="nav-link" href="/sgpproject/sgpproject/loginsignup.php">Login/Sign Up</a></li>';
                 }
                 ?>
             </ul>
@@ -223,21 +223,21 @@ main {
     <main>
   <div class="row">
     <div class="col-1">
-      <a href="mweight/mweight.php" target="_self">
+      <a href="weightgain/weightgain.php" target="_self">
         <div class="card">
-          <img src="img/mweight.jpg" class="card-img">
+          <img src="/sgpproject/sgpproject/img/mweight.jpg" class="card-img">
           <div class="card-img-overlay">
-            <h3 class="card-title">MALE</h3>
+            <h3 class="card-title">WEIGHT GAIN</h3>
           </div>
         </div>
       </a>
     </div>
     <div class="col-2">
-      <a href="fweight/fweight.php" target="_self">
+      <a href="weightlose/weightlose.php" target="_self">
         <div class="card">
-          <img src="img/fweight.jpg" class="card-img">
+          <img src="/sgpproject/sgpproject/img/fweight.jpg" class="card-img">
           <div class="card-img-overlay">
-            <h3 class="card-title">FEMALE</h3>
+            <h3 class="card-title">WEIGHT LOSE</h3>
           </div>
         </div>
       </a>
