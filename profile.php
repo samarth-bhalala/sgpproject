@@ -105,6 +105,33 @@ session_start();
     .card p {
         margin-bottom: 15px;
     }
+
+    /* password change css */
+    
+.change-password-btn {
+  padding: 0.5rem 1rem;
+  background-color: darkblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  /* display:inline; */
+  /* display:inline; */
+}
+
+.change-password-btn:hover {
+  background-color: lightblue;
+}
+.frmm{
+  display:inline;
+}
+.info-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
     </style>
 </head>
 <body>
@@ -138,7 +165,7 @@ session_start();
         $user_id = $_SESSION['username'];
 
         // Query the database for the user's information
-        $sql = "SELECT username, email, pass FROM signup  WHERE username = '$user_id'";
+        $sql = "SELECT username, email, pass, phone, premium FROM signup  WHERE username = '$user_id'";
         $result = $con->query($sql);
         
         // Check if the query returned any results
@@ -147,8 +174,14 @@ session_start();
             $row = $result->fetch_assoc();
             $username = $row["username"];
             $email = $row["email"];
-            //$phone = $row["phone"];
+            $_SESSION['email']=$email;
             $password = $row["pass"];
+            $phone=$row["phone"];
+            $premium=$row["premium"];
+            if ($premium==1)
+            {
+                $_SESSION['premium']=1;
+            }
         } else {
             // If no results were found, display an error message
             echo "No user found with that ID.";
@@ -157,11 +190,40 @@ session_start();
         <body>
     <div class="card">
         <h2>User Details</h2>
-        <p><strong>Name:</strong></p>
-        <p><strong>Email:</strong></p>
-        <p><strong>Phone:</strong></p>
-        <p><strong>Address:</strong> </p>
+        <p><strong>Name:  </strong><?php echo $username?></p>
+        <p><strong>Email: </strong><?php echo $email?></p>
+        <p><strong>Password:</strong><?php
+                $pss=$_SESSION['pass'];
+                echo str_replace($pss,"**********",$pss);
+            ?></p>
+        <p><strong>Phone: </strong><?php echo $phone?></p>
+
+        <div class="change-password">
+        <h3 class="info-title">Change Password</h3>
+        <form class="frmm" action="chng_pass.php" method="POST">
+          <button type="submit" class="change-password-btn">Change Password</button>
+        </form>
+        <form class="frmm" action="edit_info.php" method="POST">
+          <button type="submit" class="change-password-btn">Change Info</button>
+        </form>
+        </form>
+      </div>
+        <p><strong>Premium user : </strong> <?php
+        if  (isset($_SESSION['premium'])){
+            echo "Yes";
+        }
+        else
+        {
+            echo "No";
+        
+
+        ?></p>
+        <a href="premium.php" ><h2>Want to buy premium ? click here</h2><a>
+           <?php } ?>
+
+           
     </div>
+    
 </body>
 </main>
     </body>
