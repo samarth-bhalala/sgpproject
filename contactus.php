@@ -226,15 +226,15 @@ main {
             <form action="process_contact.php" method="post">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" <?php  if (isset($_SESSION['username'])) { ?>value ="<?php echo $_SESSION['username']?>"<?php }?> required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" <?php  if (isset($_SESSION['email'])) { ?>value ="<?php echo $_SESSION['email']?> "<?php }?> required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" required="" style="width: 560px; height: 117px;"></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit">Submit</button>

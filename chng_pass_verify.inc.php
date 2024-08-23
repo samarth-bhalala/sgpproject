@@ -6,9 +6,10 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
     $nm=$_SESSION['username'];
     if($_SESSION['cd']==$cd)
     {
-        
-        $up_que="update signup SET pass='$ps' WHERE username='$nm'";
+        $hashed_password = password_hash($ps, PASSWORD_ARGON2I);
+        $up_que="update signup SET pass='$hashed_password' WHERE username='$nm'";
         mysqli_query($con,$up_que);
+
         $_SESSION['pass']=$ps;
         header("location:profile.php");
     }
