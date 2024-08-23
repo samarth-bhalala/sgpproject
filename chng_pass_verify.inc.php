@@ -8,9 +8,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
     {
         
         $up_que="update signup SET pass='$ps' WHERE username='$nm'";
-        mysqli_query($conn,$up_que);
+        mysqli_query($con,$up_que);
         $_SESSION['pass']=$ps;
-        header("location:view_acc.php");
+        header("location:profile.php");
     }
     else
     {

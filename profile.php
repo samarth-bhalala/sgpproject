@@ -22,7 +22,7 @@ session_start();
     }
 
     main {
-        margin-top: 100px;
+        margin-top: 50px;
         padding: 20px; /* Ensure content starts below the fixed header */
         background: transparent; /* No background for the main content area */
     }
