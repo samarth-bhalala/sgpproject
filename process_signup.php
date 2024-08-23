@@ -72,6 +72,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['conf
   // Set the session variables and redirect to index.php
   $_SESSION['stat'] = 1;
   $_SESSION['username'] = $username;
+  $_SESSION['pass']=$password;
+  $_SESSION['email']=$email;
   header('Location: index.php');
   exit;
 } else {

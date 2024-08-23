@@ -25,6 +25,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       // If the passwords match, set the session variables and redirect to index.php
       $_SESSION['stat'] = 1;
       $_SESSION['username']=$username;
+      $_SESSION['pass']=$password;
       header('Location: profile.php');
       exit;
     } else {
