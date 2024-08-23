@@ -12,7 +12,8 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
     }
     
     elseif($chng_pass==$_SESSION['pass'])
-    {
+    {  
+        
         $up_que="update signup SET username='$tnm',email='$tem' WHERE username='$nm'";
         mysqli_query($con,$up_que);
         $_SESSION['username']=$_SESSION['new_name'];
