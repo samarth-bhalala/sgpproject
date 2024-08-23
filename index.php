@@ -75,12 +75,13 @@ ul li {
     }
 
     .nav-link:hover {
-        background-color: #C4276A;
+        background-color: #032B44;
         color: #fff;
         transform: scale(1.1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
+    /* #C4276A pink colour */
 main {
   margin-top: -0.1px;
   padding-bottom: 0px;

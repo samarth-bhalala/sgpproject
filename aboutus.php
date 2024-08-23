@@ -1,140 +1,135 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>index</title>
-
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
     <style>
     * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+        font-family: 'Abril Fatface', cursive; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  overflow-x: hidden;
-  margin: 0;
-}
-
-header {
-  background: rgba(255, 248, 241, 0.4);
-  color: #333;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  color: #333;
-}
-
-.logo img {
-  max-height: 80px;
-}
-
-.name h1 {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 45px;
-  color: #333;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  margin-left: 20px;
-}
-
-.nav-link {
-  text-decoration: none;
-  font-size: 20px;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: 'Abril Fatface', cursive;
-  letter-spacing: 0.5px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-link:hover {
-  background-color: #C4276A;
-  color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        font-family: 'Abril Fatface', cursive;
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+    background: #a0d6eb; /* Updated background color to sky blue */
 }
 
 main {
-  margin-top: -0.1px;
-  padding-bottom: 0px;
+    margin-top: 100px;
+    padding: 20px; 
+    background: transparent; 
 }
 
-.slideshow-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 5;
-}
+   @media (max-width: 768px) {
+        .name h1 {
+            font-size: 20px;
+        }
 
-.slide {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+        ul {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(1);
-}
+        ul li {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+    }
 
-.slide.active {
-  display: block;
-}
+    @media (max-width: 480px) {
+        .logo img {
+            max-height: 60px;
+        }
 
-@media (max-width: 768px) {
-  .name h1 {
-    font-size: 20px;
-  }
-  ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  ul li {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-}
+        .name h1 {
+            font-size: 18px;
+        }
 
-@media (max-width: 480px) {
-  .logo img {
-    max-height: 60px;
-  }
-  .name h1 {
-    font-size: 18px;
-  }
-  .nav-link {
-    font-size: 14px;
-  }
-}
-</style>
+        .nav-link {
+            font-size: 14px;
+        }
+    }
+
+    header {
+        background: rgba(255, 248, 241, 0.4);
+        color: #333;
+        padding: 0;
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        color: #333;
+    }
+
+    .logo img {
+        max-height: 80px;
+    }
+
+    .name h1 {
+        font-family: 'Abril Fatface', cursive; 
+        font-size: 45px;
+        color: #333;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul li {
+        margin-left: 20px;
+    }
+
+    .nav-link {
+        
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+        letter-spacing: 0.5px; /* Add space between letters */
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: #032B44;
+        color: #fff;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+   
+    h1 {
+        text-align: center;
+        margin-bottom :20px 0px 20px 0px;
+        font-size: 30px;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-family: 'Abril Fatface', cursive; 
+        letter-spacing: 0.5px; 
+    }
+
+    </style>
 </head>
 <body>
     <header>
@@ -150,7 +145,6 @@ main {
                 <li><a class="nav-link" href="aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
                 <?php
-                session_start();
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
@@ -161,5 +155,6 @@ main {
             </ul>
         </nav>
     </header>
+    
 </body>
 </html>

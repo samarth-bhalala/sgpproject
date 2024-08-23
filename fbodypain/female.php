@@ -1,23 +1,25 @@
 <?php
-                session_start();
-                ?>
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>index</title>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <style>
     * {
+      font-family: 'Abril Fatface', cursive;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Abril Fatface', cursive;
       line-height: 1.6;
       overflow-x: hidden;
       margin: 0;
+      background-color: #87CEEB; /* add background color of blue sea blue */
     }
 
     header {
@@ -61,23 +63,26 @@
       margin-left: 20px;
     }
 
+   
     .nav-link {
-      text-decoration: none;
-      font-size: 20px;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-family: 'Abril Fatface', cursive;
-      letter-spacing: 0.5px;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+        letter-spacing: 0.5px; /* Add space between letters */
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
     .nav-link:hover {
-      background-color: #C4276A;
-      color: #fff;
-      transform: scale(1.1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        background-color: #032B44;
+        color: #fff;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+
 
     main {
       margin-top: -0.1px;
@@ -139,53 +144,83 @@
     }
 
     .container {
-      max-width: 800px;
-      margin: 150px auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    max-width: 100%;
+    margin: 150px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .box {
-      width: 200px;
-      height: 200px;
-      margin: 20px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
 
-    .box img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-    }
+  .col-2, .col-3, .col-4, .col-5 {
+    flex: 1;
+    margin: 20px;
+    width: calc(25% - 40px);
+    height: calc(70vh - 40px);
+  }
 
-    .box h2 {
-      font-size: 18px;
-      margin-top: 10px;
-    }
+  .box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px; /* add rounded curves to the borders */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 
-    .btn {
-      background-color: #C4276A;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+  .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  .box h2 {
+  font-size: 18px;
+  margin-top: 0;
+  text-align: center;
+  background-color: #032B44; /* navy blue background color */
+  color: #fff; /* white text color */
+  padding: 10px; /* add some padding to make it look better */
+  border-radius: 10px; /* add rounded curves to the borders */
+}
+  
+  .box a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* .box a:hover {
+    background-color: #C4276A;
+    color: #fff;
+  } */
 
-        .btn:hover {
-      background-color: #fff;
-      color: #C4276A;
-      border: 1px solid #C4276A;
-    }
+/* .btn {
+  background-color: #C4276A;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #C4276A;
+  border: 1px solid #C4276A;
+} */
     </style>
 </head>
 <body>
@@ -202,7 +237,6 @@
                 <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
                 <?php
-                
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';
@@ -214,29 +248,42 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="box">
-                <a href="backpain/backpain.php" class="btn">
-                <img src="/sgpproject/sgpproject/img/couple1.jpg" alt="Back Pain">
-                <h2>Back Pain</h2>
-                </a>
-            </div>
-            <div class="box">
-                <img src="/sgpproject/sgpproject/img/handpain.jpg" alt="Hand Pain">
-                <h2>Hand Pain</h2>
-                <a href="handpain/handpain.php" class="btn">Learn More</a>
-            </div>
-            <div class="box">
-                <img src="/sgpproject/sgpproject/img/legpain.jpg" alt="Leg Pain">
-                <h2>Leg Pain</h2>
-                <a href="legpain/legpain.php" class="btn">Learn More</a>
-            </div>
-            <div class="box">
-                <img src="/sgpproject/sgpproject/img/headpain.jpg" alt="Head Pain">
-                <h2>Head Pain</h2>
-                <a href="headpain/headpain.php" class="btn">Learn More</a>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <div class="box">
+          <a href="backpain/backpain.php">
+            <img src="/sgpproject/sgpproject/img/Fbackpain.jpg" alt="Back Pain">
+            <h2>Back Pain</h2>
+          </a>
         </div>
-    </main>
+      </div>
+      <div class="col-3">
+        <div class="box">
+          <a href="handpain/handpain.php">
+            <img src="/sgpproject/sgpproject/img/Fhandpain.jpg" alt="Hand Pain">
+            <h2>Hand Pain</h2>
+          </a>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="box">
+          <a href="legpain/legpain.php">
+            <img src="/sgpproject/sgpproject/img/flegpain.jpg" alt="Leg Pain">
+            <h2>Leg Pain</h2>
+          </a>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="box">
+          <a href="headpain/headpain.php">
+            <img src="/sgpproject/sgpproject/img/fheadpain.jpg" alt="Head Pain">
+            <h2>Head Pain</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 </body>
 </html>

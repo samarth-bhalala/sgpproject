@@ -64,22 +64,24 @@ session_start();
     }
 
     .nav-link {
-      text-decoration: none;
-      font-size: 20px;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-family: 'Abril Fatface', cursive;
-      letter-spacing: 0.5px;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+        letter-spacing: 0.5px; /* Add space between letters */
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
     .nav-link:hover {
-      background-color: #C4276A;
-      color: #fff;
-      transform: scale(1.1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        background-color: #032B44;
+        color: #fff;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+
 
     main {
       margin-top: -0.1px;
