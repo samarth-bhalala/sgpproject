@@ -231,6 +231,10 @@ session_start();
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>
+            <?php         if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+    echo "<p>$msg</p>"; // or do something else with the message
+}?>
             <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
         </form>
         
@@ -253,9 +257,16 @@ session_start();
                 <input type="password" id="confirm_password" name="confirm_password" required>
             </div>
             <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="number" id="phone" name="phone"  min= 0 max = 9999999999 required>
+
+            </div>
+            <div class="form-group">
                 <button type="submit">Sign Up</button>
             </div>
+   
             <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+
         </form>
 
         <script>
