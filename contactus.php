@@ -239,6 +239,10 @@ main {
                 <div class="form-group">
                     <button type="submit">Submit</button>
                 </div>
+                <div><?php if (isset($_GET['msg'])) {
+                $msg = $_GET['msg'];
+                echo "<p>$msg</p>";} ?>
+            </div>
             </form>
         </div>
     </main>

@@ -5,6 +5,9 @@ session_start();
 $email = $_GET['email'];
 $message = $_GET['message'];
 $name = $_GET['name'];
+$username=$_SESSION['username'];
+$q="INSERT INTO `contactus`( `full_name`, `username`, `email`, `message`) VALUES ('$name','$username','$email','$message')";
+$result = mysqli_query($con, $q);
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\SMTP; 
 use PHPMailer\PHPMailer\Exception;  
@@ -13,10 +16,6 @@ use PHPMailer\PHPMailer\Exception;
         require 'PHPMailer-master\src\PHPMailer.php';
         require 'PHPMailer-master\src\SMTP.php';
         $mail = new PHPMailer(true);
-        
-        
-                $mail = new PHPMailer(true);
-                
                 try {
                     //Server settings
                     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -47,8 +46,8 @@ use PHPMailer\PHPMailer\Exception;
                     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
                 
                     if($mail->send())
-                    {
-                        header("Location:contactus.php");
+                    {   
+                        header("Location:contactus.php?msg='message sent succesfully'");
                     }
                     
                 } catch (Exception $e) {

@@ -2,6 +2,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 session_start();
 extract($_POST);
+
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\SMTP; 
 use PHPMailer\PHPMailer\Exception;  
@@ -10,10 +11,6 @@ use PHPMailer\PHPMailer\Exception;
         require 'PHPMailer-master\src\PHPMailer.php';
         require 'PHPMailer-master\src\SMTP.php';
         $mail = new PHPMailer(true);
-        
-        
-                $mail = new PHPMailer(true);
-                
                 try {
                     //Server settings
                     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -53,8 +50,4 @@ use PHPMailer\PHPMailer\Exception;
                 } catch (Exception $e) {
                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
-            
-
-
-
 ?>
