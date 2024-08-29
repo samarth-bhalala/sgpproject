@@ -327,6 +327,22 @@ main {
   </a>
 </center>
     </div>
+    <div class="bg3">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <center>
+  <a href="diseases.php">
+    <button class="button" data-text="diseases">
+      <span class="actual-text">&nbsp;diseases&nbsp;</span>
+      <span aria-hidden="true" class="hover-text">&nbsp;diseases&nbsp;</span>
+    </button>
+  </a>
+</center>
+    </div>
 
         </section>
     </main>

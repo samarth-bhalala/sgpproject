@@ -6,19 +6,21 @@ session_start();
 <html>
 <head>
     <title>index</title>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <style>
     * {
+      font-family: 'Abril Fatface', cursive;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Abril Fatface', cursive;
       line-height: 1.6;
       overflow-x: hidden;
       margin: 0;
+      background-color: #87CEEB; /* add background color of blue sea blue */
     }
 
     header {
@@ -68,13 +70,13 @@ session_start();
       color: #333;
       padding: 10px 20px;
       border-radius: 10px;
-      font-family: 'Abril Fatface', cursive;
-      letter-spacing: 0.5px;
+      font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
+      letter-spacing: 0.5px; /* Add space between letters */
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
     .nav-link:hover {
-      background-color: #C4276A;
+      background-color: #032B44;
       color: #fff;
       transform: scale(1.1);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -85,34 +87,86 @@ session_start();
       padding-bottom: 0px;
     }
 
-    .slideshow-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 5;
+    .container {
+      max-width: 100%;
+      margin: 150px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .slide {
-      display: none;
-      width: 100%;
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .col-2, .col-3, .col-4, .col-5 {
+      flex: 1;
+      margin: 20px;
+      width: calc(25% - 40px);
+      height: calc(70vh - 40px);
+    }
+
+    .box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 20px; /* add rounded curves to the borders */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
+      width: 100%;
     }
 
-    .slide img {
+    .box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(1);
+      border-radius: 10px 10px 0 0;
     }
 
-    .slide.active {
+    .box h2 {
+      font-size: 18px;
+      margin-top: 0;
+      text-align: center;
+      background-color: #032B44; /* navy blue background color */
+      color: #fff; /* white text color */
+      padding: 10px; /* add some padding to make it look better */
+      border-radius: 10px; /* add rounded curves to the borders */
+    }
+
+    .box a {
       display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #333;
     }
 
+    /* .box a:hover {
+      background-color: #C4276A;
+      color: #fff;
+    } */
+
+    /* .btn {
+      background-color: #C4276A;
+      color: #fff;
+      padding: 10px       20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #fff;
+      color: #C4276A;
+      border: 1px solid #C4276A;
+    }
+*/
     @media (max-width: 768px) {
       .name h1 {
         font-size: 20px;
@@ -137,54 +191,6 @@ session_start();
       .nav-link {
         font-size: 14px;
       }
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 150px auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .box {
-      width: 200px;
-      height: 200px;
-      margin: 20px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .box img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-    }
-
-    .box h2 {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    .btn {
-      background-color: #C4276A;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background-color: #fff;
-      color: #C4276A;
-      border: 1px solid #C4276A;
     }
     </style>
 </head>
