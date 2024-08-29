@@ -251,7 +251,7 @@ session_start();
     <div class="row">
       <div class="col-2">
         <div class="box">
-          <a href="backpain/backpain.php">
+          <a href="weightgain/weightgain.php">
             <img src="/sgpproject/sgpproject/img/fweightgain.jpg" alt="Back Pain">
             <h2>Weight Gain</h2>
           </a>
@@ -259,7 +259,7 @@ session_start();
       </div>
       <div class="col-3">
         <div class="box">
-          <a href="handpain/handpain.php">
+          <a href="weightlose/weightlose.php">
             <img src="/sgpproject/sgpproject/img/fweightloss.jpg" alt="Hand Pain">
             <h2>Weight Loss</h2>
           </a>
