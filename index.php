@@ -295,7 +295,7 @@ main {
                     <img src="img/slide5.jpg" alt="Slide 5">
                 </div>
             </div>
-            <div class="bg2">
+            <div class="bg_2">
               <br>
               <br>
               <br>
@@ -311,7 +311,7 @@ main {
   </a>
 </center>
     </div>
-    <div class="bg3">
+    <div class="bg_3">
               <br>
               <br>
               <br>
@@ -327,7 +327,7 @@ main {
   </a>
 </center>
     </div>
-    <div class="bg3">
+    <div class="bg_3">
               <br>
               <br>
               <br>
