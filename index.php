@@ -280,19 +280,19 @@ main {
         <section id="home">
             <div class="slideshow-container">
                 <div class="slide active">
-                    <img src="img/couple1.jpg" alt="Slide 1">
+                    <img src="img/slide1.jpg" alt="Slide 1">
                 </div>
                 <div class="slide">
-                    <img src="img/man1.jpg" alt="Slide 2">
+                    <img src="img/slide2.jpg" alt="Slide 2">
                 </div>
                 <div class="slide">
-                    <img src="img/woman1.jpg" alt="Slide 3">
+                    <img src="img/slide3.jpg" alt="Slide 3">
                 </div>
                 <div class="slide">
-                    <img src="img/couple2.jpg" alt="Slide 4">
+                    <img src="img/slide4.jpg" alt="Slide 4">
                 </div>
                 <div class="slide">
-                    <img src="img/woman2.jpg" alt="Slide 5">
+                    <img src="img/slide5.jpg" alt="Slide 5">
                 </div>
             </div>
             <div class="bg2">
