@@ -224,7 +224,7 @@ session_start();
                 <div class="col-2">
                     <div class="box">
                         <a href="beginner.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/beginner.jpg" alt="Beginner">
+                            <img src="/sgpproject/sgpproject/img/bg2.jpg" alt="Beginner">
                             <h2>Beginner</h2>
                         </a>
                     </div>
