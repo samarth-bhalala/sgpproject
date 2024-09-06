@@ -195,6 +195,19 @@ main {
     align-items: center;
 }
 
+.bg_4 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(img/bg_4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px 20px 20px 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
 .button {
   margin: 0;
   height: auto;
@@ -327,7 +340,7 @@ main {
   </a>
 </center>
     </div>
-    <div class="bg_3">
+    <div class="bg_4">
               <br>
               <br>
               <br>
