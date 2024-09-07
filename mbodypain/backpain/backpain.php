@@ -240,7 +240,7 @@ session_start();
                 <div class="col-4">
                     <div class="box">
                         <a href="advanced.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/bgmbp_bp_a.jpg" alt="Advanced">
+                            <img src="/sgpproject/sgpproject/img/mbp_bp_a.jpg" alt="Advanced">
                             <h2>Advanced</h2>
                         </a>
                     </div>
