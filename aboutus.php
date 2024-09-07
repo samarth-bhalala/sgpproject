@@ -161,25 +161,25 @@ main {
 }
 
 .f21 {
-  background-image: url('img/bg1.jpg');
+  background-image: url('img/ab1.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .f2 {
-  background-image: url('img/bg2.jpg');
+  background-image: url('img/ab2.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .f3 {
-  background-image: url('img/bg3.jpg');
+  background-image: url('img/ab3.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .f4 {
-  background-image: url('img/bg4.jpg');
+  background-image: url('img/ab4.jpg');
   background-size: cover;
   background-position: center;
 }
