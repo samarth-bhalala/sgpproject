@@ -224,7 +224,7 @@ session_start();
                 <div class="col-2">
                     <div class="box">
                         <a href="beginner.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/beginner.jpg" alt="Beginner">
+                            <img src="/sgpproject/sgpproject/img/mbp_hep_b.jpg" alt="Beginner">
                             <h2>Beginner</h2>
                         </a>
                     </div>
@@ -232,7 +232,7 @@ session_start();
                 <div class="col-3">
                     <div class="box">
                         <a href="intermediate.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/intermediate.jpg" alt="Intermediate">
+                            <img src="/sgpproject/sgpproject/img/mbp_hep_i.jpg" alt="Intermediate">
                             <h2>Intermediate</h2>
                         </a>
                     </div>
@@ -240,7 +240,7 @@ session_start();
                 <div class="col-4">
                     <div class="box">
                         <a href="advanced.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/bg.jpg" alt="Advanced">
+                            <img src="/sgpproject/sgpproject/img/mbp_hep_a.jpg" alt="Advanced">
                             <h2>Advanced</h2>
                         </a>
                     </div>
