@@ -22,7 +22,7 @@ body {
 }
 
 header {
-  background: rgba(255, 248, 241, 0.4);
+  background: rgba(0,0,255, 0.4);
   color: #333;
   padding: 0;
   position: fixed;
@@ -81,7 +81,7 @@ ul li {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    /* #C4276A pink colour */
+    /* #03045E pink colour */
 main {
   margin-top: -0.1px;
   padding-bottom: 0px;
@@ -220,7 +220,7 @@ main {
   text-align: center;
   position: relative;
   text-transform: uppercase;
-  color: #C4276A; 
+  color: #03045E; 
   -webkit-text-stroke: 1px #fff; 
 }
 
@@ -231,8 +231,8 @@ main {
 
 .button {
   --border-right:5px;
-  --text-stroke-color: rgba(226, 93, 116,0.6);
-  --animation-color:#C4276A;
+  --text-stroke-color: rgba(0, 0, 255,0.6);
+  --animation-color:#03045E;
   --fs-size: 5em;
   letter-spacing: 3px;
   text-decoration: none;
