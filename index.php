@@ -220,7 +220,7 @@ main {
   text-align: center;
   position: relative;
   text-transform: uppercase;
-  color: #03045E; 
+  color: #032B44; 
   -webkit-text-stroke: 1px #fff; 
 }
 
@@ -231,8 +231,8 @@ main {
 
 .button {
   --border-right:5px;
-  --text-stroke-color: rgba(0, 0, 255,0.6);
-  --animation-color:#03045E;
+  --text-stroke-color: rgba(0, 0, ,0.6);
+  --animation-color:#032B44;
   --fs-size: 5em;
   letter-spacing: 3px;
   text-decoration: none;
