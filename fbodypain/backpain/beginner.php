@@ -20,7 +20,7 @@ session_start();
       line-height: 1.6;
       overflow-x: hidden;
       margin: 0;
-      background-color: #ffb3de; /* add background color of blue sea blue */
+      background-color: #87CEEB; /* add background color of blue sea blue */
     }
 
     header {
