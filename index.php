@@ -185,7 +185,7 @@ main {
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(img/bg3.jpg);
+        url(img/bg_3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
