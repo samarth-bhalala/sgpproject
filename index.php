@@ -22,10 +22,6 @@ body {
 }
 
 header {
-  background: rgba(0,0,255, 0.4);
-  color: #333;
-  padding: 0;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
