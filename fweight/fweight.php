@@ -226,7 +226,7 @@ session_start();
     <header>
         <nav>
             <div class="logo">
-                <img src="/sgpproject/sgpproject/img/LOGO.PNG" alt="Logo">
+                <img src="/sgpproject/sgpproject/img/LOGO_1.PNG" alt="Logo">
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>

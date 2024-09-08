@@ -200,7 +200,7 @@ main {
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO.PNG" alt="Logo">
+                <img src="img/LOGO_1.PNG" alt="Logo">
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>
