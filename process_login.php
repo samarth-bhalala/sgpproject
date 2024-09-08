@@ -31,12 +31,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     } else {
       // If the passwords don't match, display an error message
       $msg = 'Invalid username or password';
-      header('Location: index.php');
+      header("Location: loginsignup.php?msg=$msg");
     }
   } else {
     // If the query didn't return any results, display an error message
     $msg = 'Invalid username or password';
-    header('Location: index.php');
+    header("Location: loginsignup.php?msg=$msg");
   }
 
   // Close the statement and connection

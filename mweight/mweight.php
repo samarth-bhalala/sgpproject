@@ -200,12 +200,12 @@ session_start();
   }
   
   /* .box a:hover {
-    background-color: #C4276A;
+    background-color: #032B44;
     color: #fff;
   } */
 
 /* .btn {
-  background-color: #C4276A;
+  background-color: #032B44;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -215,8 +215,8 @@ session_start();
 
 .btn:hover {
   background-color: #fff;
-  color: #C4276A;
-  border: 1px solid #C4276A;
+  color: #032B44;
+  border: 1px solid #032B44;
 } */
     </style>
 </head>

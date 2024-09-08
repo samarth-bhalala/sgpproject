@@ -221,11 +221,12 @@ session_start();
     <div class="login-signup-form">
         <form action="process_login.php" method="post" id="login-form">
             <div class="form-group">
-                <label for="username">Username</label>
+            <label for="username">Username<span style="color:red">*</span></label>
+
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Password<span style="color:red">*</span></label>
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
@@ -236,28 +237,29 @@ session_start();
     echo "<p>$msg</p>"; // or do something else with the message
 }?>
             <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+            <p> <a href="#" id="signup-link">Forget Password</a></p>
         </form>
         
 
         <form action="process_signup.php" method="post" id="signup-form" style="display: none;">
             <div class="form-group">
-                <label for="username">Username</label>
+                <label for="username">Username<span style="color:red">*</span></label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email<span style="color:red">*</span></label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Password<span style="color:red">*</span></label>
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
+                <label for="confirm_password">Confirm Password<span style="color:red">*</span></label>
                 <input type="password" id="confirm_password" name="confirm_password" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone number</label>
+                <label for="phone">Phone number<span style="color:red">*</span></label>
                 <input type="number" id="phone" name="phone"  min= 0 max = 9999999999 required>
 
             </div>

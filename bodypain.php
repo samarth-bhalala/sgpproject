@@ -154,7 +154,7 @@ main {
 }
 
 .card-title:hover {
-  color: #C4276A;
+  color: #032B44;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
