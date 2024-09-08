@@ -7,209 +7,270 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Days Page</title>
+    <title>Day 1 Exercises</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-* {
-  font-family: 'Abril Fatface', cursive;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        * {
+            font-family: 'Abril Fatface', cursive;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-  font-family: 'Abril Fatface', cursive;
-  line-height: 1.6;
-  overflow-x: hidden;
-  margin: 0;
-  background-color: #87CEEB; /* Blue sea background color */
-}
+        body {
+            background-color: #87CEEB;
+        }
 
-header {
-  background: rgba(255, 248, 241, 0.4);
-  color: #333;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+        header {
+            background: rgba(255, 248, 241, 0.4);
+            color: #333;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  color: #333;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: #333;
+        }
 
-.logo img {
-  max-height: 80px;
-}
+        .logo img {
+            max-height: 80px;
+        }
 
-.name h1 {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 45px;
-  color: #333;
-}
+        .name h1 {
+            font-family: 'Abril Fatface', cursive;
+            font-size: 45px;
+            color: #333;
+        }
 
-ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
+        ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
 
-ul li {
-  margin-left: 20px;
-}
+        ul li {
+            margin-left: 20px;
+        }
 
-.nav-link {
-  text-decoration: none;
-  font-size: 20px;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 10px;
-  letter-spacing: 0.5px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
+        .nav-link {
+            text-decoration: none;
+            font-size: 20px;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
 
-.nav-link:hover {
-  background-color: #032B44;
-  color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        .nav-link:hover {
+            background-color: #032B44;
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns for first row */
-  grid-template-rows: 1fr 1fr;           /* 2 rows */
-  grid-gap: 20px;
-  max-width: 100%;
-  margin: 150px auto;
-  padding: 0 20px;
-  height: 100vh;
-  overflow-y: auto;
-}
+        .card-container {
+            margin-top: 100px;
+        }
 
-.box {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
+        .exercise-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
 
-.box img {
-  width: 100%;
-  height: 60%;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
+        .exercise-card {
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.box h2 {
-  font-size: 18px;
-  margin-top: 0;
-  text-align: center;
-  background-color: #032B44;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-}
+        .exercise-card img {
+            border-radius: 20px 20px 0 0;
+            width: 100%;
+            height: auto;
+        }
 
-.box p {
-  padding: 10px;
-  text-align: center;
-}
+        .exercise-card-body {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 0 0 20px 20px;
+        }
 
-/* Specific adjustments for Days 5-7 */
-.container > .box:nth-child(5),
-.container > .box:nth-child(6),
-.container > .box:nth-child(7) {
-  grid-column: span 1; /* Keep equal space between 5, 6, and 7 */
-  grid-column-start: auto;
-}
+        .exercise-card-body h5 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
 
-.container > .box:nth-child(5) {
-  grid-column-start: 1;
-}
+        .exercise-card-body p {
+            font-size: 16px;
+        }
 
-.container > .box:nth-child(6) {
-  grid-column-start: 2;
-}
-
-.container > .box:nth-child(7) {
-  grid-column-start: 3;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-}
-
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="/sgpproject/sgpproject/img/LOGO_1.PNG" alt="Logo">
-            </div>
-            <div class="name">
-                <h1>PhysioFit</h1>
-            </div>
-            <ul>
-                <li><a class="nav-link" href="/sgpproject/sgpproject/index.php">Home</a></li>
-                <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
-                <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
-                <?php
-                if (isset($_SESSION['stat'])) {
-                    echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
-                    echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';
-                } else {
-                    echo '<li><a class="nav-link" href="/sgpproject/sgpproject/loginsignup.php">Login/Sign Up</a></li>';
-                }
-                ?>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="container">
-            <?php
-            for ($i = 1; $i <= 7; $i++) {
-                if (!isset($_SESSION['premium']) && $i > 4) {
-                    ?>
-                    <div class="box">
-                        <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" alt="Day <?php echo $i; ?>">
-                        <h2>Day <?php echo $i; ?></h2>
-                        <p>Locked.</p><a href="/sgpproject/sgpproject/premium.php"><p> Upgrade to premium to access.</p><a>
-                    </div>
-                <?php } else { ?>
-                    <div class="box">
-                        <a href="day<?php echo $i; ?>.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" alt="Day <?php echo $i; ?>">
-                            <h2>Day <?php echo $i; ?></h2>
-                        </a>
-                    </div>
-                <?php } ?>
-            <?php } ?>
+
+<header>
+    <nav>
+        <div class="logo">
+            <img src="/sgpproject/sgpproject/img/LOGO_1.PNG" alt="Logo" height="80">
         </div>
-    </main>
+        <div class="name">
+            <h1>PhysioFit</h1>
+        </div>
+        <ul>
+            <li><a class="nav-link" href="/sgpproject/sgpproject/index.php">Home</a></li>
+            <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
+            <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
+            <?php
+            if (isset($_SESSION['stat'])) {
+                echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
+                echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';
+            } else {
+                echo '<li><a class="nav-link" href="/sgpproject/sgpproject/loginsignup.php">Login/Sign Up</a></li>';
+            }
+            ?>
+        </ul>
+    </nav>
+</header>
+
+<div class="container card-container">
+    <!-- Exercise 1 -->
+    <div class="row exercise-row">
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <img src="image/exercise1.jpg" class="card-img-top" alt="Exercise 1">
+                <div class="card-body exercise-card-body">
+                    <h5 class="card-title">Push-ups</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <div class="card-body exercise-card-body">
+                    <p class="card-text">A basic upper-body exercise that works your chest, shoulders, and triceps.</p>
+                    <div class="button-group">
+                        <button class="btn btn-primary">Start Exercise</button>
+                        <button class="btn btn-secondary">Stop Exercise</button>
+                        <button class="btn btn-info">Watch Video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="row exercise-row">
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <img src="image/exercise2.jpg" class="card-img-top" alt="Exercise 2">
+                <div class="card-body exercise-card-body">
+                    <h5 class="card-title">Squats</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <div class="card-body exercise-card-body">
+                    <p class="card-text">A great lower-body exercise that targets your thighs, glutes, and core.</p>
+                    <div class="button-group">
+                        <button class="btn btn-primary">Start Exercise</button>
+                        <button class="btn btn-secondary">Stop Exercise</button>
+                        <button class="btn btn-info">Watch Video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div class="row exercise-row">
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <img src="image/exercise3.jpg" class="card-img-top" alt="Exercise 3">
+                <div class="card-body exercise-card-body">
+                    <h5 class="card-title">Plank</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <div class="card-body exercise-card-body">
+                    <p class="card-text">Strengthen your core and improve stability with this simple exercise.</p>
+                    <div class="button-group">
+                        <button class="btn btn-primary">Start Exercise</button>
+                        <button class="btn btn-secondary">Stop Exercise</button>
+                        <button class="btn btn-info">Watch Video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise 4 -->
+    <div class="row exercise-row">
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <img src="image/exercise4.jpg" class="card-img-top" alt="Exercise 4">
+                <div class="card-body exercise-card-body">
+                    <h5 class="card-title">Lunges</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <div class="card-body exercise-card-body">
+                    <p class="card-text">A powerful lower-body exercise that helps build strength in your legs and glutes.</p>
+                    <div class="button-group">
+                        <button class="btn btn-primary">Start Exercise</button>
+                        <button class="btn btn-secondary">Stop Exercise</button>
+                        <button class="btn btn-info">Watch Video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise 5 -->
+    <div class="row exercise-row">
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <img src="image/exercise5.jpg" class="card-img-top" alt="Exercise 5">
+                <div class="card-body exercise-card-body">
+                    <h5 class="card-title">Burpees</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card exercise-card">
+                <div class="card-body exercise-card-body">
+                    <p class="card-text">An explosive full-body exercise that improves endurance and strength.</p>
+                    <div class="button-group">
+                        <button class="btn btn-primary">Start Exercise</button>
+                        <button class="btn btn-secondary">Stop Exercise</button>
+                        <button class="btn btn-info">Watch Video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
