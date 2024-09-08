@@ -1,9 +1,6 @@
 <?php
     session_start();
     extract($_POST);
-    
-    // $_SESSION['new_name']=$new_nam;
-    // $_SESSION['new_email']=$new_mai;
 ?>
 <!DOCTYPE html>
 <html lang="en">

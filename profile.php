@@ -194,6 +194,7 @@ session_start();
         <p><strong>Email: </strong><?php echo $email?></p>
         <p><strong>Password:</strong><?php
                 $pss=$_SESSION['pass'];
+                
                 echo str_replace($pss,"**********",$pss);
             ?></p>
         <p><strong>Phone: </strong><?php echo $phone?></p>

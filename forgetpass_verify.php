@@ -1,13 +1,18 @@
 <?php
 session_start();
+include_once("conn.php");
+// Check connection
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login/Sign Up</title>
+    <title>index</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
     <style>
-    * {
+  * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -162,6 +167,7 @@ session_start();
     transform: scale(0.9); /* Button will shrink slightly on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
     @media (max-width: 768px) {
         .name h1 {
             font-size: 20px;
@@ -191,7 +197,7 @@ session_start();
             font-size: 14px;
         }
     }
-    </style>
+</style>
 </head>
 <body>
     <header>
@@ -209,6 +215,7 @@ session_start();
                 <?php
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
+                    echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
                 } else {
                     echo '<li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>';
                 }
@@ -216,71 +223,38 @@ session_start();
             </ul>
         </nav>
     </header>
-	<main>
-    <h1>Login/Sign Up</h1>
+    <main>
+    <h1>Forget Password</h1>
+    
     <div class="login-signup-form">
-        <form action="process_login.php" method="post" id="login-form">
+        <form action="forgetpass_verify_inc.php" method="post" id="login-form">
             <div class="form-group">
-            <label for="username">Username<span style="color:red">*</span></label>
+            <label for="username">Enter code <span style="color:red">*</span></label>
 
-                <input type="text" id="username" name="username" required>
+                <input type="number" id="code" name="code" required>
             </div>
             <div class="form-group">
-                <label for="password">Password<span style="color:red">*</span></label>
-                <input type="password" id="password" name="password" required>
+            <label for="username">Enter New Password<span style="color:red">*</span></label>
+
+                <input type="password" id="nps" name="nps" required>
             </div>
+            
             <div class="form-group">
-                <button type="submit">Login</button>
+            <label for="username">Enter Conform Password <span style="color:red">*</span></label>
+
+                <input type="password" id="cnps" name="cnps" required>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Next</button>
             </div>
             <?php         if (isset($_GET['msg'])) {
+                echo  $_SESSION['cd'];
     $msg = $_GET['msg'];
-    echo "<p>$msg</p>"; // or do something else with the message
+    echo "<p>$msg</p>"; 
 }?>
-            <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
-            <p> <a href="forgetpass.php" id="forget-password">Forget Password</a></p>
+            
         </form>
-        
-
-        <form action="process_signup.php" method="post" id="signup-form" style="display: none;">
-            <div class="form-group">
-                <label for="username">Username<span style="color:red">*</span></label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email<span style="color:red">*</span></label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password<span style="color:red">*</span></label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password<span style="color:red">*</span></label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone number<span style="color:red">*</span></label>
-                <input type="number" id="phone" name="phone"  min= 0 max = 9999999999 required>
-
-            </div>
-            <div class="form-group">
-                <button type="submit">Sign Up</button>
-            </div>
-   
-            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
-
-        </form>
-
-        <script>
-            document.getElementById('signup-link').addEventListener('click', function() {
-                document.getElementById('login-form').style.display = 'none';
-                document.getElementById('signup-form').style.display = 'block';
-            });
-            document.getElementById('login-link').addEventListener('click', function() {
-                document.getElementById('login-form').style.display = 'block';
-                document.getElementById('signup-form').style.display = 'none';
-            });
-        </script>
     </div>
 </main>
 </body>
