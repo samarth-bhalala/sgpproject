@@ -66,7 +66,7 @@ ul li {
         
         text-decoration: none;
         font-size: 20px;
-        color: #333;
+        color: #03045E;
         padding: 10px 20px;
         border-radius: 10px;
         font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
@@ -75,7 +75,7 @@ ul li {
     }
 
     .nav-link:hover {
-        background-color: #032B44;
+        background-color: #C71585;  /* #03045E pink colour */
         color: #fff;
         transform: scale(1.1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -185,7 +185,7 @@ main {
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(img/bg_3.jpg);
+        url(img/bg_4.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -220,7 +220,7 @@ main {
   text-align: center;
   position: relative;
   text-transform: uppercase;
-  color: #032B44; 
+  color: #03045E; 
   -webkit-text-stroke: 1px #fff; 
 }
 
@@ -232,7 +232,7 @@ main {
 .button {
   --border-right:5px;
   --text-stroke-color: rgba(0, 0, ,0.6);
-  --animation-color:#032B44;
+  --animation-color:#FF69B4;  /* 032B44 dark C4276A*/ 
   --fs-size: 5em;
   letter-spacing: 3px;
   text-decoration: none;
@@ -269,7 +269,7 @@ main {
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO_1.PNG" alt="Logo">
+                <img src="img/LOGO.PNG" alt="Logo">
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>
