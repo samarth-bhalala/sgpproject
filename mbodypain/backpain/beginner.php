@@ -130,30 +130,34 @@ ul li {
   text-align: center;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for first row */
+  grid-template-rows: 2fr; /* 2 rows */
+  grid-gap: 20px;
+  max-width: 100%;
+  margin: 150px auto;
+  padding: 0 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Specific adjustments for Days 1-4 */
+.container > .box:nth-child(-n + 4) {
+  grid-column: span 1; /* Keep equal space between 1-4 */
+  grid-row: 1; /* Place on first row */
+}
+
 /* Specific adjustments for Days 5-7 */
-.container > .box:nth-child(5),
-.container > .box:nth-child(6),
-.container > .box:nth-child(7) {
-  grid-column: span 1; /* Keep equal space between 5, 6, and 7 */
-  grid-column-start: auto;
-}
-
-.container > .box:nth-child(5) {
-  grid-column-start: 1;
-}
-
-.container > .box:nth-child(6) {
-  grid-column-start: 2;
-}
-
-.container > .box:nth-child(7) {
-  grid-column-start: 3;
+.container > .box:nth-child(n + 5):nth-child(-n + 7) {
+  grid-column: span 1; /* Keep equal space between 5-7 */
+  grid-row: 2; /* Place on second row */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -193,7 +197,7 @@ ul li {
         <div class="container">
             <?php
             for ($i = 1; $i <= 7; $i++) {
-                if (!isset($_SESSION['premium']) && $i > 4) {
+                if (!isset($_SESSION['premium']) && $i > 2) {
                     ?>
                     <div class="box">
                         <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" alt="Day <?php echo $i; ?>">
