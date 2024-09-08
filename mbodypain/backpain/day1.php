@@ -150,126 +150,49 @@ session_start();
 </header>
 
 <div class="container card-container">
-    <!-- Exercise 1 -->
-    <div class="row exercise-row">
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <img src="image/exercise1.jpg" class="card-img-top" alt="Exercise 1">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Push-ups</h5>
+    <?php
+    include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
+    // Retrieve exercises from the database
+    $sql = "SELECT * FROM exercises where category='Body Pain' and subCategory='Back Pain' and  level='Beginner' and gender='Male'";
+    $result = $con->query($sql);
+
+    // Check if there are any exercises
+    if ($result->num_rows > 0) {
+      // Display exercises
+      while($row = $result->fetch_assoc()) {
+        ?>
+        <!-- Exercise -->
+        <div class="row exercise-row">
+            <div class="col-md-6">
+                <div class="card exercise-card">
+                    <img src="<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
+                    <div class="card-body exercise-card-body">
+                        <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <div class="card-body exercise-card-body">
-                    <p class="card-text">A basic upper-body exercise that works your chest, shoulders, and triceps.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
+            <div class="col-md-6">
+                <div class="card exercise-card">
+                    <div class="card-body exercise-card-body">
+                        <p class="card-text"><?php echo $row['exerciseDescription']; ?></p>
+                        <div class="button-group">
+                            <button class="btn btn-primary">Start Exercise</button>
+                            <button class="btn btn-secondary">Stop Exercise</button>
+                            <button class="btn btn-info">Watch Video</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <?php
+      }
+    } else {
+      echo "No exercises found.";
+    }
 
-    <!-- Exercise 2 -->
-    <div class="row exercise-row">
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <img src="image/exercise2.jpg" class="card-img-top" alt="Exercise 2">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Squats</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <div class="card-body exercise-card-body">
-                    <p class="card-text">A great lower-body exercise that targets your thighs, glutes, and core.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Exercise 3 -->
-    <div class="row exercise-row">
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <img src="image/exercise3.jpg" class="card-img-top" alt="Exercise 3">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Plank</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <div class="card-body exercise-card-body">
-                    <p class="card-text">Strengthen your core and improve stability with this simple exercise.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Exercise 4 -->
-    <div class="row exercise-row">
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <img src="image/exercise4.jpg" class="card-img-top" alt="Exercise 4">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Lunges</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <div class="card-body exercise-card-body">
-                    <p class="card-text">A powerful lower-body exercise that helps build strength in your legs and glutes.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Exercise 5 -->
-    <div class="row exercise-row">
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <img src="image/exercise5.jpg" class="card-img-top" alt="Exercise 5">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Burpees</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card exercise-card">
-                <div class="card-body exercise-card-body">
-                    <p class="card-text">An explosive full-body exercise that improves endurance and strength.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
+    $con->close();
+    ?>
 </div>
 
 </body>
