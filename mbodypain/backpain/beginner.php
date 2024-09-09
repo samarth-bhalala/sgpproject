@@ -85,14 +85,13 @@ ul li {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns for first row */
-  grid-template-rows: 1fr 1fr;           /* 2 rows */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-template-rows: auto auto; /* 2 rows */
   grid-gap: 20px;
   max-width: 100%;
   margin: 150px auto;
   padding: 0 20px;
-  height: 100vh;
-  overflow-y: auto;
+  height: auto;
 }
 
 .box {
@@ -130,42 +129,29 @@ ul li {
   text-align: center;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns for first row */
-  grid-template-rows: 2fr; /* 2 rows */
-  grid-gap: 20px;
-  max-width: 100%;
-  margin: 150px auto;
-  padding: 0 20px;
-  height: 100vh;
-  overflow-y: auto;
-}
+/* Position specific cards */
+.box:nth-child(1) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(2) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(3) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(4) { grid-column: span 1; grid-row: 1; }
 
-/* Specific adjustments for Days 1-4 */
-.container > .box:nth-child(-n + 4) {
-  grid-column: span 1; /* Keep equal space between 1-4 */
-  grid-row: 1; /* Place on first row */
-}
-
-/* Specific adjustments for Days 5-7 */
-.container > .box:nth-child(n + 5):nth-child(-n + 7) {
-  grid-column: span 1; /* Keep equal space between 5-7 */
-  grid-row: 2; /* Place on second row */
-}
+.box:nth-child(5) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(6) { grid-column: span 1; grid-row: 2; }
+.box:nth-child(7) { grid-column: span 1; grid-row: 2; }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 column for small screens */
   }
 }
+
 
     </style>
 </head>
