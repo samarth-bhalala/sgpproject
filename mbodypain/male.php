@@ -17,7 +17,7 @@ session_start();
     body {
       font-family: 'Abril Fatface', cursive;
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow: hidden; /* Prevent scrollbars */
       margin: 0;
       background-color: #87CEEB; /* add background color of blue sea blue */
     }
@@ -63,16 +63,14 @@ session_start();
       margin-left: 20px;
     }
 
-   
     .nav-link {
-        
         text-decoration: none;
         font-size: 20px;
         color: #333;
         padding: 10px 20px;
         border-radius: 10px;
-        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-        letter-spacing: 0.5px; /* Add space between letters */
+        font-family: 'Abril Fatface', cursive;
+        letter-spacing: 0.5px;
         transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
@@ -83,48 +81,87 @@ session_start();
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-
     main {
-      margin-top: -0.1px;
+      margin-top: 0;
+      height: 100vh; /* Set main to full viewport height */
       padding-bottom: 0px;
-    }
-
-    .slideshow-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
       overflow: hidden;
-      z-index: 5;
     }
 
-    .slide {
-      display: none;
+    .container {
+      max-width: 100%;
+      height: 70%; /* Ensure the container fits the viewport */
+      margin: 150px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center content vertically */
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      margin-top: -20px;
       width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
     }
 
-    .slide img {
+    .col-2, .col-3, .col-4, .col-5 {
+      flex: 1;
+      margin: 20px;
+      width: calc(25% - 40px);
+      height: calc(70vh - 40px);
+    }
+
+    .box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(1);
+      border-radius: 10px 10px 0 0;
     }
 
-    .slide.active {
+    .box h2 {
+      font-size: 18px;
+      margin-top: 0;
+      text-align: center;
+      background-color: #032B44;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .box a {
       display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #333;
     }
 
     @media (max-width: 768px) {
       .name h1 {
         font-size: 20px;
       }
+
       ul {
         flex-direction: column;
         align-items: flex-start;
       }
+
       ul li {
         margin-left: 0;
         margin-bottom: 10px;
@@ -135,94 +172,16 @@ session_start();
       .logo img {
         max-height: 60px;
       }
+
       .name h1 {
         font-size: 18px;
       }
+
       .nav-link {
         font-size: 14px;
       }
     }
 
-    .container {
-    max-width: 100%;
-    margin: 150px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    margin-top:-20px;
-    
-  }
-
-  .col-2, .col-3, .col-4, .col-5 {
-    flex: 1;
-    margin: 20px;
-    width: calc(25% - 40px);
-    height: calc(70vh - 40px);
-  }
-
-  .box {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 20px; /* add rounded curves to the borders */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-
-  .box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-  }
-  .box h2 {
-  font-size: 18px;
-  margin-top: 0;
-  text-align: center;
-  background-color: #032B44; /* navy blue background color */
-  color: #fff; /* white text color */
-  padding: 10px; /* add some padding to make it look better */
-  border-radius: 10px; /* add rounded curves to the borders */
-}
-  
-  .box a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  /* .box a:hover {
-    background-color: #032B44;
-    color: #fff;
-  } */
-
-/* .btn {
-  background-color: #032B44;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #fff;
-  color: #032B44;
-  border: 1px solid #032B44;
-} */
     </style>
 </head>
 <body>
@@ -250,42 +209,42 @@ session_start();
         </nav>
     </header>
     <main>
-  <div class="container">
-    <div class="row">
-      <div class="col-2">
-        <div class="box">
-          <a href="backpain/backpain.php">
-            <img src="/sgpproject/sgpproject/img/mbackpain.jpg" alt="Back Pain">
-            <h2>Back Pain</h2>
-          </a>
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <div class="box">
+                        <a href="backpain/backpain.php">
+                            <img src="/sgpproject/sgpproject/img/mbackpain.jpg" alt="Back Pain">
+                            <h2>Back Pain</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="box">
+                        <a href="handpain/handpain.php">
+                            <img src="/sgpproject/sgpproject/img/mhandpain.jpg" alt="Hand Pain">
+                            <h2>Hand Pain</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="box">
+                        <a href="legpain/legpain.php">
+                            <img src="/sgpproject/sgpproject/img/mlegpain.webp" alt="Leg Pain">
+                            <h2>Leg Pain</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="box">
+                        <a href="headpain/headpain.php">
+                            <img src="/sgpproject/sgpproject/img/mheadpain.jpg" alt="Head Pain">
+                            <h2>Head Pain</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-3">
-        <div class="box">
-          <a href="handpain/handpain.php">
-            <img src="/sgpproject/sgpproject/img/mhandpain.jpg" alt="Hand Pain">
-            <h2>Hand Pain</h2>
-          </a>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="box">
-          <a href="legpain/legpain.php">
-            <img src="/sgpproject/sgpproject/img/mlegpain.webp" alt="Leg Pain">
-            <h2>Leg Pain</h2>
-          </a>
-        </div>
-      </div>
-      <div class="col-5">
-        <div class="box">
-          <a href="headpain/headpain.php">
-            <img src="/sgpproject/sgpproject/img/mheadpain.jpg" alt="Head Pain">
-            <h2>Head Pain</h2>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+    </main>
 </body>
 </html>
