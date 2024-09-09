@@ -122,6 +122,23 @@ session_start();
             display: flex;
             gap: 10px;
         }
+
+        /* Custom column widths */
+        .custom-col-20 {
+            width: 20%;
+            margin-left: -10px;
+        }
+
+        .custom-col-70 {
+            width: 70%;
+            margin-top:30px;
+            margin-left: 120px;
+        }
+
+        /* .custom-margin {
+            margin-left: -10px;
+        } */
+
     </style>
 </head>
 <body>
@@ -163,18 +180,17 @@ session_start();
       while($row = $result->fetch_assoc()) {
         ?>
         <!-- Exercise -->
-        <div class="row exercise-row">
-            <div class="col-md-6">
+        <div class="row exercise-row custom-margin">
+            <div class="custom-col-20">
                 <div class="card exercise-card">
                     <img src="<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
-                    <div class="card-body exercise-card-body">
-                        <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
-                    </div>
+                    
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="custom-col-70">
                 <div class="card exercise-card">
                     <div class="card-body exercise-card-body">
+                        <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
                         <p class="card-text"><?php echo $row['exerciseDescription']; ?></p>
                         <div class="button-group">
                             <button class="btn btn-primary">Start Exercise</button>
@@ -195,3 +211,4 @@ session_start();
 </div>
 </body>
 </html>
++9
