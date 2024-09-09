@@ -123,24 +123,22 @@ session_start();
             gap: 10px;
         }
 
-        .fixed-buttons-container {
-            display: flex;
-            justify-content: flex-end;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 200px; /* Adjust width to fit the buttons */
+        /* Custom column widths */
+        .custom-col-20 {
+            width: 20%;
+            margin-left: -10px;
         }
 
-        .fixed-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .custom-col-70 {
+            width: 70%;
+            margin-top:30px;
+            margin-left: 120px;
         }
 
-        .fixed-buttons button {
-            width: 100%;
-        }
+        /* .custom-margin {
+            margin-left: -10px;
+        } */
+
     </style>
 </head>
 <body>
@@ -170,125 +168,46 @@ session_start();
 </header>
 
 <div class="container card-container">
-    <!-- First Row: 4 Cards -->
-    <div class="row exercise-row">
-        <div class="col-md-3">
-            <div class="card exercise-card">
-                <img src="image/exercise1.jpg" class="card-img-top" alt="Exercise 1">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Push-ups</h5>
-                    <p class="card-text">A basic upper-body exercise that works your chest, shoulders, and triceps.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php
+    include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
+    // Retrieve exercises from the database
+    $sql = "SELECT * FROM exercises where category='Body Pain' and subCategory='Back Pain' and  level='Beginner' and gender='Male'";
+    $result = $con->query($sql);
 
-        <div class="col-md-3">
-            <div class="card exercise-card">
-                <img src="image/exercise2.jpg" class="card-img-top" alt="Exercise 2">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Squats</h5>
-                    <p class="card-text">A lower-body exercise that targets your glutes and thighs.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
+    // Check if there are any exercises
+    if ($result->num_rows > 0) {
+      // Display exercises
+      while($row = $result->fetch_assoc()) {
+        ?>
+        <!-- Exercise -->
+        <div class="row exercise-row custom-margin">
+            <div class="custom-col-20">
+                <div class="card exercise-card">
+                    <img src="<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
+                    
+                </div>
+            </div>
+            <div class="custom-col-70">
+                <div class="card exercise-card">
+                    <div class="card-body exercise-card-body">
+                        <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
+                        <p class="card-text"><?php echo $row['exerciseDescription']; ?></p>
+                        <div class="button-group">
+                            <button class="btn btn-primary">Start Exercise</button>
+                            <button class="btn btn-secondary">Stop Exercise</button>
+                            <button class="btn btn-info">Watch Video</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-3">
-            <div class="card exercise-card">
-                <img src="image/exercise3.jpg" class="card-img-top" alt="Exercise 3">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Plank</h5>
-                    <p class="card-text">Strengthen your core and improve stability with this simple exercise.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card exercise-card">
-                <img src="image/exercise4.jpg" class="card-img-top" alt="Exercise 4">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Lunges</h5>
-                    <p class="card-text">A lower-body exercise that targets your glutes and thighs.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Second Row: 3 Cards -->
-    <div class="row exercise-row">
-        <div class="col-md-3">
-            <div class="card exercise-card">
-                <img src="image/exercise5.jpg" class="card-img-top" alt="Exercise 5">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Burpees</h5>
-                    <p class="card-text">A full-body exercise that increases your endurance and strength.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card exercise-card">
-                <img src="image/exercise6.jpg" class="card-img-top" alt="Exercise 6">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Sit-ups</h5>
-                    <p class="card-text">An effective exercise to strengthen your abdominal muscles.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card exercise-card">
-                <img src="image/exercise7.jpg" class="card-img-top" alt="Exercise 7">
-                <div class="card-body exercise-card-body">
-                    <h5 class="card-title">Mountain Climbers</h5>
-                    <p class="card-text">A cardio exercise that strengthens your core and legs.</p>
-                    <div class="button-group">
-                        <button class="btn btn-primary">Start Exercise</button>
-                        <button class="btn btn-secondary">Stop Exercise</button>
-                        <button class="btn btn-info">Watch Video</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <?php
+      }
+    } else {
+      echo "No exercises found.";
+    }
+    $con->close();
+    ?>
 </div>
-
-<!-- Floating Buttons -->
-<div class="fixed-buttons-container">
-    <div class="fixed-buttons">
-        <button class="btn btn-primary">Pause</button>
-        <button class="btn btn-success">Next</button>
-    </div>
-</div>
-
 </body>
 </html>
