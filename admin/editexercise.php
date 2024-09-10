@@ -1,7 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 // Get exercise ID from URL
-$exerciseId = 7;
+$exerciseId = $_GET['id'];
 
 // SQL query to retrieve exercise data
 $sql = "SELECT * FROM exercises WHERE id = '$exerciseId'";
