@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2024 at 05:21 PM
+-- Generation Time: Sep 10, 2024 at 06:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `physio`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(10) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `time` datetime(6) NOT NULL DEFAULT current_timestamp(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `pass`, `email`, `time`) VALUES
+(1, 'samarth', '$argon2i$v=19$m=65536,t=4,p=1$N0dlanVDMGpzc2haaTdGbg$geRQhm9lW+rNMa6cFy2y/+c5gDtUFR9GBGNtygUwzQo', 'samarthbhalala@gmail.com', '2024-09-10 06:49:52.000000');
 
 -- --------------------------------------------------------
 
@@ -69,7 +90,7 @@ CREATE TABLE `exercises` (
 --
 
 INSERT INTO `exercises` (`id`, `exerciseName`, `exerciseDescription`, `gender`, `category`, `subCategory`, `level`, `imagePath`, `benefits`, `video_url`) VALUES
-(7, 'Knee to chest', 'Start by lying on your back with your knees bent and your feet flat on the floor. \r\nNext, clasp your hands around one knee and bring that knee up toward your chest.\r\n Hold that knee to your chest, keeping your lower back pressed to the floor.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e292553960_knee to chest stretch.jpg', 'Relieve muscle tension in your low back and hips, often related to activities like going up and down the stairs or sitting for long periods of time. \nImproving flexibility and range of motion in the hips, hamstrings, and glutes.', 'https://youtu.be/bUHjaXGDm_E?si=A797TkkWJMINL32r'),
+(7, 'Knee to chest', 'Start by lying on your back with your knees bent and your feet flat on the floor. \r\nNext, clasp your hands around one knee and bring that knee up toward your chest.\r\n Hold that knee to your chest, keeping your lower back pressed to the floor.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e292553960_knee to chest stretch.jpg', 'Relieve muscle tension in your low back and hips, often related to activities like going up and down the stairs or sitting for long periods of time. \r\nImproving flexibility and range of motion in the hips, hamstrings, and glutes.', 'https://youtu.be/bUHjaXGDm_E?si=A797TkkWJMINL32r'),
 (8, 'Side plank', 'Lie on your side with your knees bent, and prop your upper body up on your elbow.\r\n Raise your hips off the floor, and hold for 6 seconds. Rest for 10 seconds.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e298239e4e_Msideplank.jpg', 'Core strengthening, improve posture,enhance balance, better flexibility , reduce backache , improves metabolism.', 'https://youtu.be/FStG5rBe0-M?si=ClMNf4R4od4NoobG'),
 (9, 'Plank', 'Plant hands directly under shoulders slightly wider than shoulder width like you\'re about to do a push-up.Ground toes into the floor and squeeze glutes to stabilize your body. Your legs should be working, too  be careful not to lock or hyperextend your knees.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e29e8c8bad_Mplank.jpg', 'Improves posture , improves flexibility , improves metabolism , strengthen core ,  reduce backache.', 'https://youtu.be/Ehy8G39d_PM?si=MKc2Rut2mLIuxCY3'),
 (10, 'Cobra pose', 'Lie down in a prone position. Lie face down on your mat with your entire body extended. ...\r\nBring your hands underneath the shoulder blades.Begin to lift your upper body Use lower back muscles to lift higher Look slightly forward and up.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e2c8a7ff69_Mcobra.jpeg', 'Opens the shoulder blades, neck, and collar bones.Improves spinal posture, flexibility, and alignment.Reduces back pain.Improves circulation.Opens the lungs.\r\nStimulates the abdominal and digestive organs, improving digestion.Massages and regulates the adrenal and thyroid glands.Reduces stress.', 'https://youtu.be/Nd3j6Avtv6Q?si=L4P5fHbSvlzRu7Id'),
@@ -449,13 +470,19 @@ CREATE TABLE `signup` (
 --
 
 INSERT INTO `signup` (`id`, `email`, `username`, `pass`, `phone`, `premium`) VALUES
-(1, 'samarthbhalala@gmail.com', 'samarth', '$argon2i$v=19$m=65536,t=4,p=1$N0dlanVDMGpzc2haaTdGbg$geRQhm9lW+rNMa6cFy2y/+c5gDtUFR9GBGNtygUwzQo', '9484400509', 0),
-(2, 'samarthbhalala@gmail.com', 'samarth', '$argon2i$v=19$m=65536,t=4,p=1$N0dlanVDMGpzc2haaTdGbg$geRQhm9lW+rNMa6cFy2y/+c5gDtUFR9GBGNtygUwzQo', '9484400509', 0),
+(1, 'samarthbhalala@gmail.com', 'samarth', '$argon2i$v=19$m=65536,t=4,p=1$N0dlanVDMGpzc2haaTdGbg$geRQhm9lW+rNMa6cFy2y/+c5gDtUFR9GBGNtygUwzQo', '9484400509', 1),
+(2, 'samarthbhalala@gmail.com', 'samarth', '$argon2i$v=19$m=65536,t=4,p=1$N0dlanVDMGpzc2haaTdGbg$geRQhm9lW+rNMa6cFy2y/+c5gDtUFR9GBGNtygUwzQo', '9484400509', 1),
 (3, 'sambhubhalala@gmail.com', 'samarthbhalala', '$2y$10$aoL6WMb6ScsS0gGX.IUYV.zZSMnjPFDTiLcoW6iUoc/vq4jgtEoVW', '9484400509', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contactus`
@@ -484,6 +511,12 @@ ALTER TABLE `signup`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contactus`
