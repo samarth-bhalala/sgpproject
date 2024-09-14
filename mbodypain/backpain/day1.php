@@ -7,7 +7,8 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Days Page</title>
+    <title>Day 1 Exercises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -21,7 +22,6 @@ session_start();
 
         body {
             background-color: #87CEEB;
-            position: relative;
         }
 
         header {
@@ -82,26 +82,39 @@ session_start();
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .container {
+        .card-container {
             margin-top: 100px;
         }
 
-        .card-img-top {
-            border-radius: 20px 20px 0 0;
-            height: 200px; /* Adjust height as needed */
-            object-fit: cover;
+        .exercise-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
         }
 
-        .card-body {
+        .exercise-card {
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exercise-card img {
+            border-radius: 20px 20px 0 0;
+            width: 100%;
+            height: auto;
+        }
+
+        .exercise-card-body {
+            padding: 15px;
             background-color: #fff;
             border-radius: 0 0 20px 20px;
         }
 
-        .card-title {
+        .exercise-card-body h5 {
             font-size: 22px;
+            margin-bottom: 10px;
         }
 
-        .card-text {
+        .exercise-card-body p {
             font-size: 16px;
         }
 
@@ -137,36 +150,48 @@ session_start();
     </nav>
 </header>
 
-<div class="container">
-    <div class="row">
-        <?php
-        for ($i = 1; $i <= 7; $i++) {
-            if (!isset($_SESSION['premium']) && $i > 2) {
-                ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" class="card-img-top" alt="Day <?php echo $i; ?>">
-                        <div class="card-body">
-                            <h5 class="card-title">Day <?php echo $i; ?></h5>
-                            <p class="card-text">Locked.</p>
-                            <a href="/sgpproject/sgpproject/premium.php" class="btn btn-primary">Upgrade to premium to access.</a>
+<div class="container card-container">
+    <?php
+    include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
+    // Retrieve exercises from the database
+    $sql = "SELECT * FROM exercises where category='Body Pain' and subCategory='Back Pain' and  level='Beginner' and gender='Male'";
+    $result = $con->query($sql);
+
+    // Check if there are any exercises
+    if ($result->num_rows > 0) {
+      // Display exercises
+      while($row = $result->fetch_assoc()) {
+        ?>
+        <!-- Exercise -->
+        <div class="row exercise-row">
+            <div class="col-md-6">
+                <div class="card exercise-card">
+                    <img src="<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
+                    <div class="card-body exercise-card-body">
+                        <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card exercise-card">
+                    <div class="card-body exercise-card-body">
+                        <p class="card-text"><?php echo $row['exerciseDescription']; ?></p>
+                        <div class="button-group">
+                            <button class="btn btn-primary">Start Exercise</button>
+                            <button class="btn btn-secondary">Stop Exercise</button>
+                            <button class="btn btn-info">Watch Video</button>
                         </div>
                     </div>
                 </div>
-            <?php } else { ?>
-                <div class="col-md-4 mb-4">
-                    <a href="day<?php echo $i; ?>.php" class="card-link">
-                        <div class="card">
-                            <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" class="card-img-top" alt="Day <?php echo $i; ?>">
-                            <div class="card-body">
-                                <h5 class="card-title">Day <?php echo $i; ?></h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            <?php } ?>
-        <?php } ?>
-    </div>
+            </div>
+        </div>
+        <?php
+      }
+    } else {
+      echo "No exercises found.";
+    }
+    $con->close();
+    ?>
 </div>
 
 </body>
