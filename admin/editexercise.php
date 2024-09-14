@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute query
     if ($con->query($sql) === TRUE) {
-        header("Locatin: dashboard.php");
+        header("Location: dashboard.php");
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
     }
