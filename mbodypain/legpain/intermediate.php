@@ -3,195 +3,156 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Page</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <style>
-    * {
-      font-family: 'Abril Fatface', cursive;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  font-family: 'Abril Fatface', cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Abril Fatface', cursive;
-      line-height: 1.6;
-      overflow-x: hidden;
-      margin: 0;
-      background-color: #87CEEB; /* add background color of blue sea blue */
-    }
+body {
+  font-family: 'Abril Fatface', cursive;
+  line-height: 1.6;
+  overflow-x: hidden;
+  margin: 0;
+  background-color: #87CEEB; /* Blue sea background color */
+}
 
-    header {
-      background: rgba(255, 248, 241, 0.4);
-      color: #333;
-      padding: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+header {
+  background: rgba(255, 248, 241, 0.4);
+  color: #333;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      color: #333;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #333;
+}
 
-    .logo img {
-      max-height: 80px;
-    }
+.logo img {
+  max-height: 80px;
+}
 
-    .name h1 {
-      font-family: 'Abril Fatface', cursive;
-      font-size: 45px;
-      color: #333;
-    }
+.name h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 45px;
+  color: #333;
+}
 
-    ul {
-      list-style: none;
-      display: flex;
-      padding: 0;
-      margin: 0;
-    }
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
 
-    ul li {
-      margin-left: 20px;
-    }
+ul li {
+  margin-left: 20px;
+}
 
-    .nav-link {
-      text-decoration: none;
-      font-size: 20px;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-      letter-spacing: 0.5px; /* Add space between letters */
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    }
+.nav-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
 
-    .nav-link:hover {
-      background-color: #032B44;
-      color: #fff;
-      transform: scale(1.1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
+.nav-link:hover {
+  background-color: #032B44;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
-    main {
-      margin-top: -0.1px;
-      padding-bottom: 0px;
-    }
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-template-rows: auto auto; /* 2 rows */
+  grid-gap: 20px;
+  max-width: 100%;
+  margin: 150px auto;
+  padding: 0 20px;
+  height: auto;
+}
 
-    .container {
-      max-width: 100%;
-      margin: 150px auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
+.box img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
 
-    .col-2, .col-3, .col-4, .col-5 {
-      flex: 1;
-      margin: 20px;
-      width: calc(25% - 40px);
-      height: calc(70vh - 40px);
-    }
+.box h2 {
+  font-size: 18px;
+  margin-top: 0;
+  text-align: center;
+  background-color: #032B44;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
 
-    .box {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 20px; /* add rounded curves to the borders */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: 100%;
-    }
+.box p {
+  padding: 10px;
+  text-align: center;
+}
 
-    .box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-    }
+/* Position specific cards */
+.box:nth-child(1) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(2) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(3) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(4) { grid-column: span 1; grid-row: 1; }
 
-    .box h2 {
-      font-size: 18px;
-      margin-top: 0;
-      text-align: center;
-      background-color: #032B44; /* navy blue background color */
-      color: #fff; /* white text color */
-      padding: 10px; /* add some padding to make it look better */
-      border-radius: 10px; /* add rounded curves to the borders */
-    }
+.box:nth-child(5) { grid-column: span 1; grid-row: 1; }
+.box:nth-child(6) { grid-column: span 1; grid-row: 2; }
+.box:nth-child(7) { grid-column: span 1; grid-row: 2; }
 
-    .box a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
-      color: #333;
-    }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+}
 
-    /* .box a:hover {
-      background-color: #032B44;
-      color: #fff;
-    } */
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr; /* 1 column for small screens */
+  }
+}
 
-    /* .btn {
-      background-color: #032B44;
-      color: #fff;
-      padding: 10px       20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
 
-    .btn:hover {
-      background-color: #fff;
-      color: #032B44;
-      border: 1px solid #032B44;
-    }
-*/
-    @media (max-width: 768px) {
-      .name h1 {
-        font-size: 20px;
-      }
-      ul {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo img {
-        max-height: 60px;
-      }
-      .name h1 {
-        font-size: 18px;
-      }
-      .nav-link {
-        font-size: 14px;
-      }
-    }
     </style>
 </head>
 <body>
@@ -208,7 +169,6 @@ session_start();
                 <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
                 <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
                 <?php
-                
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
                     echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';
@@ -223,7 +183,7 @@ session_start();
         <div class="container">
             <?php
             for ($i = 1; $i <= 7; $i++) {
-                if (!isset($_SESSION['premium']) && $i > 0) {
+                if (!isset($_SESSION['premium']) && $i > 2) {
                     ?>
                     <div class="box">
                         <img src="/sgpproject/sgpproject/img/day<?php echo $i; ?>.jpg" alt="Day <?php echo $i; ?>">
