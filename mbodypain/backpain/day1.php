@@ -122,6 +122,27 @@ session_start();
             display: flex;
             gap: 10px;
         }
+
+        .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.video-container.show {
+    display: block;
+}
+
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -166,7 +187,7 @@ session_start();
         <div class="row exercise-row">
             <div class="col-md-6">
                 <div class="card exercise-card">
-                    <img src="\<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
+                    <img src="<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
                     <div class="card-body exercise-card-body">
                         <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
                     </div>
@@ -177,10 +198,11 @@ session_start();
                     <div class="card-body exercise-card-body">
                         <p class="card-text"><?php echo $row['exerciseDescription']; ?></p>
                         <div class="button-group">
-                            <button class="btn btn-primary">Start Exercise</button>
-                            <button class="btn btn-secondary">Stop Exercise</button>
-                            <button class="btn btn-info">Watch Video</button>
+                            <button class="btn btn-primary" onclick="startExercise(<?php echo $row['id']; ?>)">Start Exercise</button>
+                            <button class="btn btn-secondary" onclick="stopExercise()">Stop Exercise</button>
+                            <button class="btn btn-info" onclick="playVideo(<?php echo $row['video_url']; ?>)">Watch Video</button>
                         </div>
+                        <div class="timer" id="timer-display">00:00</div>
                     </div>
                 </div>
             </div>
@@ -193,6 +215,62 @@ session_start();
     $con->close();
     ?>
 </div>
+
+<div class="video-container" style="display: none;">
+    <iframe id="youtube-player" width="100%" height="500" src="<?php echo $row['id']; ?>" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<audio id="beep-sound" src="/spgproject/sgpproject/ beep.mp3" style="display: none;"></audio>
+
+<script>
+    let timerInterval;
+    let startTime;
+
+    function playVideo(videoUrl) {
+    console.log(`Playing video with URL: ${videoUrl}`);
+    const videoContainer = document.querySelector('.video-container');
+    const youtubePlayer = document.querySelector('#youtube-player');
+    videoContainer.style.display = 'block';
+
+    const videoId = videoUrl.split('v=')[1];
+    const iframe = document.createElement('iframe');
+    iframe.frameBorder = '0';
+    iframe.allowFullScreen = true;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    youtubePlayer.appendChild(iframe);
+    console.log(`YouTube player src: ${iframe.src}`);
+}
+
+    function startExercise(exerciseId) {
+        playBeepSound();
+        startTime = new Date().getTime();
+        timerInterval = setInterval(() => {
+            const currentTime = new Date().getTime();
+            const timeElapsed = (currentTime - startTime) / 1000;
+            const timerDisplay = document.querySelector('#timer-display');
+            timerDisplay.textContent = formatTime(timeElapsed);
+            if (timeElapsed >= 30) {
+                clearInterval(timerInterval);
+                playBeepSound();
+            }
+        }, 1000);
+    }
+
+    function stopExercise() {
+        clearInterval(timerInterval);
+    }
+
+    function playBeepSound() {
+        const beepSound = document.querySelector('#beep-sound');
+        beepSound.play();
+    }
+
+    function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+</script>
 
 </body>
 </html>
