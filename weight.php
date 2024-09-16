@@ -6,195 +6,182 @@ session_start();
 <head>
     <title>index</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
-<style>
-* {
-  font-family: 'Abril Fatface', cursive;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    <style>
+    * {
+      font-family: 'Abril Fatface', cursive;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-    font-family: 'Abril Fatface', cursive;
-    line-height: 1.6;
-    overflow-x: hidden;
-    margin: 0;
-    background-color: #87CEEB; /* add background color of blue sea blue */
-  }
+    body {
+      font-family: 'Abril Fatface', cursive;
+      line-height: 1.6;
+      overflow: hidden; /* Prevent scrolling */
+      margin: 0;
+      background-color: #87CEEB; /* Sea blue background */
+    }
 
-header {
-  background: rgba(255, 248, 241, 0.4);
-  color: #333;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    header {
+      background: rgba(255, 248, 241, 0.4);
+      color: #333;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  color: #333;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      color: #333;
+    }
 
-.logo img {
-  max-height: 80px;
-}
+    .logo img {
+      max-height: 80px;
+    }
 
-.name h1 {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 45px;
-  color: #333;
-}
+    .name h1 {
+      font-family: 'Abril Fatface', cursive;
+      font-size: 45px;
+      color: #333;
+    }
 
-ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
+    ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
 
-ul li {
-  margin-left: 20px;
-}
+    ul li {
+      margin-left: 20px;
+    }
 
-.nav-link {
-  text-decoration: none;
-  font-size: 20px;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: 'Abril Fatface', cursive;
-  letter-spacing: 0.5px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
+    .nav-link {
+      text-decoration: none;
+      font-size: 20px;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
 
-.nav-link:hover {
-  background-color: #032B44;
-  color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+    .nav-link:hover {
+      background-color: #032B44;
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
 
-main {
-  margin-top: -0.1px;
-  padding-bottom: 0px;
-}
+    main {
+      margin-top: 120px; /* Adjust based on header height */
+      height: calc(100vh - 120px); /* Adjust based on header height */
+      padding-bottom: 0px;
+      overflow: hidden;
+    }
 
-.slideshow-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 5;
-}
+    .row {
+      display: flex;
+      justify-content: space-between;
+      height: 100%; /* Make the row take full height of the container */
+    }
 
-.slide {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+    .col-1, .col-2 {
+      flex: 1;
+      position: relative;
+      height: 99 %;
+      overflow: hidden; /* Prevent scrolling inside the columns */
+      margin: 0 20px ;
+    }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(1);
-}
+    .col-1 {
+      margin-bottom: 20px;
+    }
 
-.slide.active {
-  display: block;
-}
+    .col-2 {
+      margin-bottom: 20px;
+    }
 
-.card {
-    width: 100%;
-    height: 650px;
-    margin: 20px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-  }
+    .card {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-  }
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
 
-  .card-img-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
+    .card-img-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 
-  .card-title {
-  font-size: 50px;
-  font-weight: bold;
-  color: #fff; /* initial text color */
-  transition: color 0.3s ease; /* add transition effect */
-}
+    .card-title {
+      font-size: 50px;
+      font-weight: bold;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
 
-.card-title:hover {
-  color: #032B44;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+    .card-title:hover {
+      color: #032B44;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 
-  .row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 80px; /* add margin top to start below navbar */
-  }
+    @media (max-width: 768px) {
+      .name h1 {
+        font-size: 20px;
+      }
 
-  .col-1{
-    /* flex: 1; */
-    margin: 20px 10px 20px -10px; /* add margin to cards */
-  }
-  .col-2 {
-    margin: 20px 30px 20px 0px;
-  }
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-@media (max-width: 768px) {
-  .name h1 {
-    font-size: 20px;
-  }
-  ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  ul li {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-}
+      ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+    }
 
-@media (max-width: 480px) {
-  .logo img {
-    max-height: 60px;
-  }
-  .name h1 {
-    font-size: 18px;
-  }
-  .nav-link {
-    font-size: 14px;
-  }
-}
-</style>
+    @media (max-width: 480px) {
+      .logo img {
+        max-height: 60px;
+      }
+
+      .name h1 {
+        font-size: 18px;
+      }
+
+      .nav-link {
+        font-size: 14px;
+      }
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -220,7 +207,8 @@ main {
             </ul>
         </nav>
     </header>
-    <main>
+    
+<main>
   <div class="row">
     <div class="col-1">
       <a href="mweight/mweight.php" target="_self">
@@ -246,3 +234,4 @@ main {
 </main>
 </body>
 </html>
+
