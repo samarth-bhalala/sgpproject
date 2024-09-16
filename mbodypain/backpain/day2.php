@@ -166,8 +166,8 @@ session_start();
         <div class="row exercise-row">
             <div class="col-md-6">
                 <div class="card exercise-card">
-                    <img src="<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
-                    <div class="card-body exercise-card-body">
+                <img src="/sgpproject/sgpproject/<?php echo $row['imagePath']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
+                <div class="card-body exercise-card-body">
                         <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
                     </div>
                 </div>
