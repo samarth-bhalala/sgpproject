@@ -7,173 +7,150 @@ session_start();
     <title>index</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <style>
-* {
-  font-family: 'Abril Fatface', cursive;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        * {
+            font-family: 'Abril Fatface', cursive;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-  font-family: 'Abril Fatface', cursive;
-  line-height: 1.6;
-  overflow-x: hidden; /* Disable horizontal scrolling */
-  margin: 0;
-  background-color: #87CEEB; /* add background color of blue sea blue */
-}
+        body {
+            font-family: 'Abril Fatface', cursive;
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+            background-color: #87CEEB;
+        }
 
-header {
-  background: rgba(255, 248, 241, 0.4);
-  color: #333;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+        header {
+            background: rgba(255, 248, 241, 0.4);
+            color: #333;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  color: #333;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: #333;
+        }
 
-.logo img {
-  max-height: 80px;
-}
+        .logo img {
+            max-height: 80px;
+        }
 
-.name h1 {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 45px;
-  color: #333;
-}
+        .name h1 {
+            font-size: 45px;
+            color: #333;
+        }
 
-ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
+        ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
 
-ul li {
-  margin-left: 20px;
-}
+        ul li {
+            margin-left: 20px;
+        }
 
-.nav-link {
-  text-decoration: none;
-  font-size: 20px;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-  letter-spacing: 0.5px; /* Add space between letters */
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
+        .nav-link {
+            text-decoration: none;
+            font-size: 20px;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
 
-.nav-link:hover {
-  background-color: #032B44;
-  color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        .nav-link:hover {
+            background-color: #032B44;
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
 
-main {
-  margin-top: 120px; /* Adjust margin for fixed header */
-}
+        main {
+            margin-top: 120px;
+        }
 
-.container {
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            width: 100%;
+        }
 
-.col-2, .col-3, .col-4 {
-  flex: 1;
-  margin: 20px;
-  width: calc(25% - 40px);
-  height: calc(70vh - 40px);
-}
+        .col-1, .col-2, .col-3, .col-4 {
+            flex-basis: calc(50% - 40px); /* Each card takes up 50% width with margin */
+            margin: 10px;
+            height: 300px; /* Set a fixed height to avoid collapsing */
+        }
 
-.box {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 20px; /* add rounded curves to the borders */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
+        .box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-.box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
+        .box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            border-radius: 20px;
+        }
 
-.box h2 {
-  font-size: 18px;
-  margin-top: 0;
-  text-align: center;
-  background-color: #032B44; /* navy blue background color */
-  color: #fff; /* white text color */
-  padding: 10px; /* add some padding to make it look better */
-  border-radius: 10px; /* add rounded curves to the borders */
-}
+        .box h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #fff;
+            z-index: 2;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
 
-.box a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: #333;
-}
+        .box a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
 
-@media (max-width: 768px) {
-  .name h1 {
-    font-size: 20px;
-  }
-
-  ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  ul li {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo img {
-    max-height: 60px;
-  }
-
-  .name h1 {
-    font-size: 18px;
-  }
-
-  .nav-link {
-    font-size: 14px;
-  }
-}
+        @media (max-width: 768px) {
+            .col-1, .col-2, .col-3, .col-4 {
+                flex-basis: 100%; /* Stack cards vertically on smaller screens */
+            }
+        }
 
     </style>
 </head>
@@ -204,27 +181,35 @@ main {
     <main>
         <div class="container">
             <div class="row">
+                <div class="col-1">
+                    <div class="box">
+                        <a href="beginner.php">
+                            <img src="/sgpproject/sgpproject/img/mbp_bp_b.jpg" alt="Beginner">
+                            <h2>UPPER</h2>
+                        </a>
+                    </div>
+                </div>
                 <div class="col-2">
                     <div class="box">
-                        <a href="beginner.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/mbp_bp_b.jpg" alt="Beginner">
-                            <h2>Beginner</h2>
+                        <a href="intermediate.php">
+                            <img src="/sgpproject/sgpproject/img/mbp_bp_i.jpg" alt="Intermediate">
+                            <h2>LOWER</h2>
                         </a>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="box">
-                        <a href="intermediate.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/mbp_bp_i.jpg" alt="Intermediate">
-                            <h2>Intermediate</h2>
+                        <a href="advanced.php">
+                            <img src="/sgpproject/sgpproject/img/mbp_bp_a.jpg" alt="Advanced">
+                            <h2>SPINAL</h2>
                         </a>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="box">
-                        <a href="advanced.php" class="btn">
-                            <img src="/sgpproject/sgpproject/img/mbp_bp_a.jpg" alt="Advanced">
-                            <h2>Advanced</h2>
+                        <a href="expert.php">
+                            <img src="/sgpproject/sgpproject/img/mbp_bp_b.jpg" alt="Expert">
+                            <h2>SHOULDER</h2>
                         </a>
                     </div>
                 </div>
