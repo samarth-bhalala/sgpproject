@@ -161,10 +161,13 @@ if (!$result_exercises) {
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
+            <div class="logo">
+                <img src="img/LOGO_1.PNG" alt="Logo">
+            </div>
             <div class="name">
-                <h1>PhysioFit Dashboard</h1>
+                <h1>PhysioFit</h1>
             </div>
             <ul>
                 <li><a class="nav-link" href="index.php">Home</a></li>
@@ -173,6 +176,7 @@ if (!$result_exercises) {
                 <?php
                 if (isset($_SESSION['stat'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
+                    echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
                 } else {
                     echo '<li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>';
                 }

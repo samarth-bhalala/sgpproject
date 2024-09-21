@@ -57,6 +57,9 @@ session_start();
         color: #333;
     }
 
+    .logo{
+        
+    }
     .logo img {
         max-height: 80px;
     }
@@ -196,7 +199,7 @@ session_start();
 <body>
     <header>
         <nav>
-            <div class="logo">
+        <div class="logo">
                 <img src="img/LOGO_1.PNG" alt="Logo">
             </div>
             <div class="name">
