@@ -213,7 +213,7 @@ session_start();
             <div class="row">
                 <div class="col-2">
                     <div class="box">
-                        <a href="backpain/day1.php">
+                        <a href="backpain/backpain.php">
                             <img src="/sgpproject/sgpproject/img/mbackpain.jpg" alt="Back Pain">
                             <h2>Back Pain</h2>
                         </a>
@@ -221,7 +221,7 @@ session_start();
                 </div>
                 <div class="col-3">
                     <div class="box">
-                        <a href="handpain/day1_mhand.php">
+                        <a href="handpain/handpain.php">
                             <img src="/sgpproject/sgpproject/img/mhandpain.jpg" alt="Hand Pain">
                             <h2>Hand Pain</h2>
                         </a>
@@ -229,7 +229,7 @@ session_start();
                 </div>
                 <div class="col-4">
                     <div class="box">
-                        <a href="legpain/day1_mleg.php">
+                        <a href="legpain/legpain.php">
                             <img src="/sgpproject/sgpproject/img/mlegpain.webp" alt="Leg Pain">
                             <h2>Leg Pain</h2>
                         </a>
@@ -237,7 +237,7 @@ session_start();
                 </div>
                 <div class="col-5">
                     <div class="box">
-                        <a href="headpain/day1_mhead.php">
+                        <a href="headpain/headpain.php">
                             <img src="/sgpproject/sgpproject/img/mheadpain.jpg" alt="Head Pain">
                             <h2>Head Pain</h2>
                         </a>
