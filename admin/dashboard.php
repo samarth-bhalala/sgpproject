@@ -220,7 +220,7 @@
 <main>
     <div class="btn-container">
         <!-- Add Exercise Button -->
-        <button class="action-btn" onclick="location.href='addexercise.php';">Add Exercise</button>
+        <button class="action-btn" onclick="location.href='addexcercise.php';">Add Exercise</button>
 
         <!-- Delete Exercise Button -->
         <button class="action-btn" onclick="location.href='deleteexercise.php';">Delete Exercise</button>

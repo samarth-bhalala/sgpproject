@@ -213,7 +213,7 @@ session_start();
             <div class="row">
                 <div class="col-2">
                     <div class="box">
-                        <a href="backpain/backpain.php">
+                        <a href="/mbodypain/backpain/backpain.php">
                             <img src="/sgpproject/sgpproject/img/mbackpain.jpg" alt="Back Pain">
                             <h2>Back Pain</h2>
                         </a>
