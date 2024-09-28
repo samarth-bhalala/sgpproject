@@ -1,10 +1,11 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
+
 // Get exercise ID from URL
 $exerciseId = $_GET['id'];
 
 // SQL query to retrieve exercise data
-$sql = "SELECT * FROM exercises WHERE id = '$exerciseId'";
+$sql = "SELECT * FROM exercise WHERE id = '$exerciseId'";
 $result = $con->query($sql);
 
 // Check if exercise exists
@@ -19,27 +20,24 @@ if ($result->num_rows > 0) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $exerciseName = $_POST['exerciseName'];
     $exerciseDescription = $_POST['exerciseDescription'];
-    $gender = $_POST['gender'];
+    $mainCategory = $_POST['mainCategory'];
     $category = $_POST['category'];
     $subCategory = $_POST['subCategory'];
-    $level = $_POST['level'];
     $imagePath = $_POST['imagePath'];
-    $benefits = $_POST['benefits'];
     $videoUrl = $_POST['videoUrl'];
 
     // SQL query to update exercise data
-    $sql = "UPDATE exercises SET exerciseName = '$exerciseName', exerciseDescription = '$exerciseDescription', gender = '$gender', category = '$category', subCategory = '$subCategory', level = '$level', imagePath = '$imagePath', benefits = '$benefits', video_url = '$videoUrl'WHERE id = '$exerciseId'";
+    $sql = "UPDATE exercise SET exerciseName = '$exerciseName', exerciseDescription = '$exerciseDescription', maincategory = '$mainCategory', category = '$category', subcategory = '$subCategory', img = '$imagePath', video = '$videoUrl' WHERE id = '$exerciseId'";
 
     // Execute query
     if ($con->query($sql) === TRUE) {
-        header("Location: dashboard.php");
+        header("Location: dashboard.php?msg=edit succesfully");
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
     }
 }
 
-// Close connection
-$con->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -89,32 +87,60 @@ $con->close();
         <label for="exerciseDescription">Exercise Description:</label>
         <textarea id="exerciseDescription" name="exerciseDescription" required><?php echo $exerciseData['exerciseDescription']; ?></textarea>
         
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="<?php echo $exerciseData['gender']; ?>"><?php echo $exerciseData['gender']; ?></option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Both">Both</option>
-        </select>
+      
+
+        
+        <label for="mainCategory">Main Category:</label>
+<select id="mainCategory" name="mainCategory" required>
+    <?php 
+    $query="SELECT DISTINCT maincategory FROM exercise";
+    $result = mysqli_query($con, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($row["maincategory"] == $exerciseData['mainCategory']) {
+            echo '<option value="'.$row["maincategory"].'" selected>'.$row["maincategory"].'</option>';
+        } else {
+            echo '<option value="'.$row["maincategory"].'">'.$row["maincategory"].'</option>';
+        }
+    }
+    ?>
+</select>
+       
         
         <label for="category">Category:</label>
-        <input type="text" id="category" name="category" value="<?php echo $exerciseData['category']; ?>" required>
+        <select id="category" name="category" required>
+            <?php 
+            $query="SELECT DISTINCT category FROM category";
+            $result = mysqli_query($con, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["category"] == $exerciseData['category']) {
+                    echo '<option value="'.$row["category"].'" selected>'.$row["category"].'</option>';
+                } else {
+                    echo '<option value="'.$row["category"].'">'.$row["category"].'</option>';
+                }
+            }
+            ?>
+        </select>
         
         <label for="subCategory">Sub Category:</label>
-        <input type="text" id="subCategory" name="subCategory" value="<?php echo $exerciseData['subCategory']; ?>" required>
-        
-        <label for="level">Level:</label>
-        <input type="text" id="level" name="level" value="<?php echo $exerciseData['level']; ?>" required>
+        <select id="subCategory" name="subCategory" required>
+            <?php 
+            $query="SELECT DISTINCT subcategory FROM subcategory";
+            $result = mysqli_query($con, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["subcategory"] == $exerciseData['subCategory']) {
+                    echo '<option value="'.$row["subcategory"].'" selected>'.$row["subcategory"].'</option>';
+                } else {
+                    echo '<option value="'.$row["subcategory"].'">'.$row["subcategory"].'</option>';
+                }
+            }
+            ?>
+        </select>
         
         <label for="imagePath">Image Path:</label>
-        <input type="text" id="imagePath" name="imagePath" value="<?php echo $exerciseData['imagePath']; ?>" required>
-        
-        <label for="benefits">Benefits:</label>
-        <textarea id="benefits" name="benefits" required><?php echo $exerciseData['benefits']; ?></textarea>
+        <input type="text" id="imagePath" name="imagePath" value="<?php echo $exerciseData['img']; ?>" required>
         
         <label for="videoUrl">Video URL:</label>
-        <input type="text" id="videoUrl" name="videoUrl" value="<?php echo $exerciseData['video_url']; ?>" required>
-        
+        <input type="text" id="videoUrl" name="videoUrl" value="<?php echo $exerciseData['video']; ?>" required>
         
         <button type="submit">Update Exercise</button>
     </form>

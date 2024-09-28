@@ -1,3 +1,7 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,35 +42,53 @@
 </head>
 <body>
     <h2>Add Exercise</h2>
-    <form action="insert_excersise.php" method="post">
+    <form action="insertexercise.php" method="post">
         <label for="exerciseName">Exercise Name:</label>
         <input type="text" id="exerciseName" name="exerciseName" required>
         
         <label for="exerciseDescription">Exercise Description:</label>
         <textarea id="exerciseDescription" name="exerciseDescription" required></textarea>
         
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Both">Both</option>
-        </select>
+        
+        <label for="mainCategory">Main Category: </label>
+<select id="mainCategory" name="mainCategory" required>
+<?php 
+    $query="SELECT DISTINCT maincategory FROM maincategory";
+    $result = mysqli_query($con, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<option value="'.$row["maincategory"].'">'.$row["maincategory"].'</option>';
+    }
+    ?>
+</select>
         
         <label for="category">Category:</label>
-        <input type="text" id="category" name="category" required>
+        <select id="category" name="category" required>
+            <?php 
+            $query="SELECT DISTINCT category FROM category";
+            $result = mysqli_query($con, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="'.$row["category"].'">'.$row["category"].'</option>';
+            }
+            ?>
+        </select>
         
         <label for="subCategory">Sub Category:</label>
-        <input type="text" id="subCategory" name="subCategory" required>
+        <select id="subCategory" name="subCategory" required>
+            <?php 
+            $query="SELECT DISTINCT subcategory FROM subcategory";
+            $result = mysqli_query($con, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="'.$row["subcategory"].'">'.$row["subcategory"].'</option>';
+            }
+            ?>
+        </select>
         
-        <label for="level">Level:</label>
-        <input type="text" id="level" name="level" required>
+        
         
         <label for="imagePath">Image Path:</label>
         <input type="text" id="imagePath" name="imagePath" required>
         
-        <label for="benefits">Benefits:</label>
-        <textarea id="benefits" name="benefits" required></textarea>
+       
         
         <label for="videoUrl">Video URL:</label>
         <input type="text" id="videoUrl" name="videoUrl" required>
