@@ -206,6 +206,8 @@
             <li><a class="nav-link" href="aboutus.php">About Us</a></li>
             <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
             <?php
+            
+            include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
             if (isset($_SESSION['stat'])) {
                 echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
                 echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
@@ -218,23 +220,44 @@
 </header>
 
 <main>
+    
     <div class="btn-container">
         <!-- Add Exercise Button -->
         <button class="action-btn" onclick="location.href='addexcercise.php';">Add Exercise</button>
 
-        <!-- Delete Exercise Button -->
-        <button class="action-btn" onclick="location.href='deleteexercise.php';">Delete Exercise</button>
+        
 
         <!-- Dropdown Menu for Body Pain -->
         <div class="dropdown">
             <button class="dropdown-btn" id="menuBtn">Menu</button>
             <div class="dropdown-content" id="bodyPainContent">
-                <a href="#" id="bodyPain">Body Pain</a>
+            <?php 
+                 
+                 $query="SELECT DISTINCT category FROM exercises";
+                 $result = mysqli_query($con, $query);
+         
+                 $categories = array();
+                 while ($row = mysqli_fetch_assoc($result)) {
+                 $categories[] = $row['category'];
+                 ?><a href="#" name="categoryselect" id="categoryselect" ><?php echo $row["category"];?><a><?php
+                 } ?>
                 <div class="sub-dropdown" id="subDropdown">
-                    <a href="#">Back Pain</a>
-                    <a href="#">Hand Pain</a>
-                    <a href="#">Leg Pain</a>
-                    <a href="#">Head Pain</a>
+                   <?php 
+              if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_POST['category'])) {
+                    $category = $_POST['category'];
+                    $query = "SELECT DISTINCT subCategory FROM exercises WHERE category = '$category'";
+                    $result = mysqli_query($con, $query);
+                    $subCategories = array();
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $subCategories[] = $row['subCategory'];
+                    }
+                    echo implode(',', $subCategories);
+                    exit;
+                }
+            }
+                                    ?>
+                    
                 </div>
             </div>
         </div>
@@ -242,13 +265,39 @@
 </main>
 
 <script>
-    const bodyPainLink = document.getElementById("bodyPain");
-    const subDropdown = document.getElementById("subDropdown");
+const categoryLinks = document.querySelectorAll('#bodyPainContent a');
+const subDropdown = document.getElementById("subDropdown");
 
-    bodyPainLink.addEventListener("click", function(event) {
+categoryLinks.forEach(link => {
+    link.addEventListener("click", function(event) {
         event.preventDefault();
-        subDropdown.style.display = subDropdown.style.display === "block" ? "none" : "block";
+        const selectedCategory = link.textContent;
+        fetchSubCategories(selectedCategory);
     });
+});
+
+function fetchSubCategories(category) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const response = xhr.responseText;
+            const subCategories = response.split(',');
+            populateSubDropdown(subCategories);
+        }
+    };
+    xhr.send('category=' + category);
+}
+
+function populateSubDropdown(subCategories) {
+    const subDropdownHtml = '';
+    subCategories.forEach(subCategory => {
+        subDropdownHtml += '<a href="#">' + subCategory + '</a>';
+    });
+    subDropdown.innerHTML = subDropdownHtml;
+    subDropdown.style.display = 'block';
+}
 </script>
 
 </body>
