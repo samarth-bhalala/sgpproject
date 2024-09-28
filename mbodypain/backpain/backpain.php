@@ -183,7 +183,7 @@ session_start();
             <div class="row">
                 <div class="col-1">
                     <div class="box">
-                        <a href="beginner.php">
+                        <a href="upperexer.php">
                             <img src="/sgpproject/sgpproject/img/mbp_bp_b.jpg" alt="Beginner">
                             <h2>UPPER</h2>
                         </a>

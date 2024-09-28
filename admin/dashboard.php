@@ -157,7 +157,7 @@
         }
 
         /* Sub-dropdown (initially hidden) */
-        .sub-dropdown {
+ .sub-dropdown {
             display: none;
             padding-left: 20px;
         }
@@ -222,83 +222,48 @@
 <main>
     
     <div class="btn-container">
+  
         <!-- Add Exercise Button -->
         <button class="action-btn" onclick="location.href='addexcercise.php';">Add Exercise</button>
 
-        
+        <!-- Add Category Button -->
+        <button class="action-btn" onclick="location.href='addcategory.php';">Add Category</button>
 
-        <!-- Dropdown Menu for Body Pain -->
+        <!-- Add Subcategory Button -->
+        <button class="action-btn" onclick="location.href='addsubcategory.php';">Add Subcategory</button>
+
+        <!-- View All Exercises Button -->
+        <button class="action-btn" onclick="location.href='viewall.php';">View All Exercises</button>
+
+        <!-- View Exercises by Category Button -->
         <div class="dropdown">
-            <button class="dropdown-btn" id="menuBtn">Menu</button>
-            <div class="dropdown-content" id="bodyPainContent">
-            <?php 
-                 
-                 $query="SELECT DISTINCT category FROM exercises";
-                 $result = mysqli_query($con, $query);
-         
-                 $categories = array();
-                 while ($row = mysqli_fetch_assoc($result)) {
-                 $categories[] = $row['category'];
-                 ?><a href="#" name="categoryselect" id="categoryselect" ><?php echo $row["category"];?><a><?php
-                 } ?>
-                <div class="sub-dropdown" id="subDropdown">
-                   <?php 
-              if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if (isset($_POST['category'])) {
-                    $category = $_POST['category'];
-                    $query = "SELECT DISTINCT subCategory FROM exercises WHERE category = '$category'";
-                    $result = mysqli_query($con, $query);
-                    $subCategories = array();
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $subCategories[] = $row['subCategory'];
-                    }
-                    echo implode(',', $subCategories);
-                    exit;
+            <button class="dropdown-btn">View Exercises by Category</button>
+            <div class="dropdown-content">
+                <?php 
+                $query="SELECT DISTINCT category FROM exercises";
+                $result = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<a href="viewbycategory.php?category='.$row["category"].'">'.$row["category"].'</a>';
                 }
-            }
-                                    ?>
-                    
-                </div>
+                ?>
+            </div>
+        </div>
+
+        <!-- View Exercises by Subcategory Button -->
+        <div class="dropdown">
+            <button class="dropdown-btn">View Exercises by Subcategory</button>
+            <div class="dropdown-content">
+                <?php 
+                $query="SELECT DISTINCT subcategory FROM exercises";
+                $result = mysqli_query($con, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<a href="viewbysubcategory.php?subcategory='.$row["subcategory"].'">'.$row["subcategory"].'</a>';
+                }
+                ?>
             </div>
         </div>
     </div>
 </main>
-
-<script>
-const categoryLinks = document.querySelectorAll('#bodyPainContent a');
-const subDropdown = document.getElementById("subDropdown");
-
-categoryLinks.forEach(link => {
-    link.addEventListener("click", function(event) {
-        event.preventDefault();
-        const selectedCategory = link.textContent;
-        fetchSubCategories(selectedCategory);
-    });
-});
-
-function fetchSubCategories(category) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            const response = xhr.responseText;
-            const subCategories = response.split(',');
-            populateSubDropdown(subCategories);
-        }
-    };
-    xhr.send('category=' + category);
-}
-
-function populateSubDropdown(subCategories) {
-    const subDropdownHtml = '';
-    subCategories.forEach(subCategory => {
-        subDropdownHtml += '<a href="#">' + subCategory + '</a>';
-    });
-    subDropdown.innerHTML = subDropdownHtml;
-    subDropdown.style.display = 'block';
-}
-</script>
 
 </body>
 </html>
