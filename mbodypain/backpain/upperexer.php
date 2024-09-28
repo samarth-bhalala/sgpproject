@@ -8,7 +8,6 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 1 Exercises</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -122,6 +121,12 @@ session_start();
             display: flex;
             gap: 10px;
         }
+
+        .timer-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -177,10 +182,11 @@ session_start();
                     <div class="card-body exercise-card-body">
                         <p class="card-text"><?php echo $row['exerciseDescription']; ?></p>
                         <div class="button-group">
-                            <button class="btn btn-primary">Start Exercise</button>
-                            <button class="btn btn-secondary">Stop Exercise</button>
+                            <button class="btn btn-primary start-btn" onclick="startTimer(this)">Start Exercise</button>
+                            <button class="btn btn-secondary stop-btn" onclick="stopTimer(this)" disabled>Stop Exercise</button>
                             <button class="btn btn-info">Watch Video</button>
                         </div>
+                        <div class="timer-display">Time Elapsed: <span class="timer">00:00</span></div>
                     </div>
                 </div>
             </div>
@@ -193,6 +199,66 @@ session_start();
     $con->close();
     ?>
 </div>
+
+<script>
+    function startTimer(button) {
+        let cardBody = button.closest('.exercise-card-body');
+        let stopButton = cardBody.querySelector('.stop-btn');
+        let timerDisplay = cardBody.querySelector('.timer');
+        
+        if (!cardBody.elapsedTime) {
+            cardBody.elapsedTime = 1; // Initialize elapsed time
+        }
+
+        // Check if timer already reached 30 seconds
+        if (cardBody.elapsedTime >= 31000) {
+            cardBody.elapsedTime = 1; // Reset timer after 30 seconds
+        }
+
+        let startTime = Date.now() - cardBody.elapsedTime; // Adjust for elapsed time
+
+        // Clear any existing interval
+        clearInterval(cardBody.timerInterval);
+
+        cardBody.timerInterval = setInterval(() => {
+            cardBody.elapsedTime = Date.now() - startTime;
+
+            // Automatically stop timer after 30 seconds
+            if (cardBody.elapsedTime >= 31000) {
+                stopTimer(stopButton);
+                return;
+            }
+
+            timerDisplay.textContent = formatTime(cardBody.elapsedTime);
+        }, 1000);
+
+        button.disabled = true;
+        stopButton.disabled = false;
+    }
+
+    function stopTimer(button) {
+        let cardBody = button.closest('.exercise-card-body');
+        let startButton = cardBody.querySelector('.start-btn');
+
+        // Clear the interval to stop the timer
+        clearInterval(cardBody.timerInterval);
+
+        startButton.disabled = false;
+        button.disabled = true;
+    }
+
+    function formatTime(ms) {
+    let totalSeconds = Math.floor(ms / 1000);
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    return [
+        minutes.toString().padStart(2, '0'),  // Pad single-digit minutes with '0'
+        seconds.toString().padStart(2, '0')   // Pad single-digit seconds with '0'
+    ].join(':');
+}
+
+</script>
 
 </body>
 </html>
