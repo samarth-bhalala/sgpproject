@@ -2,31 +2,9 @@
 session_start();
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 
-$subCategory = $_GET['subcategory'];
+$subcategory= $_GET['subcategory'];
+$subcategories = $con->query("SELECT * FROM exercise WHERE subcategory = '$subcategory'");
 
-$stmt = $con->prepare("SELECT e.* 
-                        FROM exercises e 
-                        JOIN subcategory s ON e.subCategory = s.subcategory 
-                        WHERE s.subcategory = ?");
-
-$stmt->bind_param("s", $subCategory);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        // Display exercises
-        echo "<div class='exercise'>";
-        echo "<h2>" . $row['exerciseName'] . "</h2>";
-        echo "<p>" . $row['description'] . "</p>";
-        echo "<img src='" . $row['image'] . "' alt='" . $row['exerciseName'] . "'>";
-        echo "</div>";
-    }
-} else {
-    echo "No exercises found.";
-}
-$stmt->close();
-$con->close();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +12,7 @@ $con->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercises</title>
+    <title>Day 1 Exercises</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -108,59 +86,184 @@ $con->close();
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .exercise {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .card-container {
+            margin-top: 100px;
         }
 
-        .exercise img {
+        .exercise-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .exercise-card {
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exercise-card img {
+            border-radius: 20px 20px 0 0;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+            height: auto;
+        }
+
+        .exercise-card-body {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .exercise-card-body h5 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .exercise-card-body p {
+            font-size: 16px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .timer-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="logo.png" alt="Logo">
+
+<header>
+    <nav>
+        <div class="logo">
+            <img src="/sgpproject/sgpproject/img/LOGO_1.PNG" alt="Logo" height="80">
+        </div>
+        <div class="name">
+            <h1>PhysioFit</h1>
+        </div>
+        <ul>
+            <li><a class="nav-link" href="/sgpproject/sgpproject/index.php">Home</a></li>
+            <li><a class="nav-link" href="/sgpproject/sgpproject/aboutus.php">About Us</a></li>
+            <li><a class="nav-link" href="/sgpproject/sgpproject/contactus.php">Contact Us</a></li>
+            <?php
+            if (isset($_SESSION['stat'])) {
+                echo '<li><a class="nav-link" href="/sgpproject/sgpproject/profile.php">Profile</a></li>';
+                echo '<li><a class="nav-link" href="/sgpproject/sgpproject/logout.php">Logout</a></li>';
+            } else {
+                echo '<li><a class="nav-link" href="/sgpproject/sgpproject/loginsignup.php">Login/Sign Up</a></li>';
+            }
+            ?>
+        </ul>
+    </nav>
+</header>
+
+<div class="container card-container">
+    <?php
+    
+    // Retrieve exercises from the database
+    $sql = "SELECT * FROM exercise where subcategory='$subcategory'";
+    $result = $con->query($sql);
+
+    // Check if there are any exercises
+    if ($result->num_rows > 0) {
+      // Display exercises
+      while($row = $result->fetch_assoc()) {
+        ?>
+        <!-- Exercise -->
+        <div class="row exercise-row">
+            <div class="col-md-6">
+                <div class="card exercise-card">
+                    <img src="img/<?php echo $row['img']; ?>" class="card-img-top" alt="<?php echo $row['exerciseName']; ?>">
+                    <div class="card-body exercise-card-body">
+                        <h5 class="card-title"><?php echo $row['exerciseName']; ?></h5>
+                    </div>
+                </div>
             </div>
-            <div class="name">
-                <h1>Exercise Tracker</h1>
-            </div>
-            <ul>
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Exercises</a></li>
-                <li><a href="#" class="nav-link">Workouts</a></li>
-                <li><a href="#" class="nav-link">Progress</a></li>
-            </ul>
-        </nav >
-    </header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Exercises</h1>
-                <?php
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        // Display exercises
-                        echo "<div class='exercise'>";
-                        echo "<h2>" . $row['exerciseName'] . "</h2>";
-                        echo "<p>" . $row['description'] . "</p>";
-                        echo "<img src='" . $row['image'] . "' alt='" . $row['exerciseName'] . "'>";
-                        echo "</div>";
-                    }
-                } else {
-                    echo "No exercises found.";
-                }
-                ?>
+            <div class="col-md-6">
+                <div class="card exercise-card">
+                    <div class="card-body exercise-card-body">
+                        <p class="card-text"><?php echo $row['exerciseDescription']; ?></p>
+                        <div class="button-group">
+                            <button class="btn btn-primary start-btn" onclick="startTimer(this)">Start Exercise</button>
+                            <button class="btn btn-secondary stop-btn" onclick="stopTimer(this)" disabled>Stop Exercise</button>
+                            <a href="<?php echo $row['video']; ?>" target="_blank"> <button class="btn btn-info">Watch Video</button></a>
+                        </div>
+                        <div class="timer-display">Time Elapsed: <span class="timer">00:00</span></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <?php
+      }
+    } else {
+      echo "No exercises found.";
+    }
+    $con->close();
+    ?>
+</div>
+
+<script>
+    function startTimer(button) {
+        let cardBody = button.closest('.exercise-card-body');
+        let stopButton = cardBody.querySelector('.stop-btn');
+        let timerDisplay = cardBody.querySelector('.timer');
+        
+        if (!cardBody.elapsedTime) {
+            cardBody.elapsedTime = 1; // Initialize elapsed time
+        }
+
+        // Check if timer already reached 30 seconds
+        if (cardBody.elapsedTime >= 31000) {
+            cardBody.elapsedTime = 1; // Reset timer after 30 seconds
+        }
+
+        let startTime = Date.now() - cardBody.elapsedTime; // Adjust for elapsed time
+
+        // Clear any existing interval
+        clearInterval(cardBody.timerInterval);
+
+        cardBody.timerInterval = setInterval(() => {
+            cardBody.elapsedTime = Date.now() - startTime;
+
+            // Automatically stop timer after 30 seconds
+            if (cardBody.elapsedTime >= 31000) {
+                stopTimer(stopButton);
+                return;
+            }
+
+            timerDisplay.textContent = formatTime(cardBody.elapsedTime);
+        }, 1000);
+
+        button.disabled = true;
+        stopButton.disabled = false;
+    }
+
+    function stopTimer(button) {
+        let cardBody = button.closest('.exercise-card-body');
+        let startButton = cardBody.querySelector('.start-btn');
+
+        // Clear the interval to stop the timer
+        clearInterval(cardBody.timerInterval);
+
+        startButton.disabled = false;
+        button.disabled = true;
+    }
+
+    function formatTime(ms) {
+    let totalSeconds = Math.floor(ms / 1000);
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    return [
+        minutes.toString().padStart(2, '0'),  // Pad single-digit minutes with '0'
+        seconds.toString().padStart(2, '0')   // Pad single-digit seconds with '0'
+    ].join(':');
+}
+
+</script>
+
 </body>
 </html>
