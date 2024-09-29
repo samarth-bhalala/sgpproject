@@ -333,7 +333,7 @@ main {
           <?php
 foreach ($maincategories as $maincategory) {
     ?>
-    <div class="bg_<?php echo $maincategory['id']; ?>" style="background-image: url('<?php echo $maincategory['background_image']; ?>');">
+    <div class="bg_2 ?>" style="background-image: url('img/admin/<?php echo $maincategory['img']; ?>" >
         <br>
         <br>
         <br>
