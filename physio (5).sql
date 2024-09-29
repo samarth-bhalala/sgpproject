@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2024 at 06:32 AM
+-- Generation Time: Sep 29, 2024 at 06:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,6 +45,26 @@ INSERT INTO `admin` (`id`, `username`, `pass`, `email`, `time`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `maincategory` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`maincategory`, `category`, `img`) VALUES
+('Body Pain', 'Back Pain', 'ab3.jpg'),
+('Body Pain', 'Leg Pain', 'mlegpain.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contactus`
 --
 
@@ -65,6 +85,30 @@ INSERT INTO `contactus` (`id`, `full_name`, `username`, `email`, `message`, `sub
 (1, 'Samarth Bhalala ', 'Samarth', 'samarthbhalala@gmail.com', 'test', '2024-08-27 15:24:53'),
 (2, 'samarth', 'samarth', 'samarthbhalala@gmail.com', 'testing', '2024-08-27 15:35:36'),
 (3, 'Samarthbhalala', 'Samarthbhalala', 'sambhubhalala@gmail.com', 'samarth', '2024-08-27 15:36:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exercise`
+--
+
+CREATE TABLE `exercise` (
+  `id` int(255) NOT NULL,
+  `maincategory` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `subcategory` varchar(255) NOT NULL,
+  `exerciseName` varchar(255) NOT NULL,
+  `exerciseDescription` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `video` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `exercise`
+--
+
+INSERT INTO `exercise` (`id`, `maincategory`, `category`, `subcategory`, `exerciseName`, `exerciseDescription`, `img`, `video`) VALUES
+(1, 'Body Pain', 'Back Pain', 'Upper ', 'test', 'test1', 'ab3.jpg', 'https://www.youtube.com/watch?v=ojCkd6_VdNk&pp=ygUdaG93IHRvICBkbyBUaG9yYWNpYyBFeHRlbnNpb24%3D');
 
 -- --------------------------------------------------------
 
@@ -90,8 +134,8 @@ CREATE TABLE `exercises` (
 --
 
 INSERT INTO `exercises` (`id`, `exerciseName`, `exerciseDescription`, `gender`, `category`, `subCategory`, `level`, `imagePath`, `benefits`, `video_url`) VALUES
-(7, 'Knee to chest', 'Start by lying on your back with your knees bent and your feet flat on the floor. \r\nNext, clasp your hands around one knee and bring that knee up toward your chest.\r\n Hold that knee to your chest, keeping your lower back pressed to the floor.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e292553960_knee to chest stretch.jpg', 'Relieve muscle tension in your low back and hips, often related to activities like going up and down the stairs or sitting for long periods of time. \r\nImproving flexibility and range of motion in the hips, hamstrings, and glutes.', 'https://youtu.be/bUHjaXGDm_E?si=A797TkkWJMINL32r'),
-(8, 'Side plank', 'Lie on your side with your knees bent, and prop your upper body up on your elbow.\r\n Raise your hips off the floor, and hold for 6 seconds. Rest for 10 seconds.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e298239e4e_Msideplank.jpg', 'Core strengthening, improve posture,enhance balance, better flexibility , reduce backache , improves metabolism.', 'https://youtu.be/FStG5rBe0-M?si=ClMNf4R4od4NoobG'),
+(7, 'Knee to chest', 'Start by lying on your back with your knees bent and your feet flat on the floor. \r\nNext, clasp your hands around one knee and bring that knee up toward your chest.\r\n Hold that knee to your chest, keeping your lower back pressed to the floor.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', '/sgpproject/sgpproject/img/admin/knee_to_chest.jpg', 'Relieve muscle tension in your low back and hips, often related to activities like going up and down the stairs or sitting for long periods of time. \r\nImproving flexibility and range of motion in the hips, hamstrings, and glutes.', 'https://youtu.be/bUHjaXGDm_E?si=A797TkkWJMINL32r'),
+(8, 'Side plank', 'Lie on your side with your knees bent, and prop your upper body up on your elbow.\r\n Raise your hips off the floor, and hold for 6 seconds. Rest for 10 seconds.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', '/sgpproject/sgpproject/img/admin/knee_to_chest.jpg', 'Core strengthening, improve posture,enhance balance, better flexibility , reduce backache , improves metabolism.', 'https://youtu.be/FStG5rBe0-M?si=ClMNf4R4od4NoobG'),
 (9, 'Plank', 'Plant hands directly under shoulders slightly wider than shoulder width like you\'re about to do a push-up.Ground toes into the floor and squeeze glutes to stabilize your body. Your legs should be working, too  be careful not to lock or hyperextend your knees.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e29e8c8bad_Mplank.jpg', 'Improves posture , improves flexibility , improves metabolism , strengthen core ,  reduce backache.', 'https://youtu.be/Ehy8G39d_PM?si=MKc2Rut2mLIuxCY3'),
 (10, 'Cobra pose', 'Lie down in a prone position. Lie face down on your mat with your entire body extended. ...\r\nBring your hands underneath the shoulder blades.Begin to lift your upper body Use lower back muscles to lift higher Look slightly forward and up.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e2c8a7ff69_Mcobra.jpeg', 'Opens the shoulder blades, neck, and collar bones.Improves spinal posture, flexibility, and alignment.Reduces back pain.Improves circulation.Opens the lungs.\r\nStimulates the abdominal and digestive organs, improving digestion.Massages and regulates the adrenal and thyroid glands.Reduces stress.', 'https://youtu.be/Nd3j6Avtv6Q?si=L4P5fHbSvlzRu7Id'),
 (11, 'Back extension', 'Lie on your stomach in a comfortable and spacious area with your hands behind your head.Exhale and raise your chest off the floor by squeezing your gluteus muscles and contracting your lower back.Pause for a second at the top while continuing to squeeze the lower back muscles.', 'Male', 'Body Pain', 'Back Pain', 'Beginner', 'uploads/images/image_659e2cd70028a_Mbackextension.jpg', 'Improved back stability. This helps with better posture and better performance during other exercises.\r\nReduced injury risk. Strengthening your back helps you avoid overextending your spine.Improved body awareness.', NULL),
@@ -453,6 +497,26 @@ INSERT INTO `feedback` (`id`, `full_name`, `username`, `email`, `message`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `maincategory`
+--
+
+CREATE TABLE `maincategory` (
+  `id` int(11) NOT NULL,
+  `maincategory` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `maincategory`
+--
+
+INSERT INTO `maincategory` (`id`, `maincategory`, `img`) VALUES
+(1, 'Body Pain', 'ab3.jpg'),
+(2, 'Weight', 'ab2.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `signup`
 --
 
@@ -474,6 +538,26 @@ INSERT INTO `signup` (`id`, `email`, `username`, `pass`, `phone`, `premium`) VAL
 (2, 'samarthbhalala@gmail.com', 'samarth', '$argon2i$v=19$m=65536,t=4,p=1$N0dlanVDMGpzc2haaTdGbg$geRQhm9lW+rNMa6cFy2y/+c5gDtUFR9GBGNtygUwzQo', '9484400509', 1),
 (3, 'sambhubhalala@gmail.com', 'samarthbhalala', '$2y$10$aoL6WMb6ScsS0gGX.IUYV.zZSMnjPFDTiLcoW6iUoc/vq4jgtEoVW', '9484400509', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subcategory`
+--
+
+CREATE TABLE `subcategory` (
+  `category` varchar(255) NOT NULL,
+  `subcategory` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subcategory`
+--
+
+INSERT INTO `subcategory` (`category`, `subcategory`, `img`) VALUES
+('Back Pain', 'Upper ', 'ab3.jpg'),
+('Back Pain', 'Lower', 'Lower.jpg');
+
 --
 -- Indexes for dumped tables
 --
@@ -491,6 +575,12 @@ ALTER TABLE `contactus`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `exercise`
+--
+ALTER TABLE `exercise`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `exercises`
 --
 ALTER TABLE `exercises`
@@ -500,6 +590,12 @@ ALTER TABLE `exercises`
 -- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `maincategory`
+--
+ALTER TABLE `maincategory`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -525,6 +621,12 @@ ALTER TABLE `contactus`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `exercise`
+--
+ALTER TABLE `exercise`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `exercises`
 --
 ALTER TABLE `exercises`
@@ -535,6 +637,12 @@ ALTER TABLE `exercises`
 --
 ALTER TABLE `feedback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `maincategory`
+--
+ALTER TABLE `maincategory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `signup`
