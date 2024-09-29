@@ -2,8 +2,8 @@
 session_start();
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 
-$maincategory= $_GET['category'];
-$categories = $con->query("SELECT * FROM category WHERE category = '$category'");
+$subcategory= $_GET['category'];
+$subcategories = $con->query("SELECT * FROM subcategory WHERE category = '$subcategory'");
 
 ?>
 
@@ -217,13 +217,13 @@ $categories = $con->query("SELECT * FROM category WHERE category = '$category'")
         <div class="container">
             <div class="row">
                 <?php
-                foreach ($categories as $subcategory) {
+                foreach ($subcategories as $subcategory) {
                     ?>
                     <div class="col-2">
                         <div class="box">
-                            <a href="exercise.php?subcategory=<?php echo $subcategory['subcategory']; ?>">
-                                <img src="sgpproject/sgpproject/img/<?php echo $subcategory['img']; ?>" alt="<?php echo $subcategory['category']; ?>">
-                                <h2><?php echo $subcategory['category']; ?></h2>
+                        <a href="exercise.php?subcategory=<?= $subcategory['subcategory'] ?>">
+                                <img src="img/<?php echo $subcategory['img']; ?>" alt="<?php echo $subcategory['subcategory']; ?>">
+                                <h2><?php echo $subcategory['subcategory']; ?></h2>
                             </a>
                         </div>
                     </div>

@@ -221,8 +221,8 @@ $categories = $con->query("SELECT * FROM category WHERE maincategory = '$maincat
                     ?>
                     <div class="col-2">
                         <div class="box">
-                            <a href="subcategory.php?maincategory=<?php echo $category['category']; ?>">
-                                <img src="<?php echo $category['img']; ?>" alt="<?php echo $category['category']; ?>">
+                            <a href="subcategory.php?category=<?php echo $category['category']; ?>">
+                                <img src="img/<?php echo $category['img']; ?>" alt="<?php echo $category['category']; ?>">
                                 <h2><?php echo $category['category']; ?></h2>
                             </a>
                         </div>
