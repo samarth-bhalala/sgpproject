@@ -1,5 +1,20 @@
 <?php
+include "conn.php"; // Ensure this file sets up a valid connection to the database
 session_start();
+
+$sql = "SELECT maincategory, img FROM maincategory"; // Adjust the query as necessary
+$result = $con->query($sql);
+
+
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while ($row = $result->fetch_assoc()) {
+        $categories[] = $row;
+    }
+} else {
+    echo "No categories found";
+}
+$con->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,7 +97,6 @@ ul li {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    /* #03045E pink colour */
 main {
   margin-top: -0.1px;
   padding-bottom: 0px;
@@ -170,8 +184,7 @@ main {
 .bg_2 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(img/bg_2.jpg);
+   
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -182,33 +195,7 @@ main {
     
 }
 
-.bg_3 {
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(img/bg_3.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 20px 20px 20px 20px;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
 
-.bg_4 {
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(img/bg_4.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 20px 20px 20px 20px;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
 .button {
   margin: 0;
   height: auto;
@@ -310,53 +297,19 @@ main {
                 </div>
             </div>
             <div class="bg_2">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <center>
-  <a href="bodypain.php">
-    <button class="button" data-text="BODYPAIN">
-      <span class="actual-text">&nbsp;BODYPAIN&nbsp;</span>
-      <span aria-hidden="true" class="hover-text">&nbsp;BODYPAIN&nbsp;</span>
-    </button>
-  </a>
-</center>
-    </div>
-    <div class="bg_3">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <center>
-  <a href="weight.php">
-    <button class="button" data-text="WEIGHT">
-      <span class="actual-text">&nbsp;WEIGHT&nbsp;</span>
-      <span aria-hidden="true" class="hover-text">&nbsp;WEIGHT&nbsp;</span>
-    </button>
-  </a>
-</center>
-    </div>
-    <div class="bg_4">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <center>
-  <a href="diseases.php">
-    <button class="button" data-text="diseases">
-      <span class="actual-text">&nbsp;diseases&nbsp;</span>
-      <span aria-hidden="true" class="hover-text">&nbsp;diseases&nbsp;</span>
-    </button>
-  </a>
-</center>
-    </div>
+    <?php foreach ($categories as $category): ?>
+      <div class="category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('<?php echo $category['img']; ?>'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 200px; margin-bottom: 20px; display: inline-block; width: 20%;">
+            <center>
+                <a href="test.php">
+                    <button class="button" data-text=" <?php echo strtoupper($category['maincategory']); ?>">
+                        <span class="actual-text">&nbsp;<?php echo strtoupper($category['maincategory']); ?>&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text"> &nbsp;<?php echo strtoupper($category['maincategory']); ?>&nbsp;</span>
+                    </button>
+                </a>
+            </center>
+        </div>
+    <?php endforeach; ?>
+</div>
 
         </section>
     </main>
