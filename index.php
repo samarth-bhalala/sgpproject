@@ -1,22 +1,13 @@
 <?php
-include "conn.php"; // Ensure this file sets up a valid connection to the database
 session_start();
+include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 
-$sql = "SELECT maincategory, img FROM maincategory"; // Adjust the query as necessary
-$result = $con->query($sql);
+// Prepare the SQL query
+$stmt = $con->prepare("SELECT * FROM maincategory");
+$stmt->execute();
+$maincategories = $stmt->get_result();
 
-
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while ($row = $result->fetch_assoc()) {
-        $categories[] = $row;
-    }
-} else {
-    echo "No categories found";
-}
-$con->close();
 ?>
-<!DOCTYPE html>
 <html>
 <head>
     <title>index</title>
@@ -97,6 +88,7 @@ ul li {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
+    /* #03045E pink colour */
 main {
   margin-top: -0.1px;
   padding-bottom: 0px;
@@ -184,6 +176,19 @@ main {
 .bg_2 {
     width: 100%;
     height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px 20px 20px 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.bg_2 {
+    width: 100%;
+    height: 100vh;
    
     background-repeat: no-repeat;
     background-size: cover;
@@ -195,7 +200,32 @@ main {
     
 }
 
+.bg_3 {
+    width: 100%;
+    height: 100vh;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px 20px 20px 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
 
+.bg_4 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('<?php echo $maincategory['img']; ?>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px 20px 20px 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
 .button {
   margin: 0;
   height: auto;
@@ -253,6 +283,9 @@ main {
 }
 </style>
 </head>
+
+
+
 <body>
     <header>
         <nav>
@@ -280,54 +313,46 @@ main {
     <main>
         <section id="home">
             <div class="slideshow-container">
-                <div class="slide active">
-                    <img src="img/slide1.jpg" alt="Slide 1">
-                </div>
-                <div class="slide">
-                    <img src="img/slide2.jpg" alt="Slide 2">
-                </div>
-                <div class="slide">
-                    <img src="img/slide3.jpg" alt="Slide 3">
-                </div>
-                <div class="slide">
-                    <img src="img/slide4.jpg" alt="Slide 4">
-                </div>
-                <div class="slide">
-                    <img src="img/slide5.jpg" alt="Slide 5">
-                </div>
+            <div class="slide active">
+                 <img src="img/slide1.jpg" alt="Slide 1">
             </div>
-            <div class="bg_2">
-    <?php foreach ($categories as $category): ?>
-      <div class="category" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('<?php echo $category['img']; ?>'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 200px; margin-bottom: 20px; display: inline-block; width: 20%;">
-            <center>
-                <a href="test.php">
-                    <button class="button" data-text=" <?php echo strtoupper($category['maincategory']); ?>">
-                        <span class="actual-text">&nbsp;<?php echo strtoupper($category['maincategory']); ?>&nbsp;</span>
-                        <span aria-hidden="true" class="hover-text"> &nbsp;<?php echo strtoupper($category['maincategory']); ?>&nbsp;</span>
-                    </button>
-                </a>
-            </center>
-        </div>
-    <?php endforeach; ?>
-</div>
+            <div class="slide">
+                <img src="img/slide2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="img/slide3.jpg" alt="Slide 3">
+            </div>
+            <div class=" slide">
+                <img src="img/slide4.jpg" alt="Slide 4">
+            </div>
+            <div class="slide">
+                <img src="img/slide5.jpg" alt="Slide 5">
+            </div>
 
+          </div>
+          <?php
+foreach ($maincategories as $maincategory) {
+    ?>
+    <div class="bg_<?php echo $maincategory['id']; ?>" style="background-image: url('<?php echo $maincategory['background_image']; ?>');">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+            <a href="category.php?maincategory=<?php echo $maincategory['maincategory']; ?>">
+                <button class="button" data-text="<?php echo $maincategory['maincategory']; ?>">
+                    <span class="actual-text">&nbsp;<?php echo $maincategory['maincategory']; ?>&nbsp;</span>
+                    <span aria-hidden="true" class="hover-text">&nbsp;<?php echo $maincategory['maincategory']; ?>&nbsp;</span>
+                </button>
+            </a>
+        </center>
+    </div>
+    <?php
+}
+?>
         </section>
     </main>
-    <script>
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let slides = document.getElementsByClassName("slide");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
-            slides[slideIndex - 1].classList.add("active");
-            setTimeout(showSlides, 2000); 
-        }
-
-    </script>
 </body>
 </html>
