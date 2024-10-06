@@ -237,7 +237,7 @@ if (!$con) {
             </div>
             <?php         if (isset($_GET['msg'])) {
     $msg = $_GET['msg'];
-    echo "<p>$msg</p>"; // or do something else with the message
+    echo "<p>$msg</p>"; 
 }?>
             
         </form>

@@ -465,7 +465,7 @@
                     }
                     ?>
                 </div>
-            </div>
+            </div>  
 
             <!-- View exercise by Main Category Button -->
             <div class="dropdown">
@@ -480,7 +480,11 @@
                     ?>
                 </div>
             </div>
+<!-- View Contact Page Button -->
+<button class="action-btn" onclick="location.href='viewcontact.php';">View Contact Page</button>
 
+<!-- View User Page Button -->
+<button class="action-btn" onclick="location.href='viewuser.php';">View User Page</button>
             
         </div>
     </main>

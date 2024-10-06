@@ -165,7 +165,7 @@ session_start();
         $user_id = $_SESSION['username'];
 
         // Query the database for the user's information
-        $sql = "SELECT username, email, pass, phone, premium FROM signup  WHERE username = '$user_id'";
+        $sql = "SELECT username, email, pass, phone FROM signup  WHERE username = '$user_id'";
         $result = $con->query($sql);
         
         // Check if the query returned any results
@@ -177,11 +177,7 @@ session_start();
             $_SESSION['email']=$email;
             $password = $row["pass"];
             $phone=$row["phone"];
-            $premium=$row["premium"];
-            if ($premium==1)
-            {
-                $_SESSION['premium']=1;
-            }
+            
         } else {
             // If no results were found, display an error message
             echo "No user found with that ID.";
@@ -209,20 +205,6 @@ session_start();
         </form>
         </form>
       </div>
-        <p><strong>Premium user : </strong> <?php
-        if  (isset($_SESSION['premium'])){
-            echo "Yes";
-        }
-        else
-        {
-            echo "No";
-        
-
-        ?></p>
-        <a href="premium.php" ><h2>Want to buy premium ? click here</h2><a>
-           <?php } ?>
-
-           
     </div>
     
 </body>
