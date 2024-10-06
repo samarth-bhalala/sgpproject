@@ -182,13 +182,14 @@ if (isset($_POST['add_category'])) {
             </div>
             <ul>
                 <li><a class="nav-link" href="index.php">Home</a></li>
-                <li><a class="nav-link" href="aboutus.php">About Us</a></li>
-                <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
                 <?php
-                if (isset($_SESSION['stat'])) {
-                    echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
-                } else {
-                    echo '<li><a class="nav-link" href="loginsignup.php">Login/Sign Up</a></li>';
+                
+                include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
+                if (isset($_SESSION['admin'])) {
+                
+                    echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
+                } else {?>
+                 <?php  echo '<script>window.location.href = "index.php";</script>';
                 }
                 ?>
             </ul>
