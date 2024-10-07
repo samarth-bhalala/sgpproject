@@ -190,8 +190,7 @@ if (isset($_POST['submit'])) {
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-                <li><a class="nav-link" href="index.php">Home</a></li>
-                <?php
+              <li><a class="nav-link" href="dashboard.php">Home</a></li><?php
                 
                 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
                 if (isset($_SESSION['admin'])) {

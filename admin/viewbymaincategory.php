@@ -182,8 +182,7 @@ $result = mysqli_query($con, $query);
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-                <li><a class="nav-link" href="index.php">Home</a></li>
-                <?php
+              <li><a class="nav-link" href="dashboard.php">Home</a></li><?php
                 
                 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
                 if (isset($_SESSION['admin'])) {
@@ -217,7 +216,7 @@ $result = mysqli_query($con, $query);
                     <td>'.$row["maincategory"].'</td>
                     <td>
                         <a href="edit.php?id='.$row["id"].'">Edit</a>
-                       <a href="delete.php?id='.$row["id"].'" onclick="return confirm(\'Are you sure you want to delete this exercise?\')">Delete</a>
+                        <a href="delete1.php?id='.$row["id"].'">Delete</a>
                     </td>
                   </tr>';
         }

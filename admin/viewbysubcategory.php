@@ -183,8 +183,8 @@ $result = mysqli_query($con, $query);
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-                <li><a class="nav-link" href="index.php">Home</a></li>
-                <?php
+              <li><a class="nav-link" href="dashboard.php">Home</a></li>
+              <?php
                 
                 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
                 if (isset($_SESSION['admin'])) {
@@ -199,25 +199,30 @@ $result = mysqli_query($con, $query);
     </header>
 
     <main>
-        <h1>Exercises in "<?php echo htmlspecialchars($subcategory); ?>"</h1>
-        <div class="exercise-table">
-            <table>
-                <tr>
-                    <th>Exercise Name</th>
-                    <th>Category</th>
-                    <th>Subcategory</th>
-                </tr>
-                <?php
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<tr>
-                            <td>'.$row["exerciseName"].'</td>
-                            <td>'.$row["category"].'</td>
-                            <td>'.$row["subcategory"].'</td>
-                          </tr>';
-                }
-                ?>
-            </table>
-        </div>
-    </main>
+    <h1>Exercises in "<?php echo htmlspecialchars($subcategory); ?>"</h1>
+    <div class="exercise-table">
+        <table>
+            <tr>
+                <th>Exercise Name</th>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Action</th>
+            </tr>
+            <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<tr>
+                        <td>'.$row["exerciseName"].'</td>
+                        <td>'.$row["category"].'</td>
+                        <td>'.$row["subcategory"].'</td>
+                        <td>
+                            <a class="nav-link" href="edit.php?id='.$row["id"].'">Edit</a>
+                            <a class="nav-link" href="delete2.php?id='.$row["id"].'">Delete</a>
+                        </td>
+                      </tr>';
+            }
+            ?>
+        </table>
+    </div>
+</main>
 </body>
 </html>

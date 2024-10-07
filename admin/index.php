@@ -206,9 +206,7 @@ session_start();
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-                <li><a class="nav-link" href="dashboard.php">Home</a></li>
-                <li><a class="nav-link" href="aboutus.php">About Us</a></li>
-                <li><a class="nav-link" href="contactus.php">Contact Us</a></li>
+               <li><a class="nav-link" href="dashboard.php">Home</a></li>
                 <?php
                 if (isset($_SESSION['admin'])) {
                     echo '<li><a class="nav-link" href="profile.php">Profile</a></li>';
