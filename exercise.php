@@ -189,7 +189,9 @@ $subcategories = $con->query("SELECT * FROM exercise WHERE subcategory = '$subca
                         <div class="button-group">
                             <button class="btn btn-primary start-btn" onclick="startTimer(this)">Start Exercise</button>
                             <button class="btn btn-secondary stop-btn" onclick="stopTimer(this)" disabled>Stop Exercise</button>
-                            <a href="<?php echo $row['video']; ?>" target="_blank"> <button class="btn btn-info">Watch Video</button></a>
+                            <a href="/<?php echo $row['video']; ?>" target="_blank"> 
+    <button class="btn btn-info">Watch Video</button>
+</a>
                         </div>
                         <div class="timer-display">Time Elapsed: <span class="timer">00:00</span></div>
                     </div>
