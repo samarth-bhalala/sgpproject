@@ -231,7 +231,7 @@ session_start();
                 <label for="category">Category:</label>
                 <select id="category" name="category" required>
                     <?php 
-                    $query = "SELECT DISTINCT category FROM category";
+                    $query = "SELECT DISTINCT category FROM category ";
                     $result = mysqli_query($con, $query);
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '<option value="'.$row["category"].'">'.$row["category"].'</option>';
