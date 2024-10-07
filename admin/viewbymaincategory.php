@@ -198,25 +198,32 @@ $result = mysqli_query($con, $query);
     </header>
 
     <main>
-        <h1>Exercises for "<?php echo $maincategory; ?>"</h1>
-        <table>
-            <tr>
-                <th>Exercise Name</th>
-                <th>Category</th>
-                <th>Subcategory</th>
-                <th>Main Category</th>
-            </tr>
-            <?php
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<tr>
-                        <td>'.$row["exerciseName"].'</td>
-                        <td>'.$row["category"].'</td>
-                        <td>'.$row["subcategory"].'</td>
-                        <td>'.$row["maincategory"].'</td>
-                      </tr>';
-            }
-            ?>
-        </table>
+    <main>
+    <h1>Exercises for "<?php echo $maincategory; ?>"</h1>
+    <table>
+        <tr>
+            <th>Exercise Name</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Main Category</th>
+            <th>Action</th>
+        </tr>
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<tr>
+                    <td>'.$row["exerciseName"].'</td>
+                    <td>'.$row["category"].'</td>
+                    <td>'.$row["subcategory"].'</td>
+                    <td>'.$row["maincategory"].'</td>
+                    <td>
+                        <a href="edit.php?id='.$row["id"].'">Edit</a>
+                       <a href="delete.php?id='.$row["id"].'" onclick="return confirm(\'Are you sure you want to delete this exercise?\')">Delete</a>
+                    </td>
+                  </tr>';
+        }
+        ?>
+    </table>
+</main>
     </main>
 </body>
 </html>

@@ -6,10 +6,10 @@ if (isset($_GET['id'])) {
     $query = "DELETE FROM exercise WHERE id = '$id'";
     $result = mysqli_query($con, $query);
     if ($result) {
-        header('Location: viewall.php'); // redirect back to the login/signup page
+        header('Location: viewbymaincategory.php?maincategory='.$_GET['maincategory']); // redirect back to the exercises page
         exit; // stop executing the script
     } else {
-        header('Location: login_signup.php?error=delete_failed'); // redirect back to the login/signup page with an error message
+        header('Location: viewbymaincategory.php?maincategory='.$_GET['maincategory'].'&error=delete_failed'); // redirect back to the exercises page with an error message
         exit; // stop executing the script
     }
 }

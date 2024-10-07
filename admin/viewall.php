@@ -231,7 +231,7 @@ session_start();
     </header>
 
     <main>
-        <h1>Login/Sign Up</h1>
+        <h1>View all exercise</h1>
         <div class="login-signup-form">
             <!-- Form content here -->
 
@@ -258,7 +258,10 @@ session_start();
                         <td>'.$row["maincategory"].'</td>
                         <td>'.$row["category"].'</td>
                         <td>'.$row["subcategory"].'</td>
-                        <td><a href="edit_exercise.php?id='.$row["id"].'">Edit</a></td>
+                        <td><a href="edit_exercise.php?id='.$row["id"].'">Edit</a>
+                             <a href="deleteexercise.php?id='.$row["id"].'">Delete</a>
+                        </td>
+                        
                       </tr>';
             }
             echo '</table>';

@@ -181,7 +181,7 @@ if (isset($_POST['add_category'])) {
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-                <li><a class="nav-link" href="index.php">Home</a></li>
+                <li><a class="nav-link" href=.php">Home</a></li>
                 <?php
                 
                 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
