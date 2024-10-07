@@ -63,55 +63,6 @@ if (session_status() == PHP_SESSION_NONE) {
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-<<<<<<< Updated upstream
-    }
-
-
-    .btn-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        margin-top: 50px;
-        max-width: 800px; /* set a maximum width */
-    }
-
-    .action-btn {
-        padding: 10px 20px;
-        font-size: 20px;
-        background-color: #032B44;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: 0.3s ease;
-        margin-right: 10px;
-        margin-bottom: 10px; /* add margin bottom to separate rows */
-    }
-
-
-
-        </style>
-    </head>
-    <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="img/LOGO_1.PNG" alt="Logo">
-            </div>
-            <div class="name">
-                <h1>PhysioFit</h1>
-            </div>
-            <ul>
-               <li><a class="nav-link" href="dashboard.php">Home</a></li><?php
-                
-                
-                include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
-                if (isset($_SESSION['admin'])) {
-                
-                    echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
-                } else {?>
-                 <?php  echo '<script>window.location.href = "index.php";</script>';
-=======
         .btn-container {
             display: flex;
             flex-wrap: wrap;
@@ -209,7 +160,6 @@ if (session_status() == PHP_SESSION_NONE) {
                 $result = mysqli_query($con, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<a href="viewbycategory.php?category='.$row["category"].'">'.$row["category"].'</a>';
->>>>>>> Stashed changes
                 }
                 ?>
             </div>
