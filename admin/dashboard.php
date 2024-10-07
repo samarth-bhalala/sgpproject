@@ -441,10 +441,7 @@
     </header>
 
     <main>
-    <?php         if (isset($_GET['msg'])) {
-    $msg = $_GET['msg'];
-    echo "<p>$msg</p>"; // or do something else with the message
-}?>
+  
         <div class="btn-container">
     
             <!-- Add Exercise Button -->
@@ -521,6 +518,12 @@
 <button class="action-btn" onclick="location.href='viewuser.php';">View User Page</button>
             
         </div>
+        
+        
+        <?php         if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+    echo "<p>$msg</p>"; // or do something else with the message
+}?> 
     </main>
 
     </body>
