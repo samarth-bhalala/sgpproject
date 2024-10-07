@@ -428,7 +428,7 @@
 
             <!-- Add Main Category Button -->
             <button class="action-btn" onclick="location.href='addmaincategory.php';">Add Main Category</button>
-            <button class="action-btn" onclick="location.href='deleteexercise.php';">Delete Exercise</button>
+            
 
     <!-- Delete Category Button -->
             <button class="action-btn" onclick="location.href='deletecategory.php';">Delete Category</button>
