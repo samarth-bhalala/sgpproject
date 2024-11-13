@@ -93,7 +93,7 @@ header {
 .button:hover .hover-text {
     width: 100%;
     filter: drop-shadow(0 0 30px var(--animation-color));
-    color: blue; /* Change text color to blue */
+    color: #032B44; /* Change text color to blue */
     transform: translateX(20px);
     
 }
