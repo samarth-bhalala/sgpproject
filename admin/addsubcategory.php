@@ -58,10 +58,11 @@ if (isset($_POST['add_subcategory'])) {
             max-height: 80px;
         }
         .name h1 {
-            font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-            font-size: 45px;
-            color: #333;
-        }
+    font-family: 'Abril Fatface', cursive;
+    font-size: 45px;
+    color: #333;
+    margin-left: -300px;  /* Move the text 20px to the left */
+}
         ul {
             list-style: none;
             display: flex;

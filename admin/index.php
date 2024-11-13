@@ -65,10 +65,13 @@ session_start();
     }
 
     .name h1 {
-        font-family: 'Abril Fatface', cursive; /* Apply Abril Fatface font */
-        font-size: 45px;
-        color: #333;
-    }
+    font-family: 'Abril Fatface', cursive;
+    font-size: 45px;
+    color: #333;
+    margin-left: -300px;  /* Move the text 20px to the left */
+}
+
+
 
     ul {
         list-style: none;
@@ -165,6 +168,7 @@ session_start();
     transform: scale(0.9); /* Button will shrink slightly on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
     @media (max-width: 768px) {
         .name h1 {
             font-size: 20px;

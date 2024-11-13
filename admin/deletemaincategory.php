@@ -75,10 +75,12 @@ if (isset($_POST['submit'])) {
     }
 
     .name h1 {
-        font-family: 'Abril Fatface', cursive;
-        font-size: 45px;
-        color: #333;
-    }
+    font-family: 'Abril Fatface', cursive;
+    font-size: 45px;
+    color: #333;
+    margin-left: -300px;  /* Move the text 20px to the left */
+}
+
 
     ul {
         list-style: none;
