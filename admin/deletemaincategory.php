@@ -214,7 +214,7 @@ if (isset($_POST['submit'])) {
     <main>
         <h1>Delete Main Category</h1>
         <div class="category-form">
-            <form action="" method="post">
+            <form action="" method="get">
                 <div class="form-group">
                     <label for="mainCategory">Main Category:</label>
                     <select id="mainCategory" name="mainCategory" required>

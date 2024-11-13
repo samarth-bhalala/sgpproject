@@ -211,7 +211,7 @@ $result = mysqli_query($con, $query);
                     <td><?php echo htmlspecialchars($row["category"]); ?></td>
                     <td><?php echo htmlspecialchars($row["subcategory"]); ?></td>
                     <td><a class="nav-link" href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a>
-                    <a class="nav-link" href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
+                    <a class="nav-link" href="delete.php?id='.$row["id"].'&category='.$category.'">Delete</a>
                 </tr>
             <?php } ?>
         </table>

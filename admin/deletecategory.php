@@ -2,9 +2,18 @@
 session_start();
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 
+// Fetch categories from the database
+$query = "SELECT category FROM category";
+$result = mysqli_query($con, $query);
+
+// Check if form is submitted
 if (isset($_POST['submit'])) {
     $category = $_POST['category'];
 
+    // Sanitize category input to prevent SQL injection
+    $category = mysqli_real_escape_string($con, $category);
+
+    // Query to delete the selected category
     $query = "DELETE FROM category WHERE category = '$category'";
     $result = mysqli_query($con, $query);
 
@@ -133,7 +142,7 @@ if (isset($_POST['submit'])) {
             letter-spacing: 0.5px; /* Add space between letters */
         }
 
-        .form-group input {
+        .form-group select, .form-group input {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -205,14 +214,13 @@ if (isset($_POST['submit'])) {
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-              <li><a class="nav-link" href="dashboard.php">Home</a></li><?php
-                
+                <li><a class="nav-link" href="dashboard.php">Home</a></li>
+                <?php
                 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
                 if (isset($_SESSION['admin'])) {
-                
                     echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
-                } else {?>
-                 <?php  echo '<script>window.location.href = "index.php";</script>';
+                } else {
+                    echo '<script>window.location.href = "index.php";</script>';
                 }
                 ?>
             </ul>
@@ -223,8 +231,16 @@ if (isset($_POST['submit'])) {
         <div class="add-category-form">
             <form action="" method="post">
                 <div class="form-group">
-                    <label for="category">Category Name<span style="color:red">*</span></label>
-                    <input type="text" id="category" name="category" required>
+                    <label for="category">Select Category to Delete<span style="color:red">*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="">--Select Category--</option>
+                        <?php
+                        // Populate dropdown with categories from the database
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value='" . $row['category'] . "'>" . $row['category'] . "</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <button type="submit" name="submit">Delete Category</button>
@@ -239,3 +255,4 @@ if (isset($_POST['submit'])) {
     </main>
 </body>
 </html>
+                

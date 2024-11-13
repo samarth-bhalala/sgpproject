@@ -216,7 +216,7 @@ $result = mysqli_query($con, $query);
                         <td>'.$row["subcategory"].'</td>
                         <td>
                             <a class="nav-link" href="edit.php?id='.$row["id"].'">Edit</a>
-                            <a class="nav-link" href="delete2.php?id='.$row["id"].'">Delete</a>
+                            <a class="nav-link" href="delete2.php?id='.$row["id"].'&subcategory='.$subcategory.'">Delete</a>
                         </td>
                       </tr>';
             }

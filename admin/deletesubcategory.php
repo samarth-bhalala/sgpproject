@@ -2,9 +2,14 @@
 session_start();
 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
 
+// Fetch subcategories from the database
+$query = "SELECT subcategory FROM subcategory";
+$result = mysqli_query($con, $query);
+
 if (isset($_POST['submit'])) {
     $subcategory = $_POST['subcategory'];
 
+    // Delete selected subcategory from the database
     $query = "DELETE FROM subcategory WHERE subcategory = '$subcategory'";
     $result = mysqli_query($con, $query);
 
@@ -126,7 +131,8 @@ if (isset($_POST['submit'])) {
             margin-bottom: 10px;
         }
 
-        .form-group input {
+        .form-group select,
+        .form-group button {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -137,10 +143,7 @@ if (isset($_POST['submit'])) {
         .form-group button {
             background-color: #032B44;
             color: #fff;
-            padding: 10px;
             border: none;
-            border-radius: 5px;
-            font-size: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -190,26 +193,33 @@ if (isset($_POST['submit'])) {
                 <h1>PhysioFit</h1>
             </div>
             <ul>
-              <li><a class="nav-link" href="dashboard.php">Home</a></li><?php
-                
+                <li><a class="nav-link" href="dashboard.php">Home</a></li>
+                <?php
                 include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
                 if (isset($_SESSION['admin'])) {
-                
                     echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
-                } else {?>
-                 <?php  echo '<script>window.location.href = "index.php";</script>';
+                } else {
+                    echo '<script>window.location.href = "index.php";</script>';
                 }
                 ?>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Delete Sub  Category</h1>
+        <h1>Delete Sub Category</h1>
         <div class="form-container">
             <form action="" method="post">
                 <div class="form-group">
-                    <label for="subcategory">Subcategory<span style="color:red">*</span>:</label>
-                    <input type="text" id="subcategory" name="subcategory" required>
+                    <label for="subcategory">Select Subcategory<span style="color:red">*</span>:</label>
+                    <select name="subcategory" id="subcategory" required>
+                        <option value="" disabled selected>Select a Subcategory</option>
+                        <?php
+                        // Display subcategories from the database
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value='" . $row['subcategory'] . "'>" . $row['subcategory'] . "</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <button type="submit" name="submit">Delete Subcategory</button>
@@ -219,4 +229,3 @@ if (isset($_POST['submit'])) {
     </main>
 </body>
 </html>
-x

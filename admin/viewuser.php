@@ -213,7 +213,8 @@ if (mysqli_num_rows($result) > 0) {
     echo "<table border='1'>";
     echo "<tr><th>Username</th><th>Email</th><th>Actions</th></tr>";
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>".$row["username"]."</td><td>".$row["email"]."</td><td><button class='action-btn' onclick='location.href=\"edituser.php?id=".$row["id"]."\"'>Edit</button> <button class='action-btn' onclick='location.href=\"deleteuser.php?id=".$row["id"]."\"'>Delete</button></td></tr>";
+        echo "<tr><td>".$row["username"]."</td><td>".$row["email"]."</td><td><button class='action-btn' onclick='location.href=\"edituser.php?id=".$row["id"]."\"'>Edit</button> 
+        <button class='action-btn' onclick='location.href=\"deleteuser.php?id=".$row["id"]."\"'>Delete</button></td></tr>";
     }
     echo "</table>";
 } else {

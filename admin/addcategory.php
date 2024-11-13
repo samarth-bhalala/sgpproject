@@ -204,7 +204,7 @@ if (isset($_POST['add_category'])) {
                     <input type="text" name="new_category" placeholder="Enter new category name" required>
                 </div>
                 <div class="form-group">
-                    <label for="main_category">Category:</label>
+                    <label for="main_category">Main Category:</label>
                     <select name="main_category" required>
                         <?php 
                         $query = "SELECT DISTINCT maincategory FROM maincategory";
