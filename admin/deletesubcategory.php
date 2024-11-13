@@ -204,7 +204,7 @@ if (isset($_POST['submit'])) {
         </nav>
     </header>
     <main>
-        <h1>Add Category</h1>
+        <h1>Delete Sub Category</h1>
         <div class="form-container">
             <form action="" method="post">
                 <div class="form-group">
@@ -219,4 +219,3 @@ if (isset($_POST['submit'])) {
     </main>
 </body>
 </html>
-x
