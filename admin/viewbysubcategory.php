@@ -133,6 +133,24 @@ $result = mysqli_query($con, $query);
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        .button {
+        width: 100%;
+        padding: 10px 15px 10px 15px;
+        margin: 8px;
+        background-color: #032B44;
+        color: #fff;
+        border-radius: 10px;
+        font-family: 'Abril Fatface', cursive;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        text-decoration : none;
+    }
+
+    .button:hover {
+        background-color: #4682B4;
+        transform: scale(1.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0,  0.3);
+    }   
 
         @media (max-width: 768px) {
             .name h1 {
@@ -215,8 +233,8 @@ $result = mysqli_query($con, $query);
                         <td>'.$row["category"].'</td>
                         <td>'.$row["subcategory"].'</td>
                         <td>
-                            <a class="nav-link" href="edit.php?id='.$row["id"].'">Edit</a>
-                            <a class="nav-link" href="delete2.php?id='.$row["id"].'&subcategory='.$subcategory.'">Delete</a>
+                            <a class="button" href="edit.php?id='.$row["id"].'">Edit</a>
+                            <a class="button" href="delete2.php?id='.$row["id"].'&subcategory='.$subcategory.'">Delete</a>
                         </td>
                       </tr>';
             }

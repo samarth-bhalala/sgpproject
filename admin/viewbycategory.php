@@ -91,7 +91,24 @@ $result = mysqli_query($con, $query);
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+        .button {
+        width: 100%;
+        padding: 10px 15px 10px 15px;
+        margin: 8px;
+        background-color: #032B44;
+        color: #fff;
+        border-radius: 10px;
+        font-family: 'Abril Fatface', cursive;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        text-decoration : none;
+    }
 
+    .button:hover {
+        background-color: #4682B4;
+        transform: scale(1.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0,  0.3);
+    }
         h1 {
             text-align: center;
             margin-top: 0;
@@ -210,8 +227,8 @@ $result = mysqli_query($con, $query);
                     <td><?php echo htmlspecialchars($row["exerciseName"]); ?></td>
                     <td><?php echo htmlspecialchars($row["category"]); ?></td>
                     <td><?php echo htmlspecialchars($row["subcategory"]); ?></td>
-                    <td><a class="nav-link" href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a>
-                    <a class="nav-link" href="delete.php?id='.$row["id"].'&category='.$category.'">Delete</a>
+                    <td><a class="button" href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a>
+                    <a class="button" href="delete.php?id='.$row["id"].'&category='.$category.'">Delete</a>
                 </tr>
             <?php } ?>
         </table>

@@ -58,6 +58,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
 
         .name h1 {
+            margin : 0px 10px 0px 10px ;
             font-size: 45px;
             color: #333;
         }

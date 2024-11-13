@@ -95,7 +95,7 @@ $result = mysqli_query($con, $query);
         h1 {
             text-align: center;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
             font-size: 30px;
             color: #333;
             padding: 10px 20px;
@@ -132,6 +132,24 @@ $result = mysqli_query($con, $query);
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        .button {
+        width: 100%;
+        padding: 10px 15px 10px 15px;
+        margin: 8px;
+        background-color: #032B44;
+        color: #fff;
+        border-radius: 10px;
+        font-family: 'Abril Fatface', cursive;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        text-decoration : none;
+    }
+
+    .button:hover {
+        background-color: #4682B4;
+        transform: scale(1.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0,  0.3);
+    }
 
         @media (max-width: 768px) {
             .name h1 {
@@ -196,7 +214,7 @@ $result = mysqli_query($con, $query);
         </nav>
     </header>
 
-    <main>
+ 
     <main>
     <h1>Exercises for "<?php echo $maincategory; ?>"</h1>
     <table>
@@ -215,8 +233,8 @@ $result = mysqli_query($con, $query);
                     <td>'.$row["subcategory"].'</td>
                     <td>'.$row["maincategory"].'</td>
                     <td>
-                        <a href="edit.php?id='.$row["id"].'">Edit</a>
-                        <a href="delete1.php?id='.$row["id"].'&maincategory='.$maincategory.'">Delete</a>
+                        <a class="button" href="edit.php?id='.$row["id"].'">Edit</a>
+                        <a class="button" href="delete1.php?id='.$row["id"].'&maincategory='.$maincategory.'">Delete</a>
 
                     </td>
                   </tr>';
@@ -224,6 +242,6 @@ $result = mysqli_query($con, $query);
         ?>
     </table>
 </main>
-    </main>
+
 </body>
 </html>
