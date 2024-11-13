@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Category</title>
+    <title>Delete Sub Category</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <style>
         * {
@@ -204,7 +204,7 @@ if (isset($_POST['submit'])) {
         </nav>
     </header>
     <main>
-        <h1>Add Category</h1>
+        <h1>Delete Sub  Category</h1>
         <div class="form-container">
             <form action="" method="post">
                 <div class="form-group">

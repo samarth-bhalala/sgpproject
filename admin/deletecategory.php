@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Category</title>
+    <title>Delete Category</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
     <style>
         * {
@@ -219,7 +219,7 @@ if (isset($_POST['submit'])) {
         </nav>
     </header>
     <main>
-        <h1>Add Category</h1>
+        <h1>Delete Category</h1>
         <div class="add-category-form">
             <form action="" method="post">
                 <div class="form-group">

@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Category</title>
+    <title>Delete Main Category</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
     <style>
     /* Reuse the same CSS as the login page */
