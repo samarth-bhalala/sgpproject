@@ -28,18 +28,16 @@ body {
 }
 
 header {
-    background: rgba(255, 248, 241, 0.9); /* Increased opacity for less transparency */
-    color: #333;
-    padding: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+  background: rgba(255, 248, 241, 0.4);
+  color: #333;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 /* ... (keep all other existing styles until the button styles) ... */
 
 .button {
@@ -84,7 +82,7 @@ header {
     height: 100%;
     overflow: hidden;
     transition: 0.5s;
-    -webkit-text-stroke: 2px var(--animation-color);
+    /* -webkit-text-stroke: 2px var(--animation-color); */
     white-space: nowrap; /* Added */
     display: flex; /* Added */
     align-items: center; /* Added */
@@ -92,7 +90,7 @@ header {
 
 .button:hover .hover-text {
     width: 100%;
-    filter: drop-shadow(0 0 30px var(--animation-color));
+    /* filter: drop-shadow(0 0 30px var(--animation-color)); */
     color: #032B44; /* Change text color to blue */
     transform: translateX(20px);
     
@@ -115,7 +113,6 @@ nav {
     font-family: 'Abril Fatface', cursive;
     font-size: 45px;
     color: #333;
-    margin: 0;
 }
 
 ul {
@@ -148,10 +145,12 @@ ul li {
 }
 
 main {
-    margin-top: 100px;
+  
+  padding-bottom: 0px;
 }
 
 .slideshow-container {
+    margin-top: 0px 0px 0px 0px;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -165,7 +164,7 @@ main {
     width: 100%;
     height: 100%;
     position: relative;
-    animation: slide 20s infinite;
+    animation: slide 10s infinite;
 }
 
 .slide img {
@@ -176,21 +175,30 @@ main {
 }
 
 @keyframes slide {
-    0%, 20% {
-        transform: translateX(0);
-    }
-    25%, 45% {
-        transform: translateX(-100%);
-    }
-    50%, 70% {
-        transform: translateX(-200%);
-    }
-    75%, 95% {
-        transform: translateX(-300%);
-    }
-    100% {
-        transform: translateX(-400%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-200%);
+  }
+  80% {
+    transform: translateX(-200%);
+  }
+  90% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(-300%);
+  }
 }
 
 .category-section {
@@ -201,7 +209,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin-bottom: 5px;
     padding: 0;
     background-size: cover;
     background-position: center;
@@ -219,9 +227,9 @@ main {
     transition: background 0.3s ease;
 }
 
-.category-section:hover::before {
+/* .category-section:hover::before {
     background: rgba(0, 0, 0, 0.4);
-}
+} */
 
 .category-content {
     position: relative;
@@ -324,7 +332,7 @@ main {
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO_1.PNG" alt="Logo">
+            <a class="nav-link" href="index.php">Home</a>
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>
@@ -349,13 +357,13 @@ main {
         <section id="home">
             <div class="slideshow-container">
                 <div class="slide">
-                    <img src="img/slide1.jpg" alt="Slide 1">
+                    <img src="img/couple2.jpg" alt="Slide 1">
                 </div>
                 <div class="slide">
                     <img src="img/slide2.jpg" alt="Slide 2">
                 </div>
                 <div class="slide">
-                    <img src="img/slide3.jpg" alt="Slide 3">
+                    <img src="img/f_cobra_pose.jpg" alt="Slide 3">
                 </div>
                 <div class="slide">
                     <img src="img/slide4.jpg" alt="Slide 4">
