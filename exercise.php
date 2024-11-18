@@ -245,52 +245,84 @@
 
     <script>
         function startTimer(button) {
-            let cardBody = button.closest('.exercise-card-body');
-            let stopButton = cardBody.querySelector('.stop-btn');
-            let timerDisplay = cardBody.querySelector('.timer');
-            
-            if (!cardBody.elapsedTime) {
-                cardBody.elapsedTime = 1;
+        let cardBody = button.closest('.exercise-card-body');
+        let stopButton = cardBody.querySelector('.stop-btn');
+        let timerDisplay = cardBody.querySelector('.timer');
+        let countdownText = document.createElement('div'); // Create a countdown display
+        countdownText.style.fontSize = '18px';
+        countdownText.style.fontWeight = 'bold';
+        countdownText.style.marginTop = '10px';
+        countdownText.style.color = 'red';
+        countdownText.textContent = 'Starting in 3...';
+        cardBody.prepend(countdownText); // Show countdown above the timer
+
+        let countdown = 3;
+
+        // Disable buttons during countdown
+        button.disabled = true;
+        stopButton.disabled = true;
+
+        let countdownInterval = setInterval(() => {
+            countdown--;
+            if (countdown > 0) {
+                countdownText.textContent = `Starting in ${countdown}...`;
+            } else {
+                clearInterval(countdownInterval);
+                countdownText.remove(); // Remove countdown text
+                startActualTimer(button); // Start the actual timer
             }
+        }, 1000);
+    }
+
+    function startActualTimer(button) {
+        let cardBody = button.closest('.exercise-card-body');
+        let stopButton = cardBody.querySelector('.stop-btn');
+        let timerDisplay = cardBody.querySelector('.timer');
+        let alarmSound = new Audio('/path/to/alarm.mp3'); // Replace with your alarm file path
+
+        if (!cardBody.elapsedTime) {
+            cardBody.elapsedTime = 1;
+        }
+
+        if (cardBody.elapsedTime >= 31000) {
+            cardBody.elapsedTime = 1;
+        }
+
+        let startTime = Date.now() - cardBody.elapsedTime;
+
+        clearInterval(cardBody.timerInterval);
+
+        cardBody.timerInterval = setInterval(() => {
+            cardBody.elapsedTime = Date.now() - startTime;
 
             if (cardBody.elapsedTime >= 31000) {
-                cardBody.elapsedTime = 1;
+                stopTimer(stopButton);
+                alarmSound.play(); // Play alarm when time is up
+                return;
             }
 
-            let startTime = Date.now() - cardBody.elapsedTime;
+            timerDisplay.textContent = formatTime(cardBody.elapsedTime);
+        }, 1000);
 
-            clearInterval(cardBody.timerInterval);
+        button.disabled = true;
+        stopButton.disabled = false;
+    }
 
-            cardBody.timerInterval = setInterval(() => {
-                cardBody.elapsedTime = Date.now() - startTime;
+    function stopTimer(button) {
+        let cardBody = button.closest('.exercise-card-body');
+        let startButton = cardBody.querySelector('.start-btn');
+        clearInterval(cardBody.timerInterval);
 
-                if (cardBody.elapsedTime >= 31000) {
-                    stopTimer(stopButton);
-                    return;
-                }
+        startButton.disabled = false;
+        button.disabled = true;
+    }
 
-                timerDisplay.textContent = formatTime(cardBody.elapsedTime);
-            }, 1000);
-
-            button.disabled = true;
-            stopButton.disabled = false;
-        }
-
-        function stopTimer(button) {
-            let cardBody = button.closest('.exercise-card-body');
-            let startButton = cardBody.querySelector('.start-btn');
-            clearInterval(cardBody.timerInterval);
-            
-            startButton.disabled = false;
-            button.disabled = true;
-        }
-
-        function formatTime(milliseconds) {
-            let totalSeconds = Math.floor(milliseconds / 1000);
-            let minutes = Math.floor(totalSeconds / 60);
-            let seconds = totalSeconds % 60;
-            return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
+    function formatTime(milliseconds) {
+        let totalSeconds = Math.floor(milliseconds / 1000);
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
     </script>
 
     </body>
