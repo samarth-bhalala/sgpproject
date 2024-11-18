@@ -1,12 +1,28 @@
 <?php
 session_start();
-include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/sgpproject/sgpproject/conn.php');
 
-$id = $_GET['id'];
+// Check if the user is logged in as an admin
+if (!isset($_SESSION['admin'])) {
+    echo '<script>window.location.href = "index.php";</script>';
+    exit;
+}
 
-$query = "SELECT * FROM exercise WHERE id = '$id'";
-$result = mysqli_query($con, $query);
-$row = mysqli_fetch_assoc($result);
+// Get the exercise ID from the URL
+$id = $_GET['id'] ?? 0; // Use a default value of 0 if 'id' is not set
+
+// Fetch exercise data securely using a prepared statement
+$stmt = $con->prepare("SELECT * FROM exercise WHERE id = ?");
+$stmt->bind_param("i", $id); // "i" indicates the parameter type is integer
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$stmt->close();
+
+if (!$row) {
+    echo '<script>alert("Exercise not found."); window.location.href = "dashboard.php";</script>';
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +56,6 @@ $row = mysqli_fetch_assoc($result);
             z-index: 10;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -48,30 +63,24 @@ $row = mysqli_fetch_assoc($result);
             padding: 10px 20px;
             color: #333;
         }
-
         .logo img {
             max-height: 80px;
         }
-
         .name h1 {
-    font-family: 'Abril Fatface', cursive;
-    font-size: 45px;
-    color: #333;
-    margin-left: -300px;  /* Move the text 20px to the left */
-}
-
-
+            font-family: 'Abril Fatface', cursive;
+            font-size: 45px;
+            color: #333;
+            margin-left: -300px;
+        }
         ul {
             list-style: none;
             display: flex;
             padding: 0;
             margin: 0;
         }
-
         ul li {
             margin-left: 20px;
         }
-
         .nav-link {
             text-decoration: none;
             font-size: 20px;
@@ -82,14 +91,12 @@ $row = mysqli_fetch_assoc($result);
             letter-spacing: 0.5px;
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
         }
-
         .nav-link:hover {
             background-color: #032B44;
             color: #fff;
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-
         .form-container {
             background: #fff;
             padding: 40px;
@@ -99,19 +106,16 @@ $row = mysqli_fetch_assoc($result);
             max-width: 550px;
             margin-left: 60px;
         }
-
         h2 {
             text-align: center;
             font-size: 30px;
             color: #333;
             margin-bottom: 20px;
         }
-
         label {
             font-size: 18px;
             color: #333;
         }
-
         input[type="text"], input[type="submit"] {
             width: 100%;
             padding: 10px;
@@ -120,7 +124,6 @@ $row = mysqli_fetch_assoc($result);
             border: 1px solid #ccc;
             font-family: 'Abril Fatface', cursive;
         }
-
         input[type="submit"] {
             background-color: #032B44;
             color: #fff;
@@ -128,36 +131,29 @@ $row = mysqli_fetch_assoc($result);
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
-
         input[type="submit"]:hover {
             background-color: #4682B4;
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-
         @media (max-width: 768px) {
             .form-container {
                 width: 90%;
             }
-
             .name h1 {
                 font-size: 25px;
             }
-
             .nav-link {
                 font-size: 16px;
             }
         }
-
         @media (max-width: 480px) {
             .form-container {
                 width: 95%;
             }
-
             .name h1 {
                 font-size: 20px;
             }
-
             .nav-link {
                 font-size: 14px;
             }
@@ -168,21 +164,16 @@ $row = mysqli_fetch_assoc($result);
 <header>
     <nav>
         <div class="logo">
-            <img src="img/LOGO_1.PNG" alt="Logo">
+            <a href="index.php">
+                <img src="img/LOGO_1.PNG" alt="PhysioFit Logo">
+            </a>
         </div>
         <div class="name">
             <h1>PhysioFit</h1>
         </div>
         <ul>
             <li><a class="nav-link" href="dashboard.php">Home</a></li>
-            <?php
-            include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
-            if (isset($_SESSION['admin'])) {
-                echo '<li><a class="nav-link" href="logout.php">Logout</a></li>';
-            } else {
-                echo '<script>window.location.href = "index.php";</script>';
-            }
-            ?>
+            <li><a class="nav-link" href="logout.php">Logout</a></li>
         </ul>
     </nav>
 </header>
@@ -191,21 +182,16 @@ $row = mysqli_fetch_assoc($result);
     <div class="form-container">
         <h2>Edit Exercise</h2>
         <form action="update.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
-
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
             <label>Exercise Name:</label>
-            <input type="text" name="exerciseName" value="<?php echo $row["exerciseName"]; ?>" required>
-
+            <input type="text" name="exerciseName" value="<?php echo htmlspecialchars($row['exerciseName']); ?>" required>
             <label>Category:</label>
-            <input type="text" name="category" value="<?php echo $row["category"]; ?>" required>
-
+            <input type="text" name="category" value="<?php echo htmlspecialchars($row['category']); ?>" required>
             <label>Subcategory:</label>
-            <input type="text" name="subcategory" value="<?php echo $row["subcategory"]; ?>" required>
-
+            <input type="text" name="subcategory" value="<?php echo htmlspecialchars($row['subcategory']); ?>" required>
             <input type="submit" value="Update">
         </form>
     </div>
 </main>
-
 </body>
 </html>

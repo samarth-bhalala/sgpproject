@@ -223,8 +223,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/sgpproject/sgpproject/conn.php');
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO_1.PNG" alt="Logo">
-            </div>
+            <a href="index.php">
+                <img src="img/LOGO_1.PNG" alt="PhysioFit Logo">
+            </a>            </div>
             <div class="name">
                 <h1>PhysioFit</h1>
             </div>

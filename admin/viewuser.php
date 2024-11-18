@@ -165,8 +165,9 @@ session_start();
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO_1.PNG" alt="Logo">
-            </div>
+            <a href="index.php">
+                <img src="img/LOGO_1.PNG" alt="PhysioFit Logo">
+            </a>            </div>
             <div class="name">
                 <h1>PhysioFit</h1>
             </div>
@@ -209,6 +210,12 @@ session_start();
             echo "No users found.";
         }
         ?>
+          <?php 
+    if (isset($_GET['msg'])) {
+        $msg = $_GET['msg'];
+        echo "<p>$msg</p>";
+    }
+    ?> 
         </center>
     </main>
 </body>

@@ -176,8 +176,9 @@ if (isset($_POST['add_category'])) {
     <header>
         <nav>
             <div class="logo">
-                <img src="img/LOGO_1.PNG" alt="Logo">
-            </div>
+            <a href="index.php">
+                <img src="img/LOGO_1.PNG" alt="PhysioFit Logo">
+            </a>            </div>
             <div class="name">
                 <h1>PhysioFit</h1>
             </div>

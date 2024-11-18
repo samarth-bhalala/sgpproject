@@ -175,8 +175,9 @@ if (session_status() == PHP_SESSION_NONE) {
 <header>
     <nav>
         <div class="logo">
-            <img src="img/LOGO_1.PNG" alt="Logo">
-        </div>
+        <a href="index.php">
+                <img src="img/LOGO_1.PNG" alt="PhysioFit Logo">
+            </a>        </div>
         <div class="name">
             <h1>PhysioFit</h1>
         </div>
@@ -269,12 +270,12 @@ if (session_status() == PHP_SESSION_NONE) {
         <button class="action-btn" onclick="location.href='viewuser.php';">View User Page</button>
     </div>
 
-    <?php 
-    if (isset($_GET['msg'])) {
-        $msg = $_GET['msg'];
-        echo "<p>$msg</p>";
-    }
-    ?> 
+        <?php 
+        if (isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            echo "<p>$msg</p>";
+        }
+        ?> 
 </main>
 </body>
 </html>
