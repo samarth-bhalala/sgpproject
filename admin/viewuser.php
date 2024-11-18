@@ -210,6 +210,12 @@ session_start();
             echo "No users found.";
         }
         ?>
+          <?php 
+    if (isset($_GET['msg'])) {
+        $msg = $_GET['msg'];
+        echo "<p>$msg</p>";
+    }
+    ?> 
         </center>
     </main>
 </body>

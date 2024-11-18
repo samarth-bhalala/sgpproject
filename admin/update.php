@@ -9,5 +9,6 @@ $subcategory = $_POST['subcategory'];
 $query = "UPDATE exercise SET exerciseName = '$exerciseName', category = '$category', subcategory = '$subcategory' WHERE id = '$id'";
 mysqli_query($con, $query);
 
-header('Location: index.php');
+header('Location: dashboard.php?msg=successfully%20edited');
+
 ?>

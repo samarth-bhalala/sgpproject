@@ -270,12 +270,12 @@ if (session_status() == PHP_SESSION_NONE) {
         <button class="action-btn" onclick="location.href='viewuser.php';">View User Page</button>
     </div>
 
-    <?php 
-    if (isset($_GET['msg'])) {
-        $msg = $_GET['msg'];
-        echo "<p>$msg</p>";
-    }
-    ?> 
+        <?php 
+        if (isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            echo "<p>$msg</p>";
+        }
+        ?> 
 </main>
 </body>
 </html>
