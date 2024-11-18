@@ -210,6 +210,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
+    margin-bottom: 5px;
     padding: 0;
     background-size: cover;
     background-position: center;
@@ -227,9 +228,9 @@ main {
     transition: background 0.3s ease;
 }
 
-/* .category-section:hover::before {
+.category-section:hover::before {
     background: rgba(0, 0, 0, 0.4);
-} */
+}
 
 .category-content {
     position: relative;
@@ -332,7 +333,9 @@ main {
     <header>
         <nav>
             <div class="logo">
-            <a class="nav-link" href="index.php">Home</a>
+            <a href="index.php">
+                <img src="img/LOGO_1.PNG" alt="PhysioFit Logo">
+            </a>
             </div>
             <div class="name">
                 <h1>PhysioFit</h1>
