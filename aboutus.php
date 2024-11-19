@@ -233,7 +233,7 @@ h1 {
 <main>
     <div class="about-us">
         <h1>About PhysioFit</h1>
-        <p>Our website is designed to provide exercises for pain relief with proper diet charts. We particularly focus on recovering from injuries and body pain simply at home.</p>
+        <p>Our website is designed to provide exercises for pain relief. We particularly focus on recovering from injuries and body pain simply at home.</p>
         <p>We work with Arthritis, Back Pain, Spinal Injuries, and even Mental Health issues, etc. Our exercises can also help patients with Heart Attack and Asthma to some extent.</p>
         <p>Our website is essential for people of limited ages because elders don’t often visit clinics to undertake exercises. We also have a set of exercises and diet plans for weight loss and gain.</p>
         <p>Nowadays, people do not prefer to visit Therapy centers because of their tight schedule, so by taking help of our website, they can do exercises wherever they want. Exercise along with a proper diet leads to a Healthy Lifestyle.</p>
@@ -248,23 +248,17 @@ h1 {
         </p>
             
         </div>
-        <div class="feature">
         
-            <h2>Prenatal Postnatal Exercises</h2>
-            <img src="img/ab2.jpg" alt="Prenatal Postnatal Exercises">
-            <p>We have included Prenatal Postnatal exercises that are beneficial for ladies to do at home.</p>
-            
-        </div>
         <div class="feature">
-            <h2>Customizable Exercise Plans</h2>
+            <h2>Customizable Exercises</h2>
             <img src="img/ab3.jpg" alt="Customizable Exercise Plans">
-            <p>Using our website, users can select a variety of features for treatment. We have 3 levels - Beginners, Intermediate, and Advanced.</p>
+            <p>Using our website, we are providing customizable exercises that adapt to your fitness level and goals, allowing you to personalize each workout. Enjoy a tailored experience that helps you progress effectively, all within an easy-to-use interface.</p>
             
         </div>
         <div class="feature">
-            <h2>Free and Paid Exercises</h2>
+            <h2>Efficient Exercises</h2>
             <img src="img/ab4.jpg" alt="Free and Paid Exercises">
-            <p>In all levels, some exercises are for free and some of them are paid. Beginners will have warmup and some basic exercises. In Intermediate, there are some additional exercises with increased timings. In Advanced, exercises are designed with routine equipment's which are easily available at home.</p>
+            <p>Our platform offers efficient exercises designed to maximize results in minimal time, helping you stay fit with ease. With a user-friendly interface, it’s simple to navigate workouts and track progress, making your fitness journey enjoyable and straightforward.</p>
             
         </div>
     </div>
