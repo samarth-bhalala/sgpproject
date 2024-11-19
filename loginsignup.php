@@ -5,8 +5,8 @@ session_start();
 <html>
 <head>
     <title>Login/Sign Up</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> <!-- Link to Abril Fatface Font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -193,6 +193,7 @@ session_start();
     <main>
         <h1>Login/Sign Up</h1>
         <div class="login-signup-form">
+            <!-- Login Form -->
             <form action="process_login.php" method="post" id="login-form">
                 <div class="form-group">
                     <label for="username">Username<span style="color:red">*</span></label>
@@ -213,6 +214,7 @@ session_start();
                 <p><a href="forgetpass.php" id="forget-password">Forget Password</a></p>
             </form>
 
+            <!-- Signup Form -->
             <form action="process_signup.php" method="post" id="signup-form" style="display: none;">
                 <div class="form-group">
                     <label for="signup_username">Username<span style="color:red">*</span></label>
@@ -237,24 +239,32 @@ session_start();
                     </span>
                 </div>
                 <div class="form-group">
-    <label for="signup_phone">Phone number<span style="color:red">*</span></label>
-    <input type="text" id="signup_phone" name="phone" required inputmode="numeric" pattern="[0-9]*">
-</div>
-
+                    <label for="signup_phone">Phone number<span style="color:red">*</span></label>
+                    <input type="text" id="signup_phone" name="phone" required inputmode="numeric" pattern="[0-9]*">
+                </div>
                 <div class="form-group">
                     <button type="submit">Sign Up</button>
                 </div>
+                <p>Already have an account? <a href="#" id="login-link">Login</a></p>
             </form>
         </div>
     </main>
 
     <script>
+        // Toggle between Login and Sign Up Forms
         document.getElementById('signup-link').addEventListener('click', function(e) {
             e.preventDefault();
             document.getElementById('login-form').style.display = 'none';
             document.getElementById('signup-form').style.display = 'block';
         });
 
+        document.getElementById('login-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        });
+
+        // Toggle Password Visibility
         function togglePassword(inputId) {
             const passwordInput = document.getElementById(inputId);
             const icon = passwordInput.nextElementSibling.querySelector('i');
