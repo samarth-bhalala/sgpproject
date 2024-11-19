@@ -11,6 +11,8 @@ $maincategories = $stmt->get_result();
 <head>
     <title>PhysioFit</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
 * {
     font-family: 'Abril Fatface', cursive;
